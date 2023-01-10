@@ -21,18 +21,26 @@
                     <span class="header__text" id="type-container"></span>
                 </div>
                 <div class="header__menu-button">
-                    <span id="menu-button" data-lang="menu-button">menu</span>
+                    <span id="menu-button" data-lang="eng">menu</span>
+                    <span id="menu-button" data-lang="ua">меню</span>
                 </div>
             </div>
             <nav class="header__menu header__menu--homepage">
                 <div class="header__menu-top">
-                    <a href="." class="header__link" data-lang="link-1">home</a>
+                    <a href="." class="header__link" data-lang="eng">home</a>
+                    <a href="." class="header__link" data-lang="ua">головна</a>
                 </div>
-                <ul class="header__list">
-                    <li><a href="pages/works.html" class="header__link" data-lang="link-2">works</a></li>
-                    <li><a href="pages/team.html" class="header__link" data-lang="link-3">team</a></li>
-                    <li><a href="pages/services.html" class="header__link" data-lang="link-4">services</a></li>
-                    <li><a href="pages/contacts.html" class="header__link" data-lang="link-5">contacts</a></li>
+                <ul class="header__list" data-lang="eng">
+                    <li><a href="pages/works.html" class="header__link">works</a></li>
+                    <li><a href="pages/team.html" class="header__link" >team</a></li>
+                    <li><a href="pages/services.html" class="header__link" >services</a></li>
+                    <li><a href="pages/contacts.html" class="header__link" >contacts</a></li>
+                </ul>
+                <ul class="header__list" data-lang="ua">
+                    <li><a href="pages/works.html" class="header__link">роботи</a></li>
+                    <li><a href="pages/team.html" class="header__link">команда</a></li>
+                    <li><a href="pages/services.html" class="header__link">сервіси</a></li>
+                    <li><a href="pages/contacts.html" class="header__link">контакти</a></li>
                 </ul>
             </nav>
         </header>

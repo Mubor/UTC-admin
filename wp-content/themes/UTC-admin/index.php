@@ -14,13 +14,22 @@
                         <span class="indent">of {universe}</span><br>
                     </div>
                     <div class="team__text" data-group="2">
+                        <!-- <span class="indent indent-br"><span class="keytext">whoever</span> folds</span>
+                        <span class="indent-team2 indent-br">
+                        his hands<span class="spec-violet">&#177</span>
+                         </span>
+                        <span class="indent-max indent-br">turns to</span>
+                        <span>a boring {stone}</span> -->
+                        <pre>    <span class="keytext">whoever</span> folds<br>his hands<span class="spec-violet">&#177</span><br>         turns to<br>a boring {stone}<pre>
+                    </div>
+                    <!-- <div class="team__text" data-group="2">
                         <span class="indent indent-br"><span class="keytext">whoever</span> folds</span>
                         <span class="indent-team2 indent-br">
                         his hands<span class="spec-violet">&#177</span>
                          </span>
                         <span class="indent-max indent-br">turns to</span>
                         <span>a boring {stone}</span>
-                    </div>
+                    </div> -->
                     <div class="team__text" data-group="3">
                         <span class="keytext">this</span> how<span class="spec-violet">&#177</span><br>
                         <span class="indent-team3">
@@ -81,10 +90,24 @@
                 </div>
             </div>
             <ul class="nav df">
-                <li><a href="pages/works.html" class="nav__link">works</a></li>
+                <!-- <li><a href="pages/works.html" class="nav__link">works</a></li>
                 <li><a href="pages/team.html" class="nav__link">team</a></li>
                 <li><a href="pages/services.html" class="nav__link">services</a></li>
+<<<<<<< HEAD
                 <li><a href="<?php echo site_url('/contacts') ?>" class="nav__link">contacts</a></li>
+=======
+                <li><a href="pages/contacts.html" class="nav__link">contacts</a></li> -->
+
+                    <li data-lang="eng"><a href="pages/works.html" class="nav__link" >works</a></li>
+                    <li data-lang="eng"><a href="pages/team.html" class="nav__link" >team</a></li>
+                    <li data-lang="eng"><a href="pages/services.html" class="nav__link" >services</a></li>
+                    <li data-lang="eng"><a href="pages/contacts.html" class="nav__link" >contacts</a></li>
+
+                    <li data-lang="ua"><a href="pages/works.html" class="nav__link">роботи</a></li>
+                    <li data-lang="ua"><a href="pages/team.html" class="nav__link">команда</a></li>
+                    <li data-lang="ua"><a href="pages/services.html" class="nav__link">сервіси</a></li>
+                    <li data-lang="ua"><a href="pages/contacts.html" class="nav__link">контакти</a></li>
+>>>>>>> 87ea81b... hello
             </ul>
         </section>
     </div>
