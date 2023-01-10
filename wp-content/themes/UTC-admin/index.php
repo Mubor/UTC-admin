@@ -93,6 +93,9 @@
                 <!-- <li><a href="pages/works.html" class="nav__link">works</a></li>
                 <li><a href="pages/team.html" class="nav__link">team</a></li>
                 <li><a href="pages/services.html" class="nav__link">services</a></li>
+<<<<<<< HEAD
+                <li><a href="<?php echo site_url('/contacts') ?>" class="nav__link">contacts</a></li>
+=======
                 <li><a href="pages/contacts.html" class="nav__link">contacts</a></li> -->
 
                     <li data-lang="eng"><a href="pages/works.html" class="nav__link" >works</a></li>
@@ -104,6 +107,7 @@
                     <li data-lang="ua"><a href="pages/team.html" class="nav__link">команда</a></li>
                     <li data-lang="ua"><a href="pages/services.html" class="nav__link">сервіси</a></li>
                     <li data-lang="ua"><a href="pages/contacts.html" class="nav__link">контакти</a></li>
+>>>>>>> 87ea81b... hello
             </ul>
         </section>
     </div>
