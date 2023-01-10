@@ -1,0 +1,231 @@
+@font-face {
+  font-family: AndaleMono;
+  src: url("../../fonts/AndaleMono.ttf");
+}
+@font-face {
+  font-family: Montserrat;
+  src: url("../../fonts/Montserrat-Medium.ttf");
+}
+@keyframes prompt {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes headerOpening {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+@keyframes borderprompt {
+  0% {
+    border-right-color: transparent;
+  }
+  100% {
+    border-right-color: #B2B2B2;
+  }
+}
+.df {
+  display: flex;
+}
+
+html {
+  font-size: 10px;
+}
+
+.wrapper {
+  position: relative;
+  max-width: 100%;
+}
+
+.main {
+  background-color: rgb(253, 253, 253);
+}
+
+.spec-violet {
+  color: #6261F8;
+}
+
+.spec-orange {
+  color: #E46D29;
+}
+
+.keytext {
+  font-family: AndaleMono;
+  padding: 0 1%;
+  background-color: #4AE54B;
+}
+
+#type-source, #type-loop {
+  display: none;
+}
+
+.type-cursor {
+  display: inline-block;
+  transform: translate(0, -10%);
+  animation: prompt 0.7s infinite;
+}
+
+.header {
+  justify-content: space-between;
+  padding: 1.2% 1.5%;
+  font-size: 1.7vw;
+  background-color: black;
+  color: #B2B2B2;
+  z-index: 4;
+}
+.header__menu--homepage, .header__menu-button, .header__menu-top {
+  display: none;
+}
+.header__logo > a {
+  text-transform: uppercase;
+  color: #3FED41;
+}
+.header__logo > a:not(a:first-child) {
+  color: #B2B2B2;
+}
+.header__logo > a:not(a:first-child):hover, .header__logo > .header__text a:hover {
+  color: #E46D29;
+  transition: color 0.3s;
+}
+.header__logo *, .header__logo {
+  font-family: AndaleMono;
+}
+.header__logo {
+  color: #B2B2B2;
+}
+.header__text > a {
+  color: #B2B2B2;
+}
+.header__menu-button, .header__link {
+  font-family: AndaleMono;
+  color: #E46D29;
+}
+.header__link {
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.header__link--current {
+  display: none;
+}
+.header__link:hover {
+  color: #3FED41;
+  transition: color 0.3s;
+}
+.header__menu-top > a {
+  border-bottom: 2px solid #3FED41;
+}
+.header__menu-top > a:hover {
+  border-bottom-color: #E46D29;
+}
+.header__list {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.header__list > li:not(li:last-child) {
+  margin-right: 9%;
+}
+
+@media screen and (max-width: 830px) {
+  .type-cursor {
+    display: none;
+  }
+  .typed-cursor {
+    display: none;
+  }
+  .open .header__logo,
+.open .header__menu-button {
+    animation: prompt 1s;
+  }
+  .header.open {
+    position: fixed;
+    top: 0;
+    min-height: 100%;
+    transition: min-height 0.3s;
+  }
+  .open > .header__menu {
+    visibility: visible;
+    animation: prompt 1s;
+  }
+  .open .header__logo,
+.open .spec-violet {
+    color: black;
+  }
+  .header__text,
+.header__line,
+.header.open ~ *,
+.header__mobile-hidden,
+.header.open .header__logo > a:first-child ~ * {
+    display: none;
+  }
+  .header__menu-button,
+.header__menu-top,
+.header__list,
+.header__link--current,
+.header__menu--homepage {
+    display: block;
+  }
+  .header {
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    padding: 4.5% 5%;
+    width: 100%;
+    min-height: 0%;
+    word-spacing: 20px;
+    font-size: 5.3vw;
+    transition: min-height 0.3s;
+  }
+  .header__body {
+    justify-content: space-between;
+  }
+  .header__logo, .header__menu-button {
+    letter-spacing: normal;
+    word-spacing: normal;
+  }
+  .header:not(.open) > .header__menu {
+    opacity: 0;
+  }
+  .header__menu {
+    width: 100%;
+    height: 0;
+    visibility: hidden;
+  }
+  .header__menu--homepage {
+    height: 0;
+  }
+  .header__menu-button {
+    text-transform: uppercase;
+  }
+  .header__menu-top {
+    margin: 10vh 0;
+    text-align: center;
+  }
+  .header__list > li {
+    padding-bottom: 6vh;
+  }
+  .header__list > li:before {
+    content: "->";
+    font-family: AndaleMono;
+    font-size: 48px;
+  }
+  .header__list a {
+    margin-left: 5%;
+  }
+  .header__link {
+    color: #4AE54B;
+    font-size: 48px;
+    letter-spacing: normal;
+  }
+  .header__link:hover {
+    color: #E46D29;
+  }
+  .header__link--current {
+    display: block;
+  }
+}/*# sourceMappingURL=header.css.map */
