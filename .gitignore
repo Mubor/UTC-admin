@@ -4,3 +4,4 @@ wp-content/themes/UTC-admin/.env
 wp-content/themes/UTC-admin/.netlify
 wp-content/themes/UTC-admin/service_key.json
 wp-content/themes/UTC-admin/assets/media
+wp-content/themes/UTC-admin/assets/dist
