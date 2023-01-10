@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+
         <section class="main df">
             <div class="team df" id="team">
                 <div class="team__media" data-group="1"><img src="media/team1.gif" alt="teamgif"></div>
@@ -83,7 +84,7 @@
                 <li><a href="pages/works.html" class="nav__link">works</a></li>
                 <li><a href="pages/team.html" class="nav__link">team</a></li>
                 <li><a href="pages/services.html" class="nav__link">services</a></li>
-                <li><a href="pages/contacts.html" class="nav__link">contacts</a></li>
+                <li><a href="<?php echo site_url('/contacts') ?>" class="nav__link">contacts</a></li>
             </ul>
         </section>
     </div>
