@@ -5,7 +5,7 @@
 get_header();
 ?>
 
-<body>
+<!-- <body> -->
     <div class="wrapper">
         <header class="header df">
             <div class="header__body df">

@@ -10,7 +10,7 @@
     
 </head>
 <body>
-    <div class="wrapper">
+<!-- <div class="wrapper">
         <header class="header df">
             <div id="type-source">hello dude</div>
             <div id="type-loop">true</div>
@@ -43,4 +43,4 @@
                     <li><a href="pages/contacts.html" class="header__link">контакти</a></li>
                 </ul>
             </nav>
-        </header>
+        </header>  -->
