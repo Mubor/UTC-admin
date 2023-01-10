@@ -1,0 +1,235 @@
+.main {
+  position: relative;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+pre {
+  white-space: pre-wrap;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+}
+
+.team {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 50%;
+}
+
+.team__media {
+  width: 82%;
+  margin: auto;
+  text-align: center;
+  display: none;
+}
+
+.team__media > img {
+  width: 100%;
+}
+
+.team__media > img[src="media/team3.gif"] {
+  -webkit-transform: scale(1.2, 1.3);
+          transform: scale(1.2, 1.3);
+}
+
+.team__message {
+  position: absolute;
+  top: 21%;
+  left: 45%;
+  width: 26%;
+  font-family: Montserrat;
+  font-size: 2vw;
+  text-transform: uppercase;
+  word-spacing: 10px;
+  line-height: 1.1;
+}
+
+.team__text {
+  display: none;
+}
+
+.team__message > .team__container {
+  display: none;
+}
+
+.team .indent, .team .indent-team3 {
+  padding-left: 60px;
+}
+
+.team .indent-br {
+  display: block;
+}
+
+.team .indent-max {
+  padding-left: 30%;
+}
+
+.language {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  padding-bottom: 2.4%;
+  font-family: Montserrat;
+  font-size: 4.5vh;
+  text-transform: uppercase;
+  color: #AFAFAF;
+}
+
+.language > * {
+  margin-right: 1%;
+}
+
+.language__elem {
+  padding: 1%;
+  border: 2px solid white;
+  -webkit-transition: border .4s;
+  transition: border .4s;
+}
+
+.language__elem--current {
+  border: 2px solid black;
+}
+
+.language__elem:hover {
+  border: 2px solid black;
+}
+
+.language .language__elem--current > div {
+  color: black;
+}
+
+.language__elem > div {
+  color: #AFAFAF;
+}
+
+.language span {
+  padding: 1% 1% 0 1%;
+}
+
+.nav {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.5% 2% 0 0;
+  height: 89.2vh;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-family: Montserrat;
+  font-size: 9vw;
+  font-weight: 100;
+}
+
+.nav > li {
+  text-align: right;
+}
+
+.nav > li:last-child {
+  padding-bottom: 0;
+}
+
+.nav__link {
+  -webkit-transition: color .3s;
+  transition: color .3s;
+}
+
+.nav__link:hover {
+  color: #6261F8;
+  -webkit-transition: color .3s;
+  transition: color .3s;
+}
+
+@media screen and (max-width: 830px) {
+  .nav {
+    display: none;
+  }
+  .team {
+    width: 100%;
+    padding: 0;
+  }
+  .team__media > img[src="media/team3.gif"] {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  .team > .team__media {
+    display: none !important;
+  }
+  .team__message > .team__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 8% 0;
+    width: 100%;
+  }
+  .team__media {
+    width: 84%;
+  }
+  .team__picture {
+    width: 8%;
+  }
+  .team__message {
+    position: static;
+    padding: 5% 5% 0 5%;
+    width: 100%;
+    font-size: 9.5vw;
+    letter-spacing: normal;
+    word-spacing: 15px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  .team span {
+    padding: 0%;
+  }
+  .team .indent {
+    padding-left: 2%;
+  }
+  .team .indent-br {
+    display: unset;
+  }
+  .team .indent-team2 {
+    padding-left: 0;
+    text-indent: 9%;
+    display: block;
+  }
+  .team .indent-team3, .team .indent-max {
+    padding-left: 8%;
+  }
+  .team .indent-max {
+    padding-left: 20%;
+  }
+  .language {
+    margin-top: 13%;
+    padding-bottom: 3%;
+    width: 100%;
+    font-size: 6.4vw;
+    line-height: 1;
+  }
+  .language__elem {
+    border: 1px solid white;
+  }
+  .language__elem--current {
+    border: 1px solid black;
+  }
+  .indent-mobile {
+    display: block;
+    text-align: right;
+  }
+}
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,397 @@
+$shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
+
+.main {
+    text-transform: uppercase;
+}
+
+.k {
+    width: 2%;
+    
+    &> svg {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+.title {
+    display: flex;
+    justify-content: center;
+    padding-top: 4%;
+    margin-bottom: 4%;
+    // padding: 0 8%;
+    font-size: 5.55vw;
+    font-family: Montserrat;
+
+    &__text {
+        text-align: center;
+    }
+
+    &__pic {
+        width: 6.25vw;
+        height: 5.55vw;
+    }
+    
+    &__pic:first-child {
+        background: url('../media/fighter_red.gif') 60% 50% no-repeat;
+        background-size: 100%;
+        transform: translate(0, -8%);
+    }
+    
+    &__pic:last-child {
+        transform: rotateY(180deg) translate(0, -8%);
+        background: url('../media/fighter_green.gif') 60% 50% no-repeat;
+        background-size: 100%;
+        
+    }
+
+}
+
+.team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0 1%;
+
+    
+    &__item {
+        position: relative;
+        margin-bottom: 2%;
+        width: 22.4vw;
+        height: 27vw;
+        font-family: AndaleMono;
+        background-color: white;
+        overflow: hidden;
+        
+        &:hover img {
+            visibility: visible;
+        }
+    }
+    
+    &__front::before, &__back::before {
+        content: '';
+        position: absolute;
+        top:0;
+        left:0; 
+        width: 100%;
+        height:100%;
+        box-shadow: $shadow;
+        z-index: 1;
+    }
+
+    &__back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        min-height: 0;
+        transition: min-height .3s;
+        background-color: black;
+        z-index: 1;
+
+        & * {
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
+    
+    &__open{
+        min-height: 100%;
+        transition: min-height .3s;
+
+        & *{
+            visibility: visible;
+            opacity: 1;
+            transition: opacity .8s;
+        }
+    }
+
+    &__back {
+        color: white;
+        background-color: black;
+    }
+
+    
+    &__button {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display:flex;
+        justify-content: center;
+        padding-top: 3%;
+        font-size: 1.11vw;
+        z-index: 1;
+        
+        & > div {
+            position: relative;
+            padding: 2%;
+            text-align: center;
+
+            &:hover{
+                cursor: pointer;
+            }
+            
+            .svg {
+                position: absolute;
+                width: 15%;
+
+                &>svg {
+                    width: 100%;
+                    height: 100%
+                }
+            }
+            
+            .svg:nth-child(1) {
+                top: 0;
+                left: 0;
+            }
+            .svg:nth-child(2) {
+                top: 0;
+                right: 0;
+                
+                &>svg {
+                    transform: rotate(90deg);
+                }
+            }
+            .svg:nth-child(3) {
+                right: 0;
+                bottom: 0;
+                
+                &>svg {
+                    transform: rotate(180deg);
+                }
+            }
+            .svg:nth-child(4) {
+                bottom: 0;
+                left:0;
+                
+                &>svg {
+                    transform: rotate(-90deg);
+                }
+            }
+            
+        }
+    }
+    
+    
+    &__item:nth-child(1) &__gif {
+        background: url('../media/team/volodymyr.jpg') 50% 60% no-repeat;
+        background-size: 100%;
+        
+        // &>img {
+        //     transform: scale(1);
+        // }
+    }
+    &__item:nth-child(2) &__gif {
+        background: url('../media/team/oleksandr-static.png') 50% 40% no-repeat;
+        background-size: 70%;
+        
+        &>img {
+            transform: scale(1.1) translate(3%, -2%);
+        }
+    }
+    &__item:nth-child(3) &__gif {
+        background: url('../media/team/sonya-static.jpg') 39% 100% no-repeat;
+        background-size: 140%; 
+        
+        &>img {
+            transform: scale(0.95) translate(0, 5%);
+        }
+    }
+    &__item:nth-child(4) &__gif {
+        background: url('../media/team/hidden-static.png') 20% 50% no-repeat;
+        background-size: 80%;    
+
+        & > img {
+            transform: scale(1.07) translate(0, 2%);
+        }    
+    }
+    &__item:nth-child(5) &__gif {
+        // background: url('../media/team/volodymyr-static.png') 50% 50% no-repeat;
+        // background-size: 85%;    
+    }
+    &__item:nth-child(6) &__gif {
+        background: url('../media/team/sasha-static.jpg') 50% -10% no-repeat;
+        background-size: 90%;    
+
+        & > img {
+            transform: scale(1) translate(0, -5%);
+        }
+    }
+    &__item:nth-child(7) &__gif {
+        background: url('../media/team/hidden-static.png') 20% 50% no-repeat;
+        background-size: 80%;    
+
+        & > img {
+            transform: scale(1.07) translate(0, 2%);
+        }
+    }
+    &__item:nth-child(8) &__gif {
+        background: url('../media/team/oksana.jpg') 50% -100% no-repeat;
+        background-size: 120%;    
+        height: 21vw;
+
+        &>img {
+            transform: scale(1.2) translate(0, 16%);
+        }
+    }
+    
+    
+    &__gif {
+        width: 100%;
+        margin-top: 14%;
+        
+        &>img {
+            width: 100%;
+            visibility: hidden;
+        }
+    }
+    
+    &__name {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 4% 0;
+        width: 100%;
+        font-size: 1.4vw;
+        text-align: center;
+        color: white;
+        background-color: black;
+        
+    }
+    
+    &__info{
+        padding: 0 6%;
+        margin-top: 30%;
+        text-align: center;
+        font-size: 0.83vw;
+        line-height: 1.2;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+    }
+    
+    &__link {
+        position: relative;
+        margin: 20% 5% 0 0;
+        padding: 1.5% 2%;
+        border: 1px solid #E46D29;
+        z-index: 100;
+
+        &>a {
+            font-size: 0.83vw;
+            color: white;
+        }
+    }
+
+    &__link:hover {
+        cursor: pointer;
+        border-color: white;
+        transition: border-color .3s;
+        &>a {
+            color: #3FED41;
+            transition: color .3s;
+        }
+    }
+}
+
+.content {
+    margin-top: 5%;
+    padding: 0 7%;
+    font-size: 32px;
+    font-family: Montserrat;
+    text-align: justify;
+
+
+    &__text {
+        margin: 2% 0;
+        line-height: 1.3;
+    }
+}
+
+.btn {
+    font-family: Montserrat;
+    display: block;
+    margin: 8% auto;
+    padding: 1% 1.4%;
+    width: fit-content;
+    font-size: 3.333vw;
+    background: #C3C3C3;
+    box-shadow: $shadow;
+    transition: all .3s;
+}
+
+.btn:hover{
+    background-color: #838383;
+    box-shadow: inset 2px 2px 2px 0 black;
+    transition: all .3s;
+}
+
+
+@media screen and (max-width: 830px) {
+    .title {
+        padding: 6% 5% 0;
+        margin-bottom: 6%;
+        font-size: 8.53vw;
+        
+        &__pic {
+            width: 12vw;
+            height: 12vw;
+        }
+
+        &__text{
+            line-height: 1.4;
+            width: 75%;
+        }
+
+        &__pic:first-child {
+            transform: translate(0, 35%);
+        }
+        
+        &__pic:last-child {
+            transform: rotateY(180deg) translate(0, 35%);
+        }
+    }
+
+    .team {
+        justify-content: center;
+
+        &__item {
+            width: 85.9vw;
+            height: 104vw;
+            margin-bottom: 4%;
+        }
+
+        &__item:nth-child(8) &__gif {
+            height: 81vw;
+        }
+        &__button{
+            font-size: 4.26vw;
+        }
+
+        &__name {
+            font-size: 5.33vw;
+        }
+
+        &__info, &__link a {
+            font-size: 3.2vw;
+        }
+    }
+
+    .content {
+        margin-top: 15%;
+
+        &__text {
+            margin: 8% 0;
+            font-size: 18px;
+        }        
+    }
+    .btn {
+        margin: 12% auto 14%;
+        padding: 2.5% 5%;
+        font-size: 8.533vw;
+    }
+}

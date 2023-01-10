@@ -1,0 +1,236 @@
+.main {
+    position: relative;
+    justify-content: space-between;
+    width: 100%;
+}
+pre {
+    white-space: pre-wrap;
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+}
+
+.team {
+    flex-direction: column;
+    justify-content: space-between;
+    // padding-top: 1%;
+    width: 50%;
+
+    &__media {
+        width: 82%;
+        margin: auto;
+        text-align: center;
+        display: none;
+
+        &>img {
+            width: 100%;
+        }
+
+        &>img[src="media/team3.gif"] {
+            transform: scale(1.2, 1.3);
+        }
+    }
+    
+    &__message {
+        position: absolute;
+        top:21%;
+        left:45%;
+        width: 26%;
+        font-family: Montserrat;
+        font-size: 2vw;
+        text-transform: uppercase;
+        word-spacing: 10px;
+        line-height: 1.1;
+    }
+
+    &__text {
+        display: none;
+    }
+
+    &__message>&__container {
+        display: none;
+    }
+
+    .indent, .indent-team3 {
+        padding-left: 60px;
+    }
+
+    .indent-br {
+        display: block;
+    }
+
+    .indent-max {
+        padding-left: 30%;
+    }
+}
+
+.language {
+    justify-content: center;
+    margin: 0 auto;
+    padding-bottom: 2.4%;
+    font-family: Montserrat;
+    font-size: 4.5vh;
+    text-transform: uppercase;
+    color: #AFAFAF;
+    
+    &>* {
+        margin-right: 1%;
+    }
+    
+    &__elem {
+        padding: 1%;
+
+        border: 2px solid white;
+        transition: border .4s;
+
+        &--current {
+            border: 2px solid black;
+        }
+
+        &:hover {
+            border: 2px solid black;
+        }
+
+        // &:hover {
+        //     border-color: white;
+        // }
+        // &:hover ~ & {
+        //     border-color: white;
+        // }
+    }
+
+    & &__elem--current > div {
+        color: black ;
+    }
+    
+    &__elem > div {
+        color: #AFAFAF;
+    }
+
+    span {
+        padding: 1% 1% 0 1%;
+    }
+}
+
+
+.nav {
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5% 2% 0 0;
+    // padding-right: 1%;
+    height: 89.2vh;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-family: Montserrat;
+    font-size: 9vw;
+    font-weight: 100;
+
+    &>li {
+        text-align: right;
+    }
+
+    &>li:last-child {
+        padding-bottom: 0;
+    }
+    
+    &__link {
+        transition: color .3s;
+    }
+
+    &__link:hover {
+        color: #6261F8;
+        transition: color .3s;
+    }
+}
+
+@media  screen and (max-width: 830px) {
+    .nav {
+        display: none;
+    }
+    .team {
+        width: 100%;
+        padding: 0;
+
+        &__media > img[src="media/team3.gif"] {
+            transform: scale(1);
+        }
+
+        &>&__media  {
+            display: none !important
+        }
+
+        &__message>&__container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 8% 0;
+            width: 100%;
+        }
+        &__media {
+            width: 84%;
+        }
+        &__picture {
+            width: 8%;
+        }
+        &__message {
+            position: static;
+            padding: 5% 5% 0 5%;
+            width: 100%;
+            // font-size: 40px;
+            // font-size: 10vw;
+            font-size: 9.5vw;
+            letter-spacing: normal;
+            word-spacing: 15px;
+            // text-align: justify;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+        span {
+            padding: 0%;
+        }
+        .indent {
+            padding-left: 2%;
+        }
+        & .indent-br {
+            display: unset;
+        }
+
+        .indent-team2 {
+            padding-left: 0;
+            text-indent: 9%;
+            display: block;
+        }
+
+        .indent-team3, .indent-max {
+            padding-left: 8%;
+            // width: 100%;
+        }
+
+        .indent-max {
+
+           padding-left: 20%
+        }
+    }
+
+    .language {
+        margin-top: 13%;
+        padding-bottom: 3%;
+        width: 100%;
+        font-size: 6.4vw;
+        line-height: 1;
+
+        &__elem {
+            border: 1px solid white;
+            
+            &--current {
+                border: 1px solid black;
+            }
+        }
+    }
+
+    .indent-mobile {
+        display: block;
+        text-align: right;
+    }
+
+}
