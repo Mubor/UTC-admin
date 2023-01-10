@@ -164,21 +164,26 @@ const data = {
     }
 }
 
-const translateData = (dataset, lang) => {
-    const currentPageTexts = data[dataset];
-
-    for (const key in currentPageTexts) {
-		let elems = document.querySelectorAll(`[data-lang=${key}]`);
-        
-		if (elems) {
-            for (const element of elems) {
-                element.innerHTML = currentPageTexts[key][lang];
-            }
-		}
-	}
-}
-
-export const translatePage = (pageName, lang) => {
-    translateData('header', lang);
-    translateData(pageName, lang);
+export const translatePage = (dataset, lang) => {
+    const eng = [...document.querySelectorAll('[data-lang="eng"]')];
+    const ua = [...document.querySelectorAll('[data-lang="ua"]')];
+    const texts = {
+        eng, 
+        ua
+    }
+    
+    for (const key in texts) {
+        const arr = texts[key];
+        if(key === lang) {
+            arr.forEach( e => {
+                e.style.display = 'block';
+            });
+        }
+        else {
+            arr.forEach( e => {
+                e.style.display = 'none';
+            });
+        }
+    }
+   
 }

@@ -90,7 +90,7 @@ window.onload = () => {
     generate(numberOfGroups);
     
     langButton.closest('.language__elem').classList.add('language__elem--current');
-    if(currentLang !== 'eng') {
-        translatePage('home', currentLang);
-    }
+
+    translatePage('home', currentLang);
+    
 }

@@ -134,6 +134,7 @@ pre {
 
 .nav > li {
   text-align: right;
+  display: none;
 }
 
 .nav > li:last-child {
