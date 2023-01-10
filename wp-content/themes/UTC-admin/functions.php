@@ -1,5 +1,6 @@
 <?php
 
+
 add_action('wp_enqueue_scripts', 'main_page', 10);
 add_action('wp_enqueue_scripts', 'contacts_page', 10);
 add_action('wp_enqueue_scripts', 'team_page', 10);
@@ -22,6 +23,7 @@ function contacts_page() {
         // wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/styles/footer/footer.css', 'all');
         wp_enqueue_script('contacts', get_template_directory_uri() . '/assets/dist/contacts.js',array(),'2023', true);        
     }
+
 }
 function team_page() {
     if(is_page('team') ){
