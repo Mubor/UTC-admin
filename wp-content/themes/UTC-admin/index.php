@@ -2,7 +2,7 @@
 <div class="wrapper">
         <header class="header df">
             <div class="settings">
-                <div id="team-source"><?php the_field('gifs'); ?></div>
+                <!-- <div id="team-source"><?php the_field('gifs'); ?></div> -->
                 <div id="type-source"><?php the_field('animation_text'); ?></div>
                 <div id="type-loop">true</div>
             </div>
@@ -54,55 +54,38 @@
         </header>
         <section class="main df">
             <div class="team df" id="team">
-                <div class="team__media" data-group="1"><img src="media/team1.gif" alt="teamgif"></div>
-                <div class="team__media" data-group="2"><img src="media/team2.gif" alt="teamgif"></div>
                 <?php 
-                    have_posts(  );
-                    the_post();
-                    $images = array(
-                        'post_title' => 'main_gallery_img',
-                        'orderby' => 'rand', 
-                        'post_type' => 'attachment', 
-                        'post_mime_type' => 'image',
-                        'post_parent' => 11, 
-                    );
-                    rewind_posts();
-                    $get_arr = get_children($images, ARRAY_A);
-                    $id = array_values($get_arr);
-                    echo("<script>console.log('PHP: " . $id[0]['ID'] . "');</script>");
-                ?>
-                <div class="team__media" data-group="3"><?php echo wp_get_attachment_image($id[0]['ID'], '');?></div>  
+                    function get_values_from_db($id): ?array {
+                        $top_eng = get_post_meta( $id, 'text_top_eng', true );
+                        $bot_eng = get_post_meta( $id, 'text_bot_eng', true );
+                        $top_ua = get_post_meta( $id, 'text_top_ua', true );
+                        $bot_ua = get_post_meta( $id, 'text_bot_ua', true );
+                        return [$top_eng, $bot_eng, $top_ua, $bot_ua];
+                    }
+                    function get_post_id($data): ?int {
+                        $matchs = array( );
+                        $regex = preg_match_all("/wp-image-([0-9]+)/", $data, $matchs);
+                        $groups = $matchs[1];
+                        $random = array_rand($groups);
+                        $rand_id = $groups[$random];
+                        return $rand_id;
+                    }
+                    
+                    $img_id = get_post_id(get_field("gifs_rand"));
+                    $text_arr = get_values_from_db($img_id);
+                    $img = wp_get_attachment_image_url($img_id);
+                    // echo("<script>console.log('PHP: " . $img . "');</script>");
+                    // echo("<script>console.log('PHP: " . $text_arr[3] . "');</script>");
+                    ?>
+                <div class="team__media">
+                    <img src="<?php echo $img ;?>" alt="teamgif">
+                </div>
                 <div class="team__message" id="team-message">
-                    <div class="team__text" data-group="1">
-                        <span class="keytext">cre@tive is </span><br>
-                        <span class="indent-mobile">
-                        the centre<span class="spec-violet">&#177</span><br> 
-                        </span> 
-                        <span class="indent">of {universe}</span><br>
+                    <div class="team__text" data-lang="eng">
+                        <?php echo $text_arr[0];?>
                     </div>
-                    <div class="team__text" data-group="2">
-                        <!-- <span class="indent indent-br"><span class="keytext">whoever</span> folds</span>
-                        <span class="indent-team2 indent-br">
-                        his hands<span class="spec-violet">&#177</span>
-                         </span>
-                        <span class="indent-max indent-br">turns to</span>
-                        <span>a boring {stone}</span> -->
-                        <pre>    <span class="keytext">whoever</span> folds<br>his hands<span class="spec-violet">&#177</span><br>         turns to<br>a boring {stone}<pre>
-                    </div>
-                    <!-- <div class="team__text" data-group="2">
-                        <span class="indent indent-br"><span class="keytext">whoever</span> folds</span>
-                        <span class="indent-team2 indent-br">
-                        his hands<span class="spec-violet">&#177</span>
-                         </span>
-                        <span class="indent-max indent-br">turns to</span>
-                        <span>a boring {stone}</span>
-                    </div> -->
-                    <div class="team__text" data-group="3">
-                        <span class="keytext">this</span> how<span class="spec-violet">&#177</span><br>
-                        <span class="indent-team3">
-                        we {extract}<br> 
-                        </span> 
-                        <span>cre@tive</span><br>
+                    <div class="team__text" data-lang="ua">
+                        <?php echo $text_arr[2];?>
                     </div>
                     <div class="team__container">
                         <div class="team__picture">
@@ -114,9 +97,9 @@
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M36.3243 43.8918L19.6757 43.8918L19.6757 40.8648L36.3243 40.8648L36.3243 43.8918ZM16.6487 37.8378L19.6757 37.8378L19.6757 40.8648L16.6487 40.8648L16.6487 37.8378ZM16.6487 37.8378L13.6216 37.8378L13.6216 34.8108L16.6487 34.8108L16.6487 37.8378ZM42.3784 37.8378L39.3514 37.8378L39.3514 34.8108L42.3784 34.8108L42.3784 37.8378ZM39.3514 37.8378L39.3514 40.8648L36.3243 40.8648L36.3243 37.8378L39.3514 37.8378Z" fill="black"/>
                             </svg>
                         </div>
-                        <div class="team__media" data-group="1"><img src="media/team1.gif" alt="teamgif"></div>
-                        <div class="team__media" data-group="2"><img src="media/team2.gif" alt="teamgif"></div>
-                        <div class="team__media" data-group="3"><img src="media/team3.gif" alt="teamgif"></div>
+                        <div class="team__media">
+                            <img src="<?php echo $img ;?>" alt="teamgif">
+                        </div>
                         <div class="team__picture">
                             <svg viewBox="0 0 56 56" fill="none">
                                 <path d="M3.02702 36.3244V20.4325V19.6757H6.05405V12.1082H9.08108V9.08115H12.1081V6.05413H19.6757V3.0271H36.3243V6.05413H43.8919V9.08115H46.9189V12.1082H49.9459V19.6757H52.973V36.3244H49.9459V43.892H46.9189V46.919H43.8919V49.946H36.3243V52.973H19.6757V49.946H12.1081V46.919H9.08108V43.892H6.05405V36.3244H3.02702Z" fill="#FFFE54"/>
@@ -127,24 +110,14 @@
                             </svg>
                         </div>
                     </div>
-                    <div class="team__text" data-group="1">
-                        and
-                        <span class="indent indent-br">we just<br></span>
-                        <span class="indent-mobile">revolve</span> 
-                        <span class="keytext"><span class="spec-orange">$</span>around</span>
+                    <div class="team__text" data-lang="eng">
+                        <?php echo $text_arr[1];?>
                     </div>
-                    <div class="team__text" data-group="2">
-                        <span class="indent">th@ts why<br></span>
-                        <span class="indent-team2">we always battle</span>
-                        <span class="indent-max">to the <span class="keytext"><span class="spec-orange">$</span>end</span></span>
-                    </div>
-                    <div class="team__text" data-group="3">
-                        <span class="indent-team3">ideas and</span>
-                        <span class="indent-br">
-                        <span class="keytext"><span class="spec-orange">$</span>bolt</span></span>
-                         <span class="indent-team3">solutions</span>
+                    <div class="team__text" data-lang="ua">
+                    <?php echo $text_arr[3];?>
                     </div>
                 </div>
+                    
                 <div class="language df">
                     <div class="language__elem">
                         <div id="ua" data-btn="ua">козак</div>
@@ -168,7 +141,7 @@
                     <li data-lang="ua"><a href="pages/contacts.html" class="nav__link">контакти</a></li> -->
             </ul>
         </section>
-    </div>
+</div>
     <!-- <script src="dist/home.js"></script> -->
     
     <?php get_footer(); ?>
