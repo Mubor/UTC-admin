@@ -37,7 +37,22 @@
             <div class="team df" id="team">
                 <div class="team__media" data-group="1"><img src="media/team1.gif" alt="teamgif"></div>
                 <div class="team__media" data-group="2"><img src="media/team2.gif" alt="teamgif"></div>
-                <div class="team__media" data-group="3"><img src="media/team3.gif" alt="teamgif"></div>
+                <?php 
+                    have_posts(  );
+                    the_post();
+                    $images = array(
+                        'post_title' => 'main_gallery_img',
+                        'orderby' => 'rand', 
+                        'post_type' => 'attachment', 
+                        'post_mime_type' => 'image',
+                        'post_parent' => 11, 
+                    );
+                    rewind_posts();
+                    $get_arr = get_children($images, ARRAY_A);
+                    $id = array_values($get_arr);
+                    echo("<script>console.log('PHP: " . $id[0]['ID'] . "');</script>");
+                ?>
+                <div class="team__media" data-group="3"><?php echo wp_get_attachment_image($id[0]['ID'], '');?></div>  
                 <div class="team__message" id="team-message">
                     <div class="team__text" data-group="1">
                         <span class="keytext">cre@tive is </span><br>
@@ -141,6 +156,7 @@
         </section>
     </div>
     <!-- <script src="dist/home.js"></script> -->
+    
     <?php get_footer(); ?>
 </body>
 </html>
