@@ -144,7 +144,7 @@ const insertTeamItem = () => {
 }
 
 window.onload = () => {
-    insertTeamItem();
+    // insertTeamItem();
     langButton.closest('.language__elem').classList.add('language__elem--current');
 
     if(currentLang !== 'eng') {
