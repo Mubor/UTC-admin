@@ -4,6 +4,64 @@
  */
 get_header();
 ?>
+<div class="wrapper">
+        <header class="header df">
+            <div class="header__body df">
+                <div id="type-source"></div>
+                <div id="type-loop">true</div>
+                <div class="header__logo header__logo--path">
+                    <a href="<?php the_field('menu_link_1'); ?>">utc@film</a><span class="header__mobile-hidden">:</span>
+                    <span class="spec-violet header__mobile-hidden">~</span>
+                    <span class="header__mobile-hidden">$</span>
+                    <span class="header__text">
+                        <a href="<?php the_field('menu_link_1')?>" class="header__link" data-lang="eng"><?php the_field('menu_eng_1'); ?></a>
+                        <a href="<?php the_field('menu_link_1')?>" class="header__link" data-lang="ua"><?php the_field('menu_ua_1'); ?></a>
+                    </span>
+                    ->
+                    <a href="<?php the_field('menu_link_5')?>" class="header__link" data-lang="eng"><?php the_field('menu_eng_5'); ?></a>
+                    <a href="<?php the_field('menu_link_5')?>" class="header__link" data-lang="ua"><?php the_field('menu_ua_5'); ?></a>
+                    <span class="type-cursor">|</span>
+                </div>
+                <div class="header__menu-button">
+                    <span id="menu-button">
+                        <span data-lang="eng">menu</span>
+                        <span data-lang="ua">меню</span>
+                    </span>
+                </div>
+            </div>
+            <nav class="header__menu">
+                <div class="header__menu-top">
+                    <a href="<?php the_field('menu_link_5')?>" class="header__link" data-lang="eng"><?php the_field('menu_eng_5'); ?></a>
+                    <a href="<?php the_field('menu_link_5')?>" class="header__link" data-lang="ua"><?php the_field('menu_ua_5'); ?></a>
+                </div>
+                <ul class="header__list">
+                    <li class="header__link--current">
+                        <a href="<?php the_field('menu_link_1'); ?>" class="header__link">
+                            <span data-lang="eng"><?php the_field('menu_eng_1'); ?></span>
+                            <span data-lang="ua"><?php the_field('menu_ua_1'); ?></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php the_field('menu_link_2'); ?>" class="header__link">
+                            <span data-lang="eng"><?php the_field('menu_eng_2'); ?></span>
+                            <span data-lang="ua"><?php the_field('menu_ua_2'); ?></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php the_field('menu_link_3'); ?>" class="header__link">
+                            <span data-lang="eng"><?php the_field('menu_eng_3'); ?></span>
+                            <span data-lang="ua"><?php the_field('menu_ua_3'); ?></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php the_field('menu_link_4'); ?>" class="header__link">
+                            <span data-lang="eng"><?php the_field('menu_eng_4'); ?></span>
+                            <span data-lang="ua"><?php the_field('menu_ua_4'); ?></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
         <section class="main">
            <div class="contacts df">
             <div class="contacts__item"> 

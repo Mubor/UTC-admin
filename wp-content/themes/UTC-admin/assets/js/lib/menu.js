@@ -8,12 +8,12 @@ const menuActivator = (buttonSelector, moveDownElementSelector) => {
         document.body.classList.toggle('overflow');
         
         if (header.classList[header.classList.length-1] === 'open') {
-            menuButton.innerHTML = localStorage.getItem('lang') === 'ua'
-                ? 'закрити меню' : 'close menu';
+            menuButton.innerHTML = `<span data-lang="eng">close menu</span>
+            <span data-lang="ua">закрити меню</span>`
         }
         else {
-            menuButton.innerHTML = localStorage.getItem('lang') === 'ua'
-                ? 'меню' : 'menu';
+            menuButton.innerHTML = `<span data-lang="eng">menu</span>
+            <span data-lang="ua">меню</span>`
         }
     }
 

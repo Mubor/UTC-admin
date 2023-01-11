@@ -176,7 +176,7 @@ export const translatePage = (dataset, lang) => {
         const arr = texts[key];
         if(key === lang) {
             arr.forEach( e => {
-                e.style.display = 'block';
+                e.style.display = 'unset';
             });
         }
         else {

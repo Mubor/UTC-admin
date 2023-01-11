@@ -68,7 +68,7 @@ form.addEventListener('submit', async e => {
 })
 
 window.onload = () => {
-    if(currentLang !== 'eng') {
+    if(currentLang!== 'eng') {
         translatePage('home', currentLang);
     }
 }

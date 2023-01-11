@@ -1,11 +1,10 @@
 <?php
 
-
-add_action('wp_enqueue_scripts', 'main_page', 10);
-add_action('wp_enqueue_scripts', 'contacts_page', 10);
-add_action('wp_enqueue_scripts', 'team_page', 10);
-add_action('wp_enqueue_scripts', 'works_page', 10);
-add_action('wp_enqueue_scripts', 'services_page', 10);
+add_action('wp_enqueue_scripts', 'main_page');
+add_action('wp_enqueue_scripts', 'contacts_page');
+add_action('wp_enqueue_scripts', 'team_page');
+add_action('wp_enqueue_scripts', 'works_page');
+add_action('wp_enqueue_scripts', 'services_page');
 // add_action('wp_enqueue_scripts', 'tes');
 show_admin_bar(true);
 
@@ -23,7 +22,6 @@ function contacts_page() {
         // wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/styles/footer/footer.css', 'all');
         wp_enqueue_script('contacts', get_template_directory_uri() . '/assets/dist/contacts.js',array(),'2023', true);        
     }
-
 }
 function team_page() {
     if(is_page('team') ){
@@ -46,7 +44,5 @@ function works_page() {
         wp_enqueue_script('contacts', get_template_directory_uri() . '/assets/dist/works.js',array(),'2023', true);        
     }
 }
-
-
 
 ?>

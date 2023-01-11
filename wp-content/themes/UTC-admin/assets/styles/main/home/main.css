@@ -1,3 +1,7 @@
+footer {
+  display: none;
+}
+
 .main {
   position: relative;
   -webkit-box-pack: justify;
@@ -7,7 +11,7 @@
 }
 
 pre {
-  white-space: pre-wrap;
+  white-space: pre;
   margin: 0;
   padding: 0;
   font-family: inherit;
@@ -28,7 +32,6 @@ pre {
   width: 82%;
   margin: auto;
   text-align: center;
-  display: none;
 }
 
 .team__media > img {
@@ -134,7 +137,6 @@ pre {
 
 .nav > li {
   text-align: right;
-  display: none;
 }
 
 .nav > li:last-child {
