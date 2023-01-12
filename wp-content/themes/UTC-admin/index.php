@@ -120,11 +120,11 @@
                     
                 <div class="language df">
                     <div class="language__elem">
-                        <div id="ua" data-btn="ua">козак</div>
+                        <div id="ua" data-btn="ua"><?php the_field('language_ua');?></div>
                     </div>
                     <span>~</span>
                     <div class="language__elem">
-                        <div id="eng" data-btn="eng">englishman</div>
+                        <div id="eng" data-btn="eng"><?php the_field('language_eng');?></div>
                         <!-- <a href="">englishman</a> -->
                     </div>
                 </div>
