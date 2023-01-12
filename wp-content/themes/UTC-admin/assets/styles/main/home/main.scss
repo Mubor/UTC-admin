@@ -46,10 +46,6 @@ pre {
         line-height: 1.1;
     }
 
-    &__text {
-        display: none;
-    }
-
     &__message>&__container {
         display: none;
     }
@@ -120,7 +116,6 @@ pre {
     flex-direction: column;
     justify-content: space-between;
     padding: 0.5% 2% 0 0;
-    // padding-right: 1%;
     height: 89.2vh;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -130,7 +125,6 @@ pre {
 
     &>li {
         text-align: right;
-        // display: none;
     }
 
     &>li:last-child {

@@ -415,10 +415,6 @@ pre {
   line-height: 1.1;
 }
 
-.team__text {
-  display: none;
-}
-
 .team__message > .team__container {
   display: none;
 }

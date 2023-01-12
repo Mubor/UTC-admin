@@ -11,29 +11,55 @@ get_header();
                 <div id="type-source"></div>
                 <div id="type-loop">true</div>
                 <div class="header__logo header__logo--path">
-                    <a href="../index.html">utc@film</a><span class="header__mobile-hidden">:</span>
+                    <a href="<?php the_field('menu_link_1'); ?>">utc@film</a><span class="header__mobile-hidden">:</span>
                     <span class="spec-violet header__mobile-hidden">~</span>
                     <span class="header__mobile-hidden">$</span>
                     <span class="header__text">
-                        <a href="../index.html" data-lang="link-1">HOME</a>
+                        <a href="<?php the_field('menu_link_1')?>" class="header__link" data-lang="eng"><?php the_field('menu_eng_1'); ?></a>
+                        <a href="<?php the_field('menu_link_1')?>" class="header__link" data-lang="ua"><?php the_field('menu_ua_1'); ?></a>
                     </span>
                     ->
-                    <a href="../pages/works.html" data-lang="link-2">WORKS</a>
+                    <a href="<?php the_field('menu_link_2')?>" class="header__link" data-lang="eng"><?php the_field('menu_eng_2'); ?></a>
+                    <a href="<?php the_field('menu_link_2')?>" class="header__link" data-lang="ua"><?php the_field('menu_ua_2'); ?></a>
                     <span class="type-cursor">|</span>
                 </div>
                 <div class="header__menu-button">
-                    <span id="menu-button" data-lang="menu-button">menu</span>
+                    <span id="menu-button">
+                        <span data-lang="eng">menu</span>
+                        <span data-lang="ua">меню</span>
+                    </span>
                 </div>
             </div>
             <nav class="header__menu">
                 <div class="header__menu-top">
-                    <a href="../pages/works.html" class="header__link" data-lang="link-2">WORKS</a>
+                    <a href="<?php the_field('menu_link_2')?>" class="header__link" data-lang="eng"><?php the_field('menu_eng_2'); ?></a>
+                    <a href="<?php the_field('menu_link_2')?>" class="header__link" data-lang="ua"><?php the_field('menu_ua_2'); ?></a>
                 </div>
                 <ul class="header__list">
-                    <li class="header__link--current"><a href="../index.html" class="header__link" data-lang="link-1">home</a></li>
-                    <li><a href="team.html" class="header__link" data-lang="link-3">team</a></li>
-                    <li><a href="services.html" class="header__link" data-lang="link-4">services</a></li>
-                    <li><a href="contacts.html" class="header__link" data-lang="link-5">contacts</a></li>
+                    <li class="header__link--current">
+                        <a href="<?php the_field('menu_link_1'); ?>" class="header__link">
+                            <span data-lang="eng"><?php the_field('menu_eng_1'); ?></span>
+                            <span data-lang="ua"><?php the_field('menu_ua_1'); ?></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php the_field('menu_link_2'); ?>" class="header__link">
+                            <span data-lang="eng"><?php the_field('menu_eng_3'); ?></span>
+                            <span data-lang="ua"><?php the_field('menu_ua_3'); ?></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php the_field('menu_link_4'); ?>" class="header__link">
+                            <span data-lang="eng"><?php the_field('menu_eng_4'); ?></span>
+                            <span data-lang="ua"><?php the_field('menu_ua_4'); ?></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php the_field('menu_link_5'); ?>" class="header__link">
+                            <span data-lang="eng"><?php the_field('menu_eng_5'); ?></span>
+                            <span data-lang="ua"><?php the_field('menu_ua_5'); ?></span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </header>
