@@ -186,6 +186,14 @@ html {
   background-color: #fdfdfd;
 }
 
+.app-dialog {
+  display: none;
+}
+
+.footer:not(.footer.footer--contacts) {
+  display: none !important;
+}
+
 .main {
   position: relative;
   font-size: 3.628vh;

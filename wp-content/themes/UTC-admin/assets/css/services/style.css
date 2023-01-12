@@ -150,7 +150,7 @@ html {
   background-color: #4AE54B;
 }
 
-.settings, #type-source, #type-loop {
+.settings, #type-source, #type-loop, .hide {
   display: none;
 }
 
@@ -356,6 +356,10 @@ html {
   .header__menu .header__link--current {
     display: block;
   }
+}
+
+.footer {
+  display: none;
 }
 
 .main {

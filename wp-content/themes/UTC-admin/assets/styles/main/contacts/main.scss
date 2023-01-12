@@ -7,6 +7,15 @@ body {
 html {
     background-color: rgb(253, 253, 253);
 }
+.app-dialog {
+    display: none;
+}
+
+.footer:not(.footer.footer--contacts) {
+    display: none !important;
+}
+
+
 .main {
     position: relative;
     font-size: 3.628vh;

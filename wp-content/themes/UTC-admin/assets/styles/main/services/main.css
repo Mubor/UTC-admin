@@ -1,3 +1,7 @@
+.footer {
+  display: none;
+}
+
 .main {
   display: -webkit-box;
   display: -ms-flexbox;

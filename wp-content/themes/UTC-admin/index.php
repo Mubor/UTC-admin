@@ -1,4 +1,9 @@
-<?php get_header(); ?>
+<?php 
+    get_header(); 
+    include 'header.php';
+    $menu = array_reverse($header_values);
+    // var_dump($menu);
+?>
 <div class="wrapper">
         <header class="header df">
             <div class="settings">
@@ -8,7 +13,7 @@
             </div>
             <div class="header__body df">
                 <div class="header__logo">
-                    <a href="<?php the_field('menu_link_1'); ?>">utc@film</a>:
+                    <a href="<?php echo $menu[0]['link_name']; ?>">utc@film</a>:
                     <span class="spec-violet">~</span> $ 
                     <span class="header__text" id="type-container"></span>
                 </div>
@@ -21,32 +26,32 @@
             </div>
             <nav class="header__menu header__menu--homepage">
                 <div class="header__menu-top">
-                    <a href="." class="header__link" data-lang="eng"><?php the_field('menu_eng_1'); ?></a>
-                    <a href="." class="header__link" data-lang="ua"><?php the_field('menu_ua_1'); ?></a>
+                    <a href="." class="header__link" data-lang="eng"><?php echo $menu[0]['name_eng']; ?></a>
+                    <a href="." class="header__link" data-lang="ua"><?php echo $menu[0]['name_ua']; ?></a>
                 </div>
                 <ul class="header__list">
                     <li>
-                        <a href="<?php the_field('menu_link_2'); ?>" class="header__link">
-                            <span data-lang="eng"><?php the_field('menu_eng_2'); ?></span>
-                            <span data-lang="ua"><?php the_field('menu_ua_2'); ?></span>
+                        <a href="<?php echo $menu[1]['link_name']; ?>" class="header__link">
+                            <span data-lang="eng"><?php echo $menu[1]['name_eng']; ?></span>
+                            <span data-lang="ua"><?php echo $menu[1]['name_ua']; ?></span>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php the_field('menu_link_3'); ?>" class="header__link">
-                            <span data-lang="eng"><?php the_field('menu_eng_3'); ?></span>
-                            <span data-lang="ua"><?php the_field('menu_ua_3'); ?></span>
+                        <a href="<?php echo $menu[2]['link_name']; ?>" class="header__link">
+                            <span data-lang="eng"><?php echo $menu[2]['name_eng']; ?></span>
+                            <span data-lang="ua"><?php echo $menu[2]['name_ua']; ?></span>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php the_field('menu_link_3'); ?>" class="header__link">
-                            <span data-lang="eng"><?php the_field('menu_eng_4'); ?></span>
-                            <span data-lang="ua"><?php the_field('menu_ua_4'); ?></span>
+                        <a href="<?php echo $menu[3]['link_name']; ?>" class="header__link">
+                            <span data-lang="eng"><?php echo $menu[3]['name_eng']; ?></span>
+                            <span data-lang="ua"><?php echo $menu[3]['name_ua']; ?></span>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php the_field('menu_link_3'); ?>" class="header__link">
-                            <span data-lang="eng"><?php the_field('menu_eng_5'); ?></span>
-                            <span data-lang="ua"><?php the_field('menu_ua_5'); ?></span>
+                        <a href="<?php echo $menu[4]['link_name']; ?>" class="header__link">
+                            <span data-lang="eng"><?php echo $menu[4]['name_eng']; ?></span>
+                            <span data-lang="ua"><?php echo $menu[4]['name_ua']; ?></span>
                         </a>
                     </li>
                 </ul>
@@ -130,10 +135,10 @@
                 </div>
             </div>
             <ul class="nav df">
-                    <li><a href="<?php the_field('menu_link_2'); ?>" class="nav__link"><?php the_field('menu_eng_2'); ?></a></li>
-                    <li><a href="<?php the_field('menu_link_3'); ?>" class="nav__link" ><?php the_field('menu_eng_3'); ?></a></li>
-                    <li><a href="<?php the_field('menu_link_4'); ?>" class="nav__link" ><?php the_field('menu_eng_4'); ?></a></li>
-                    <li><a href="<?php the_field('menu_link_5'); ?>" class="nav__link" ><?php the_field('menu_eng_5'); ?></a></li>
+                    <li><a href="<?php echo $menu[1]['link_name']; ?>" class="nav__link"><?php echo $menu[1]['name_eng']; ?></a></li>
+                    <li><a href="<?php echo $menu[2]['link_name']; ?>" class="nav__link" ><?php echo $menu[2]['name_eng']; ?></a></li>
+                    <li><a href="<?php echo $menu[3]['link_name']; ?>" class="nav__link" ><?php echo $menu[3]['name_eng']; ?></a></li>
+                    <li><a href="<?php echo $menu[4]['link_name']; ?>" class="nav__link" ><?php echo $menu[4]['name_eng']; ?></a></li>
 
                     <!-- <li data-lang="ua"><a href="pages/works.html" class="nav__link">роботи</a></li>
                     <li data-lang="ua"><a href="pages/team.html" class="nav__link">команда</a></li>

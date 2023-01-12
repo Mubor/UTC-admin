@@ -2,7 +2,9 @@
 /*
  * Template Name: works
  */
-get_header();
+    get_header();
+    include 'header.php';
+    $menu = array_reverse($header_values);
 ?>
 
     <div class="wrapper">
@@ -11,16 +13,16 @@ get_header();
                 <div id="type-source"></div>
                 <div id="type-loop">true</div>
                 <div class="header__logo header__logo--path">
-                    <a href="<?php the_field('menu_link_1'); ?>">utc@film</a><span class="header__mobile-hidden">:</span>
+                    <a href="<?php echo $menu[0]['link_name']; ?>">utc@film</a><span class="header__mobile-hidden">:</span>
                     <span class="spec-violet header__mobile-hidden">~</span>
                     <span class="header__mobile-hidden">$</span>
                     <span class="header__text">
-                        <a href="<?php the_field('menu_link_1')?>" class="header__link" data-lang="eng"><?php the_field('menu_eng_1'); ?></a>
-                        <a href="<?php the_field('menu_link_1')?>" class="header__link" data-lang="ua"><?php the_field('menu_ua_1'); ?></a>
+                        <a href="<?php echo $menu[0]['link_name']; ?>" class="header__link" data-lang="eng"><?php echo $menu[0]['name_eng']; ?></a>
+                        <a href="<?php echo $menu[0]['link_name']; ?>" class="header__link" data-lang="ua"><?php echo $menu[0]['name_ua']; ?></a>
                     </span>
                     ->
-                    <a href="<?php the_field('menu_link_2')?>" class="header__link" data-lang="eng"><?php the_field('menu_eng_2'); ?></a>
-                    <a href="<?php the_field('menu_link_2')?>" class="header__link" data-lang="ua"><?php the_field('menu_ua_2'); ?></a>
+                    <a href="<?php echo $menu[1]['link_name']; ?>" class="header__link" data-lang="eng"><?php echo $menu[1]['name_eng']; ?></a>
+                    <a href="<?php echo $menu[1]['link_name']; ?>" class="header__link" data-lang="ua"><?php echo $menu[1]['name_ua']; ?></a>
                     <span class="type-cursor">|</span>
                 </div>
                 <div class="header__menu-button">
@@ -32,32 +34,32 @@ get_header();
             </div>
             <nav class="header__menu">
                 <div class="header__menu-top">
-                    <a href="<?php the_field('menu_link_2')?>" class="header__link" data-lang="eng"><?php the_field('menu_eng_2'); ?></a>
-                    <a href="<?php the_field('menu_link_2')?>" class="header__link" data-lang="ua"><?php the_field('menu_ua_2'); ?></a>
+                    <a href="<?php echo $menu[1]['link_name']; ?>" class="header__link" data-lang="eng"><?php echo $menu[1]['name_eng']; ?></a>
+                    <a href="<?php echo $menu[1]['link_name']; ?>" class="header__link" data-lang="ua"><?php echo $menu[1]['name_ua']; ?></a>
                 </div>
                 <ul class="header__list">
                     <li class="header__link--current">
-                        <a href="<?php the_field('menu_link_1'); ?>" class="header__link">
-                            <span data-lang="eng"><?php the_field('menu_eng_1'); ?></span>
-                            <span data-lang="ua"><?php the_field('menu_ua_1'); ?></span>
+                        <a href="<?php echo $menu[0]['link_name']; ?>" class="header__link">
+                            <span data-lang="eng"><?php echo $menu[0]['name_eng']; ?></span>
+                            <span data-lang="ua"><?php echo $menu[0]['name_ua']; ?></span>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php the_field('menu_link_2'); ?>" class="header__link">
-                            <span data-lang="eng"><?php the_field('menu_eng_3'); ?></span>
-                            <span data-lang="ua"><?php the_field('menu_ua_3'); ?></span>
+                        <a href="<?php echo $menu[2]['link_name']; ?>" class="header__link">
+                            <span data-lang="eng"><?php echo $menu[2]['name_eng']; ?></span>
+                            <span data-lang="ua"><?php echo $menu[2]['name_ua']; ?></span>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php the_field('menu_link_4'); ?>" class="header__link">
-                            <span data-lang="eng"><?php the_field('menu_eng_4'); ?></span>
-                            <span data-lang="ua"><?php the_field('menu_ua_4'); ?></span>
+                        <a href="<?php echo $menu[3]['link_name']; ?>" class="header__link">
+                            <span data-lang="eng"><?php echo $menu[3]['name_eng']; ?></span>
+                            <span data-lang="ua"><?php echo $menu[3]['name_ua']; ?></span>
                         </a>
                     </li>
                     <li>
-                        <a href="<?php the_field('menu_link_5'); ?>" class="header__link">
-                            <span data-lang="eng"><?php the_field('menu_eng_5'); ?></span>
-                            <span data-lang="ua"><?php the_field('menu_ua_5'); ?></span>
+                        <a href="<?php echo $menu[4]['link_name']; ?>" class="header__link">
+                            <span data-lang="eng"><?php echo $menu[4]['name_eng']; ?></span>
+                            <span data-lang="ua"><?php echo $menu[4]['name_ua']; ?></span>
                         </a>
                     </li>
                 </ul>
@@ -412,14 +414,6 @@ get_header();
             </div>
            <a class="btn" href="mailto:ukr.tv.film@gmail.com">{TEXT US}</a>
         </section>
-        <footer class="footer">
-            <div class="footer__body">
-                <div class="footer__item"><a href="https://instagram.com/utc_film?igshid=YmMyMTA2M2Y=" class="footer__link">instagram</a></div>
-                <div class="footer__item"><a href="https://facebook.com/utcfilmstudio" class="footer__link">facebook</a></div>
-                <div class="footer__item"><a href="https://vimeo.com/utcfilm" class="footer__link">vimeo</a></div>
-                <div class="footer__item"><a href="mailto:ukr.tv.film@gmail.com" class="footer__link">gmail</a></div>
-            </div>
-        </footer>
     </div>
     <!-- <script src="../dist/works.js"></script> -->
     <?php get_footer(); ?>
