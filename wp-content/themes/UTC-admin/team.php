@@ -68,8 +68,10 @@
         </header>
         <section class="main">
             <div class="title">
+                  <!-- add to background style team_title_media_1 team_title_media_2 -->
                 <div class="title__pic"></div>
-                <div class="title__text">choose your fighter</div>
+                <div data-lang="eng" class="title__text"><?php the_field('team_title_text_eng');?></div>
+                <div data-lang="ua" class="title__text"><?php the_field('team_title_text_ua'); ?></div>
                 <div class="title__pic"></div>
             </div>
 
@@ -645,11 +647,14 @@
                 </div>
             </div>
             <div class="content">
+                <!-- bottom-text: PODS Multiple valuea???? -->
                 <p class="content__text">UTC FILM IS A UNIQUE COMMUNITY THAT RESEMBLES THE 🧑‍🎨 CREATIVE ASSOCIATION MORE THAN A CLASSIC AGENCY.</p>
                 <p class="content__text">WE CREATE ADVERTISING CAMPAIGNS AND 🎥 SHOOT THEM OURSELVES, HAVING TWO INDEPENDENT UNITS: CREATIVE AND VIDEO PRODUCTION, WHERE CREATORS AND PRODUCERS WORK LIKE TWO LEGS OF THE SAME CAPYBARA 🦫 - FROM THE IDEA TO ITS FULL IMPLEMENTATION. </p>
                 <p class="content__text">WE PRODUCE LARGE AND SMALL PROJECTS FOR UKRAINIAN AND 🌍 GLOBAL BRANDS, EMBODYING BOLD IDEAS THAT MOVE BUSINESSES FORWARD AND HELP BRANDS FIND THEIR INIMITABLE PATH AND SHINE BRIGHTLY IN A WORLD FULL OF DARKNESS✨</p>
             </div>
-            <span class="btn" id="dialog-open-button">{UTC++}</a>
+            <!--find a solution to the problem with the pop-up window -->
+            <span class="btn" data-lang="eng" id="dialog-open-button"><?php the_field('team_form_open_button_eng')?> </a>
+            <span class="btn" data-lang="ua" id="dialog-open-button"><?php the_field('team_form_open_button_ua')?> </a>
         </section>
     </div>
     <div class="app-dialog" id="dialog">
