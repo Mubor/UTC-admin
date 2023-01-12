@@ -656,6 +656,7 @@
             <span class="btn" data-lang="eng" id="dialog-open-button"><?php the_field('team_form_open_button_eng')?> </a>
             <span class="btn" data-lang="ua" id="dialog-open-button"><?php the_field('team_form_open_button_ua')?> </a>
         </section>
+        
     </div>
     <div class="app-dialog" id="dialog">
         <div class="app-dialog__overlay">
