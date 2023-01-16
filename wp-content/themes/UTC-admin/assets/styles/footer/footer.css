@@ -35,13 +35,11 @@
   font-family: AndaleMono;
   font-size: 2.222vw;
   text-transform: uppercase;
-  color: #3FED41;
   -webkit-transition: color .3s;
   transition: color .3s;
 }
 
 .footer__item a:hover {
-  color: #E46D29;
   -webkit-transition: color .3s;
   transition: color .3s;
 }

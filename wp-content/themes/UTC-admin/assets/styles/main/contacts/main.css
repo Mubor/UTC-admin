@@ -64,7 +64,6 @@ form {
 
 .app-dialog__message, input, select {
   font-size: 2.222vw;
-  color: #b2b2b2;
 }
 
 .placeholder {
@@ -78,17 +77,12 @@ form {
   text-align: center;
   font-size: 20px;
   text-transform: uppercase;
-  color: #6B6B6B;
 }
 
 input, select {
   width: 20vw;
   background-color: black;
   border: 0;
-}
-
-input:not(input[type="submit"]), select {
-  border-bottom: 1px solid #6261F8;
 }
 
 input:focus {
@@ -101,15 +95,10 @@ input[type="submit"] {
   width: 50%;
   text-transform: uppercase;
   text-decoration: underline;
-  color: #4AE64B;
 }
 
 input[type="datetime-local"] {
   color: black;
-}
-
-input[type="datetime-local"]:focus {
-  color: #b2b2b2 !important;
 }
 
 #close-button {
@@ -120,14 +109,13 @@ input[type="datetime-local"]:focus {
   font-size: 1.6vw;
   border: 0;
   background-color: transparent;
-  color: #E46D29;
 }
 
 @media screen and (max-width: 830px) {
-  .title {
+  .app__dialog .title {
     display: block;
   }
-  .title, #close-button,
+  .app__dialog .title, #close-button,
   input, label > .placeholder, select {
     font-size: 20px;
   }

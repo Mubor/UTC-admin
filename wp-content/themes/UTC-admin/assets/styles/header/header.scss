@@ -4,7 +4,6 @@
 }
 @font-face {
     font-family: Montserrat;
-    // src: url("../../../fonts/ProximaNova-Light.ttf");
     src: url("../../fonts/Montserrat-Medium.ttf");
 }
 
@@ -25,22 +24,11 @@
         height: 100%;
     }
 }
-@keyframes borderprompt {
-    0% {
-        border-right-color: transparent;
-    }
-    100% {
-        border-right-color: #B2B2B2;
-    }
-}
 
 .df {
     display: flex;
 }
 
-*[data-lang="ua"] {
-    display: none;
-}
 *[data-lang="eng"] {
     display: unset;
 }
@@ -52,26 +40,11 @@ html {
     position: relative;
     max-width: 100%;
 }
-
-.main {
-    background-color: rgb(253, 253, 253);
+u {
+    text-decoration: none;
 }
 
-.spec-violet {
-    color: #6261F8;
-}
-
-.spec-orange {
-    color: #E46D29;
-}
-
-.keytext {
-    font-family: AndaleMono;
-    padding: 0 1%;
-    background-color: #4AE54B;
-}
-
-.settings, #type-source, #type-loop, .hide {
+.settings, #type-source, #type-loop, .hide, *[data-lang="ua"] {
     display: none;
 }
 
@@ -85,7 +58,6 @@ html {
     justify-content: space-between;
     padding: 1.2% 1.5%;
     font-size: 1.7vw;
-    // letter-spacing: 2.6px;
     background-color: black;
     color: #B2B2B2;
     z-index: 4;
@@ -97,34 +69,14 @@ html {
 
     &__logo>a {
         text-transform: uppercase;
-        color: #3FED41;
-
-        &:not(a:first-child) {
-            color: #B2B2B2;
-        }
-    }
-
-    &__logo > a:not(a:first-child):hover,
-    &__logo > &__text a:hover {
-        color: #E46D29;
-        transition: color .3s;
     }
     
     &__logo *, &__logo {
         font-family: AndaleMono;
     }
 
-    &__logo {
-        color: #B2B2B2;
-    }
-
-    &__text>a {
-        color: #B2B2B2;
-    }
-
     &__menu-button, &__link {
         font-family: AndaleMono;
-        color: #E46D29;
     }
 
     &__link {
@@ -137,17 +89,9 @@ html {
     }
 
     &__link:hover {
-        color: #3FED41;
         transition: color .3s;
     }
 
-    &__menu-top>a {
-        border-bottom: 2px solid #3FED41;
-
-        &:hover {
-            border-bottom-color: #E46D29;
-        }
-    }
 
     &__list {
         display: flex;

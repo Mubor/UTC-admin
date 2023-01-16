@@ -34,7 +34,7 @@ function services_page() {
     if(is_page('services') ){
         wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/services/style.css', 'all');
         // wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/styles/footer/footer.css', 'all');
-        wp_enqueue_script('contacts', get_template_directory_uri() . '/assets/dist/services.js',array(),'2023', true);        
+        wp_enqueue_script('contacts', get_template_directory_uri() . '/assets/dist/simple.js',array(),'2023', true);        
     }
 }
 function works_page() {

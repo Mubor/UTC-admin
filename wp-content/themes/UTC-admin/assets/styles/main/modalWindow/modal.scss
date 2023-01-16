@@ -54,7 +54,7 @@ form{
 
 .app-dialog__message, input, select {
     font-size: 2.222vw;
-    color: #b2b2b2;
+    // color: #b2b2b2;
 }
 
 .placeholder {
@@ -68,7 +68,7 @@ form{
     text-align: center;
     font-size: 20px;
     text-transform: uppercase;
-    color: #6B6B6B;
+    // color: #6B6B6B;
 
 }
 
@@ -78,13 +78,15 @@ input, select {
     border: 0;
 }
 
-input:not(input[type="submit"]), select {
-    border-bottom: 1px solid #6261F8;
-}
+// input:not(input[type="submit"]), select {
+//     border-bottom: 1px solid #6261F8;
+// }
 
 input:focus {
     border-color: black;
 }
+
+
 
 input[type="submit"] {
     display: block;
@@ -92,14 +94,14 @@ input[type="submit"] {
     width: 50%;
     text-transform: uppercase;
     text-decoration: underline;
-    color: #4AE64B;
+    // color: #4AE64B;
 }
 
 input[type="datetime-local"]{
     color: black;
-    &:focus {
-        color: #b2b2b2 !important;
-    }
+    // &:focus {
+    //     color: #b2b2b2 !important;
+    // }
 }
 
  #close-button {
@@ -114,21 +116,20 @@ input[type="datetime-local"]{
 
 #close-button {
     font-size: 1.6vw;
-    // font-size: 20px;
     border: 0;
     background-color: transparent;
-    color: #E46D29;
+    // color: #E46D29;
 }
 
 
 @media  screen and (max-width: 830px) {
-    .title{
+    .app__dialog .title{
         display: block;
     }   
     
     
 
-    .title, #close-button, 
+    .app__dialog .title, #close-button, 
     input, label > .placeholder, select {
         font-size: 20px;
     }

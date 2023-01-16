@@ -34,8 +34,6 @@
 }
 
 .title__pic:first-child {
-  background: url("../media/fighter_red.gif") 60% 50% no-repeat;
-  background-size: 100%;
   -webkit-transform: translate(0, -8%);
           transform: translate(0, -8%);
 }
@@ -43,8 +41,6 @@
 .title__pic:last-child {
   -webkit-transform: rotateY(180deg) translate(0, -8%);
           transform: rotateY(180deg) translate(0, -8%);
-  background: url("../media/fighter_green.gif") 60% 50% no-repeat;
-  background-size: 100%;
 }
 
 .team {
@@ -64,7 +60,7 @@
   width: 22.4vw;
   height: 27vw;
   font-family: AndaleMono;
-  background-color: white;
+  background-color: white !important;
   overflow: hidden;
 }
 
@@ -118,6 +114,10 @@
 .team__back {
   color: white;
   background-color: black;
+}
+
+.team__front {
+  height: 100%;
 }
 
 .team__button {
@@ -192,7 +192,7 @@
 }
 
 .team__item:nth-child(1) .team__gif {
-  background: url("../media/team/volodymyr.jpg") 50% 60% no-repeat;
+  background: url("../media/team/volodymyr.jpg") 50% 60% no-repeat !important;
   background-size: 100%;
 }
 
@@ -259,7 +259,8 @@
 
 .team__gif {
   width: 100%;
-  margin-top: 14%;
+  padding-top: 14%;
+  z-index: 2;
 }
 
 .team__gif > img {
@@ -287,6 +288,20 @@
   line-height: 1.2;
 }
 
+.team .inner {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .team .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -298,7 +313,7 @@
 
 .team__link {
   position: relative;
-  margin: 20% 5% 0 0;
+  margin: 0 3.5% 5% 0;
   padding: 1.5% 2%;
   border: 1px solid #E46D29;
   z-index: 100;
@@ -307,6 +322,10 @@
 .team__link > a {
   font-size: 0.83vw;
   color: white;
+}
+
+.team__link:last-child {
+  margin-right: 0;
 }
 
 .team__link:hover {

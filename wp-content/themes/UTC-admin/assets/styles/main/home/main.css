@@ -59,18 +59,6 @@ pre {
   display: none;
 }
 
-.team .indent, .team .indent-team3 {
-  padding-left: 60px;
-}
-
-.team .indent-br {
-  display: block;
-}
-
-.team .indent-max {
-  padding-left: 30%;
-}
-
 .language {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -80,7 +68,6 @@ pre {
   font-family: Montserrat;
   font-size: 4.5vh;
   text-transform: uppercase;
-  color: #AFAFAF;
 }
 
 .language > * {
@@ -89,25 +76,8 @@ pre {
 
 .language__elem {
   padding: 1%;
-  border: 2px solid white;
   -webkit-transition: border .4s;
   transition: border .4s;
-}
-
-.language__elem--current {
-  border: 2px solid black;
-}
-
-.language__elem:hover {
-  border: 2px solid black;
-}
-
-.language .language__elem--current > div {
-  color: black;
-}
-
-.language__elem > div {
-  color: #AFAFAF;
 }
 
 .language span {
@@ -145,12 +115,15 @@ pre {
 }
 
 .nav__link:hover {
-  color: #6261F8;
   -webkit-transition: color .3s;
   transition: color .3s;
 }
 
 @media screen and (max-width: 830px) {
+  pre {
+    white-space: pre-line;
+    text-align: center;
+  }
   .nav {
     display: none;
   }
@@ -183,6 +156,9 @@ pre {
   .team__picture {
     width: 8%;
   }
+  .team__picture > * {
+    width: 100%;
+  }
   .team__message {
     position: static;
     padding: 5% 5% 0 5%;
@@ -196,23 +172,6 @@ pre {
   .team span {
     padding: 0%;
   }
-  .team .indent {
-    padding-left: 2%;
-  }
-  .team .indent-br {
-    display: unset;
-  }
-  .team .indent-team2 {
-    padding-left: 0;
-    text-indent: 9%;
-    display: block;
-  }
-  .team .indent-team3, .team .indent-max {
-    padding-left: 8%;
-  }
-  .team .indent-max {
-    padding-left: 20%;
-  }
   .language {
     margin-top: 13%;
     padding-bottom: 3%;
@@ -225,10 +184,6 @@ pre {
   }
   .language__elem--current {
     border: 1px solid black;
-  }
-  .indent-mobile {
-    display: block;
-    text-align: right;
   }
 }
 /*# sourceMappingURL=main.css.map */

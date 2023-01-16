@@ -69,25 +69,50 @@
             <div class="contacts__item"> 
                 <div class="contacts__title">
                     <span class="keytext">
-                        <span data-lang="title-1">YOU CAN:</span>
-                        <a class="contacts__link" href="mailto:ukr.tv.film@gmail.com" data-lang="title-2">
-                            <span class="spec-violet">~</span>TEXT U<span class="spec-orange">$</span>
+                        <span>
+                            <span data-lang="eng"><?php the_field('left_link-title_eng')?></span>
+                            <span data-lang="ua"><?php the_field('left_link-title_ua')?></span>
+                            <!-- YOU CAN: -->
+                        </span>
+                        <a class="contacts__link" href="<?php the_field('left_link')?>">
+                            <span data-lang="eng"><?php the_field('left_link_eng')?></span>
+                            <span data-lang="ua"><?php the_field('left_link_ua')?></span>
+                            <!-- <span class="spec-violet">~</span>TEXT U<span class="spec-orange">$</span> -->
                         </a>
                     </span>
                 </div>
-                <div class="contacts__text">UKR.TV.FILM@GMAIL.COM</div>
+                <?php 
+                    $items = CFS()->get('services_left_list');
+                    foreach($items as $li) {
+                ?>
+                    <div class="contacts__text"><?= $li['services_li_eng'];?></div>
+                <?php       
+                    }
+                ?>    
             </div>
             <div class="contacts__item">
                 <div class="contacts__title">
                     <span class="keytext">
-                        <span data-lang="title-1">YOU CAN:</span> 
-                        <a class="contacts__link" href="tel:+380506945679" data-lang="title-3">
-                            <span class="spec-violet">~</span>C&commat;LL US
+                        <span>
+                            <span data-lang="eng"><?php the_field('right_link-title_eng')?></span>
+                            <span data-lang="ua"><?php the_field('right_link-title_ua')?></span>
+                            <!-- YOU CAN: -->
+                        </span>
+                        <a class="contacts__link" href="<?php the_field('right_link')?>">
+                            <span data-lang="eng"><?php the_field('right_link_eng')?></span>
+                            <span data-lang="ua"><?php the_field('right_link_ua')?></span>
+                            <!-- <span class="spec-violet">~</span>C&commat;LL US -->
                         </a>
                     </span>
                 </div>
-                <div class="contacts__text">+380 50 694 56 79</div>
-                <div class="contacts__text">+380 44 222 93 46</div>
+                <?php 
+                    $items = CFS()->get('services_right_list');
+                    foreach($items as $li) {
+                ?>
+                    <div class="contacts__text"><?= $li['services_li_eng'];?></div>
+                <?php       
+                    }
+                ?>    
             </div>
            </div>
            <div class="info">
@@ -98,9 +123,9 @@
             <div class="info__media" id="scroll-media">
                 <img src="../media/roof.png" alt="roof">
                 <div class="info__button df">
-                    <div class="info__pic"><img src="../media/heart.png" alt="heart"></div>
+                    <div class="info__pic"><?= $media_content; ?></div>
                     <span id="dialog-open-button" data-lang="btn-1">Invite for a date</span>
-                    <div class="info__pic"><img src="../media/heart.png" alt="heart"></div>
+                    <div class="info__pic"><?= $media_content; ?></div>
                 </div>
             </div>
         </div>
