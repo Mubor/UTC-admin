@@ -1,0 +1,46 @@
+version: 'v1'
+services:
+  db:
+    image: mysql:latest
+    container_name: db
+    command: '--default-authentication-plugin=mysql_native_password'
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=somewordpress
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=wordpress
+      - MYSQL_PASSWORD=wordpress
+    expose:
+      - 3306
+      - 33060
+  phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: pma
+        links: 
+            - db:db
+        ports:
+            - 8000:80
+        environment:
+          PMA_HOST: db
+          PMA_PORT: 3306
+          PMA_ARBITRARY: 1
+  nodejs: 
+  
+wordpress:
+    image: wordpress:latest
+    container_name: wp
+    volumes:
+      - wp_data:/var/www/html
+    ports:
+      - 80:80
+    restart: always
+    environment:
+      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_USER=wordpress
+      - WORDPRESS_DB_PASSWORD=wordpress
+      - WORDPRESS_DB_NAME=wordpress
+volumes:
+  db_data:
+  wp_data:
