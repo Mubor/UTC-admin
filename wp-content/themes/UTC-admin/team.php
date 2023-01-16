@@ -2,9 +2,21 @@
 /*
  * Template Name: team
  */
+
+    // include 'C:\xampp\htdocs\UTC\wp-content\themes\UTC-admin\classes\backend\app_gmail.php';
+    // echo test_app_gmail('muha010801@gmail.com');
+    include __DIR__ . '/classes/backend/app_gmail.php';
+    // phpmailer_connect();
+    send_email();
     get_header();
+    
     include 'header.php';
+    
+    
     $menu = array_reverse($header_values);
+   
+    
+    // echo("<script>console.log('PHP: " .   . "');</script>");
 ?>
 
 <!-- <body> -->
@@ -653,8 +665,8 @@
                 <p class="content__text">WE PRODUCE LARGE AND SMALL PROJECTS FOR UKRAINIAN AND 🌍 GLOBAL BRANDS, EMBODYING BOLD IDEAS THAT MOVE BUSINESSES FORWARD AND HELP BRANDS FIND THEIR INIMITABLE PATH AND SHINE BRIGHTLY IN A WORLD FULL OF DARKNESS✨</p>
             </div>
             <!--find a solution to the problem with the pop-up window -->
-            <span class="btn" data-lang="eng" id="dialog-open-button"><?php the_field('team_form_open_button_eng')?> </a>
-            <span class="btn" data-lang="ua" id="dialog-open-button"><?php the_field('team_form_open_button_ua')?> </a>
+            <span class="btn" data-lang="eng" id="dialog-open-button" ><?php the_field('team_form_open_button_eng');?> </a>
+            <span class="btn" data-lang="ua" id="dialog-open-button"><?php the_field('team_form_open_button_ua');?> </a>
         </section>
         
     </div>
