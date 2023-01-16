@@ -8,12 +8,6 @@
     include __DIR__ . '/classes/backend/app_gmail.php';
     // phpmailer_connect();
     send_email();
-
-    // include 'C:\xampp\htdocs\UTC\wp-content\themes\UTC-admin\classes\backend\app_gmail.php';
-    // echo test_app_gmail('muha010801@gmail.com');
-    include __DIR__ . '/classes/backend/app_gmail.php';
-    // phpmailer_connect();
-    send_email();
     get_header();
     
     
