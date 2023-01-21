@@ -221,9 +221,8 @@
                 </span>
                 <label for="vacancy">
                     <div class="placeholder"></div>
-                    <!-- <input type="email" name="email" id="email" required> -->
                     <select name="vacancy" id="vacancy" required>
-                        <option value="" ></option>
+                        <option value=""></option>
                     <?php 
                     $options = CFS()->get('form_option');
                     foreach($options as $option) {
@@ -241,7 +240,6 @@
                 </span>
                 <label for="cv">
                     <div class="placeholder">input link to your CV</div>
-                    <input type="text" name="cv" id="cv" required><span class="error"></span>
                     <input type="text" name="cv" id="cv" required><span class="error"></span>
                 </label>
                 <span class="app-dialog__message">
