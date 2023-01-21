@@ -43,29 +43,40 @@ const messageFormer = (form) => {
     return res;
 }
 
-form.addEventListener('submit', async e => {
-    e.preventDefault();
+// form.addEventListener('submit', async e => {
+//     e.preventDefault();
     
-    let request = {
-        username: form.fullname.value,
-        message: messageFormer(form)
-    }
+//     let request = {
+//         username: form.fullname.value,
+//         message: messageFormer(form)
+//     }
     
-    let response = await fetch('/send', {
-        method: 'POST',
-        headers: new Headers({'content-type': 'application/json'}),
-        body: JSON.stringify(request),
-    });
+//     let response = await fetch('/send', {
+//         method: 'POST',
+//         headers: new Headers({'content-type': 'application/json'}),
+//         body: JSON.stringify(request),
+//     });
   
-    await response.json();
+//     await response.json();
 
-    if(response.status === 200) {
-      console.log("sent")
-    }
-    else {
-        alert("Something went wrong, please check your input.");
-    }
-})
+//     if(response.status === 200) {
+//       console.log("sent")
+//     }
+//     else {
+//         alert("Something went wrong, please check your input.");
+//     }
+// })
+// form.addEventListener('submit', async e => {
+//     if(localStorage.getItem('mailsended') === 1) {
+//         location.reload();
+//         e.preventDefault();
+//     }
+//     else {
+//         localStorage.setItem('mailsended', 1);
+//     }
+
+    
+// })
 
 window.onload = () => {
     if(currentLang!== 'eng') {

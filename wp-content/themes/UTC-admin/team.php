@@ -3,26 +3,10 @@
  * Template Name: team
  */
 
-    // include 'C:\xampp\htdocs\UTC\wp-content\themes\UTC-admin\classes\backend\app_gmail.php';
-    // echo test_app_gmail('muha010801@gmail.com');
     include __DIR__ . '/classes/backend/app_gmail.php';
-    // phpmailer_connect();
-    send_email();
-
-    // include 'C:\xampp\htdocs\UTC\wp-content\themes\UTC-admin\classes\backend\app_gmail.php';
-    // echo test_app_gmail('muha010801@gmail.com');
-    include __DIR__ . '/classes/backend/app_gmail.php';
-    // phpmailer_connect();
-    send_email();
     get_header();
-    
     include 'header.php';
-    
-    
     $menu = array_reverse($header_values);
-   
-    
-    // echo("<script>console.log('PHP: " .   . "');</script>");
 ?>
 
 <style> 
@@ -214,7 +198,7 @@
                 <!-- <div class="title">set up a meeting</div> -->
                 <button id="close-button" data-lang="form-close">CLOSE</button>
             </div>
-            <form name="letter" method="post">
+            <form name="letter" method="post" action="">
                 <?php
                     $text_eng = CFS()->get('form_text_eng');
                     $text_ua = CFS()->get('form_text_ua');
@@ -237,8 +221,7 @@
                 </span>
                 <label for="vacancy">
                     <div class="placeholder"></div>
-                    <!-- <input type="email" name="email" id="email" required> -->
-                    <select name="vacancy" id="vacancy">
+                    <select name="vacancy" id="vacancy" required>
                         <option value=""></option>
                     <?php 
                     $options = CFS()->get('form_option');
@@ -257,7 +240,7 @@
                 </span>
                 <label for="cv">
                     <div class="placeholder">input link to your CV</div>
-                    <input type="text" name="cv" id="cv" ><span class="error"></span>
+                    <input type="text" name="cv" id="cv" required><span class="error"></span>
                 </label>
                 <span class="app-dialog__message">
                 <span data-lang="eng"><?= $text_eng_arr[3]?></span>
@@ -265,24 +248,43 @@
                 </span>
                 <label for="phone">
                     <div class="placeholder">input your phone number</div>
-                    <input type="tel" name="phone" id="phone" ><span class="error"></span>
+                    <input type="tel" name="phone" id="phone" required><span class="error"></span>
                 </label>
                 <span class="app-dialog__message">
                     <span data-lang="eng"><?= $text_eng_arr[4]?></span>
                     <span data-lang="ua"><?= $text_ua_arr[4]?></span>
                 </span>
-                <label data-lang="eng" for="button">
-                    <input type="submit" value="<?= $text_eng_arr[5]; ?>" id="button">
+                <label data-lang="eng" for="button"> 
+                    <input type="submit" value="<?= $text_eng_arr[5]; ?>" id="button" name="btn_send_eng">
+                    <input type="hidden" name="token" value="<?php echo(rand(1,999999));?>" />
                 </label>
-                <label data-lang="ua" for="button">
-                    <input type="submit" value="<?= $text_ua_arr[5]; ?>" id="button">
-                </label>
+                    <label data-lang="ua" for="button"> 
+                    <input type="submit" value="<?= $text_ua_arr[5]; ?>" id="button" name="btn_send_ua">
+                    <input type="hidden" name="token" value="<?php echo(rand(1,999999));?>" /> 
+                </label> 
                 <h2 id="message"></h2>
               </form>
           </div>
         </div>
     </div>
-    <!-- <script src="../dist/team.js"></script> -->
+    <?php          
+            session_start();
+            if (isset($_POST['token'])) {
+                if ($_POST['token'] == $_SESSION['formToken']){
+                    //Error: обрабатывания формы
+                } else {
+                    $_SESSION['formToken'] = $_POST['token'];
+                    //Succes: обрабатываем форму
+                    if(isset($_POST["btn_send_eng"]) || isset($_POST["btn_send_ua"]) ) {
+                        $full_name = $_POST['fullname'];
+                        $vacancy     = $_POST['vacancy'];
+                        $cv     = $_POST['cv'];
+                        $phone     = $_POST['phone'];    
+                        send_email($full_name, $vacancy, $cv, $phone );      
+                    }
+                }
+            }    
+    ?>
     <?php get_footer(); ?>
 </body>
 </html>
