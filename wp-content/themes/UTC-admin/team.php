@@ -247,6 +247,7 @@
                     <div class="placeholder">input link to your CV</div>
                     <input type="text" name="cv" id="cv" required><span class="error"></span>
                     <input type="text" name="cv" id="cv" required><span class="error"></span>
+                    <input type="text" name="cv" id="cv" required><span class="error"></span>
                 </label>
                 <span class="app-dialog__message"><?= $text_arr[3]?></span>
                 <label for="phone">
