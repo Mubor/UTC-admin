@@ -98,7 +98,6 @@
                         </a>
                     </div>
                 </div>
-                
                 <div class="grid__sizer"></div>
                 <div class="grid__gutter-sizer"></div>
             </div>

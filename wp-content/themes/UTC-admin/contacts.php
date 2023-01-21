@@ -13,7 +13,7 @@
                 <div id="type-loop">true</div>
                 <div class="header__logo header__logo--path">
                     <a href="<?php echo $menu[0]['link_name']; ?>">utc@film</a><span class="header__mobile-hidden">:</span>
-                    <span class="spec-violet header__mobile-hidden">~</span>
+                    <i class="header__mobile-hidden">~</i>
                     <span class="header__mobile-hidden">$</span>
                     <span class="header__text">
                         <a href="<?php echo $menu[0]['link_name']; ?>" class="header__link" data-lang="eng"><?php echo $menu[0]['name_eng']; ?></a>
@@ -68,7 +68,7 @@
            <div class="contacts df">
             <div class="contacts__item"> 
                 <div class="contacts__title">
-                    <span class="keytext">
+                    <i>
                         <span>
                             <span data-lang="eng"><?php the_field('left_link-title_eng')?></span>
                             <span data-lang="ua"><?php the_field('left_link-title_ua')?></span>
@@ -79,13 +79,13 @@
                             <span data-lang="ua"><?php the_field('left_link_ua')?></span>
                             <!-- <span class="spec-violet">~</span>TEXT U<span class="spec-orange">$</span> -->
                         </a>
-                    </span>
+                    </i>
                 </div>
                 <?php 
                     $items = CFS()->get('services_left_list');
                     foreach($items as $li) {
                 ?>
-                    <div class="contacts__text"><?= $li['services_li_eng'];?></div>
+                    <div class="contacts__text" style="color:<?= CFS()->get('list_text_color') ?>"><?= $li['services_li_eng'];?></div>
                 <?php       
                     }
                 ?>    
@@ -109,7 +109,7 @@
                     $items = CFS()->get('services_right_list');
                     foreach($items as $li) {
                 ?>
-                    <div class="contacts__text"><?= $li['services_li_eng'];?></div>
+                    <div class="contacts__text" style="color:<?= CFS()->get('list_text_color')?>"> <?= $li['services_li_eng'];?></div>
                 <?php       
                     }
                 ?>    
@@ -160,29 +160,55 @@
                 <button id="close-button" data-lang="form-close">CLOSE</button>
             </div>
             <form name="data" method="post" data-lang="form-text">
-                <span class="app-dialog__message">HELLO! MY NAME IS</span>
+                <?php
+                    $text_eng = CFS()->get('form_text_eng');
+                    $text_ua = CFS()->get('form_text_ua');
+                    $input_option = CFS()->get('form_option');
+
+                    $text_eng_arr = explode('_', $text_eng);
+                    $text_ua_arr = explode('_', $text_ua);
+                ?>
+                <span class="app-dialog__message">
+                    <span data-lang="eng"><?= $text_eng_arr[0]?></span>
+                    <span data-lang="ua"><?= $text_ua_arr[0]?></span>
+                </span>
                 <label for="fullname">
                     <div class="placeholder">input your full name</div>
-                    <input type="text" name="fullname" id="fullname" required><span class="error"></span>.
+                    <input type="text" name="fullname" id="fullname" required><span class="error"></span>
                 </label>
-                <span class="app-dialog__message"> YOUR WORKS SINCERELY BURNED INTO MY SOUL, SO I WILL LEAVE MY EMAIL</span>
+                <span class="app-dialog__message">
+                    <span data-lang="eng"><?= $text_eng_arr[1]?></span>
+                    <span data-lang="ua"><?= $text_ua_arr[1]?></span>
+                </span>
                 <label for="email">
                     <div class="placeholder">input your email</div>
-                    <input type="email" name="email" id="email" required><span class="error"></span>.
+                    <input type="email" name="email" id="email" required><span class="error"></span>
                 </label>
-                <span class="app-dialog__message"> AND PHONE NUMBER  HERE</span>
+                <span class="app-dialog__message">
+                    <span data-lang="eng"><?= $text_eng_arr[2]?></span>
+                    <span data-lang="ua"><?= $text_ua_arr[2]?></span>
+                </span>
                 <label for="phone">
                     <div class="placeholder">input your phone number</div>
-                    <input type="tel" name="phone" id="phone" ><span class="error"></span>.
+                    <input type="tel" name="phone" id="phone" ><span class="error"></span>
                 </label>
-                <span class="app-dialog__message">SO WE CAN SCHEDULE A MEETING WITH THE UTC TEAM, ONLINE OR ON YOUR FUCKING AWESOME ROOF, AND DISCUSS ANY QUESTIONS I MAY HAVE. I WILL BE FREE</span>
+                <span class="app-dialog__message">
+                    <span data-lang="eng"><?= $text_eng_arr[3]?></span>
+                    <span data-lang="ua"><?= $text_ua_arr[3]?></span>
+                </span>
                 <label for="time">
                     <div class="placeholder">input date</div>
-                    <input type="datetime-local" name="time" id="time" value="" required><span class="error"></span>.
+                    <input type="datetime-local" name="time" id="time" value="" required><span class="error"></span>
                 </label>
-                <span class="app-dialog__message">I'M LOOKING FORWARD TO! (YOUR FUTURE FRIEND)</span>
-                <label for="button">
-                    <input type="submit" value="Invite for a date" id="button">
+                <span class="app-dialog__message">
+                    <span data-lang="eng"><?= $text_eng_arr[4]?></span>
+                    <span data-lang="ua"><?= $text_ua_arr[4]?></span>
+                </span>
+                <label for="button" data-lang="eng">
+                    <input type="submit" value="<?= $text_eng_arr[5]?>" id="button">
+                </label>
+                <label for="button" data-lang="ua">
+                    <input type="submit" value="<?= $text_eng_arr[5]?>" id="button">
                 </label>
                 <h2 id="message"></h2>
                 <span class="app-dialog__message"></span>

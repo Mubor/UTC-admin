@@ -1,11 +1,24 @@
 <?php
 /*
  * Template Name: services
- */
+*/
 get_header();
     include 'header.php';
     $menu = array_reverse($header_values);
 ?>
+    <style>
+        .description__item:first-child .description__container{
+            background: url() no-repeat;
+            background-position: bottom 0 left 0;
+            background-size: 96% 100%;
+        }
+        .description__item:first-child .description__container{
+            background: url() no-repeat;
+            background-position: bottom 0 right 0;
+            background-size: contain;
+        }
+
+    </style>
 
     <div class="wrapper">
         <header class="header df">
@@ -14,7 +27,7 @@ get_header();
                 <div id="type-loop">true</div>
                 <div class="header__logo header__logo--path">
                     <a href="<?php echo $menu[0]['link_name']; ?>">utc@film</a><span class="header__mobile-hidden">:</span>
-                    <span class="spec-violet header__mobile-hidden">~</span>
+                    <i class="header__mobile-hidden">~</i>
                     <span class="header__mobile-hidden">$</span>
                     <span class="header__text">
                         <a href="<?php echo $menu[0]['link_name']; ?>" class="header__link" data-lang="eng"><?php echo $menu[0]['name_eng']; ?></a>
@@ -77,7 +90,7 @@ get_header();
                                 <?php the_field('services_keytext_left_ua');?>
                             </p>
                         </div>
-                        <ul class="description__list">
+                        <ul class="description__list" style="color:<?= CFS()->get('list_text_color') ?>">
                             <?php 
                                 $items = CFS()->get('services_left_list');
                                 foreach($items as $li) {
@@ -101,7 +114,7 @@ get_header();
                                 <?php the_field('services_keytext_right_ua');?>
                             </p>
                         </div>
-                        <ul class="description__list">
+                        <ul class="description__list" style="color:<?= CFS()->get('list_text_color') ?>">
                             <?php 
                                 $items = CFS()->get('services_right_list');
                                 foreach($items as $li) {

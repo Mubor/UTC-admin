@@ -2,27 +2,11 @@
 /*
  * Template Name: team
  */
-
-    // include 'C:\xampp\htdocs\UTC\wp-content\themes\UTC-admin\classes\backend\app_gmail.php';
-    // echo test_app_gmail('muha010801@gmail.com');
     include __DIR__ . '/classes/backend/app_gmail.php';
-    // phpmailer_connect();
-    send_email();
-
-    // include 'C:\xampp\htdocs\UTC\wp-content\themes\UTC-admin\classes\backend\app_gmail.php';
-    // echo test_app_gmail('muha010801@gmail.com');
-    include __DIR__ . '/classes/backend/app_gmail.php';
-    // phpmailer_connect();
-    send_email();
+    // send_email();
     get_header();
-    
     include 'header.php';
-    
-    
     $menu = array_reverse($header_values);
-   
-    
-    // echo("<script>console.log('PHP: " .   . "');</script>");
 ?>
 
 <style> 
@@ -238,8 +222,8 @@
                 <label for="vacancy">
                     <div class="placeholder"></div>
                     <!-- <input type="email" name="email" id="email" required> -->
-                    <select name="vacancy" id="vacancy">
-                        <option value=""></option>
+                    <select name="vacancy" id="vacancy" required>
+                        <option value="" ></option>
                     <?php 
                     $options = CFS()->get('form_option');
                     foreach($options as $option) {
@@ -257,7 +241,7 @@
                 </span>
                 <label for="cv">
                     <div class="placeholder">input link to your CV</div>
-                    <input type="text" name="cv" id="cv" ><span class="error"></span>
+                    <input type="text" name="cv" id="cv" required><span class="error"></span>
                 </label>
                 <span class="app-dialog__message">
                 <span data-lang="eng"><?= $text_eng_arr[3]?></span>

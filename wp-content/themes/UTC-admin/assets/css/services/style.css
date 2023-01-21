@@ -342,20 +342,8 @@ u {
   border: 2px solid black;
 }
 
-.description__item:first-child .description__container {
-  background: url(../../../media/media1.png) no-repeat;
-  background-position: bottom 0 left 0;
-  background-size: 96% 100%;
-}
-
 .description__item:first-child .description__container > p {
   width: 54%;
-}
-
-.description__item:last-child .description__container {
-  background: url(../../../media/media2.png) no-repeat;
-  background-position: bottom 0 right 0;
-  background-size: contain;
 }
 
 .description__item:last-child .description__container .description__title {
@@ -374,7 +362,6 @@ u {
 .description__list {
   margin-top: 4.3vh;
   font-family: Montserrat;
-  color: #272727;
 }
 
 .description__list > li {

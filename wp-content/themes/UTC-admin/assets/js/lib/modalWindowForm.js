@@ -10,7 +10,9 @@ export const toggleDialogVisibility = (e) => {
         window.location = calendarURL;
     }
     
-    appDialog.hidden = !appDialog.hidden;
+    const displayValue = appDialog.style.display === 'none' ? 'block' : 'none';
+    appDialog.style.display = displayValue;
+    
     // wrapper.hidden = !wrapper.hidden;
     document.body.style.overflow = appDialog.hidden ? '' : 'hidden';
 }
