@@ -5,9 +5,11 @@ add_action('wp_enqueue_scripts', 'contacts_page');
 add_action('wp_enqueue_scripts', 'team_page');
 add_action('wp_enqueue_scripts', 'works_page');
 add_action('wp_enqueue_scripts', 'services_page');
-// add_action('wp_enqueue_scripts', 'tes');
-show_admin_bar(true);
+add_action('wp_enqueue_scripts', 'post_page');
 
+add_theme_support('post-thumbnails' , array( 'post', 'page' ) );
+
+show_admin_bar(true);
 
 function main_page() {
     if(is_page('home') ){
@@ -24,7 +26,14 @@ function contacts_page() {
     }
 }
 function team_page() {
-    if(is_page('team') ){
+    if(is_page('team')){
+        wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/team/style.css', 'all');
+        // wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/styles/footer/footer.css', 'all');
+        wp_enqueue_script('contacts', get_template_directory_uri() . '/assets/dist/team.js',array(),'2023', true);        
+    }
+}
+function post_page() {
+    if(is_page_template('post.php')){
         wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/team/style.css', 'all');
         // wp_enqueue_style( 'footer', get_template_directory_uri() . '/assets/styles/footer/footer.css', 'all');
         wp_enqueue_script('contacts', get_template_directory_uri() . '/assets/dist/team.js',array(),'2023', true);        

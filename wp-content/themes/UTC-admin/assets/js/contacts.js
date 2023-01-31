@@ -36,39 +36,53 @@ window.onload = () => {
     }
 }
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+// form.addEventListener('submit', async (e) => {
+//     e.preventDefault();
 
-    if( !validateDate(form.time.value) ) {
-        form.time.nextElementSibling.innerHTML = "The specified date must be greater than now";
-    }
+//     if( !validateDate(form.time.value) ) {
+//         form.time.nextElementSibling.innerHTML = "The specified date must be greater than now";
+//     }
 
-    const formDataArr = [...form.querySelectorAll('input:not(input#button)')];
+//     const formDataArr = [...form.querySelectorAll('input:not(input#button)')];
 
-    let request = {};
+//     let request = {};
 
-    for(let i = 0; i < formDataArr.length; i++) {
-        request[formDataArr[i].name] = formDataArr[i].value;
-    }
+//     for(let i = 0; i < formDataArr.length; i++) {
+//         request[formDataArr[i].name] = formDataArr[i].value;
+//     }
 
-    let response = await fetch('/create', {
-        method: 'POST',
-        headers: new Headers({'content-type': 'application/json'}),
-        body: JSON.stringify(request),
-    });
+//     let response = await fetch('/create', {
+//         method: 'POST',
+//         headers: new Headers({'content-type': 'application/json'}),
+//         body: JSON.stringify(request),
+//     });
   
-    await response.json();
+//     await response.json();
 
-    if(response.status === 200) {
-        localStorage.setItem('formOpenAccess', false);
-        window.location = calendarURL;
-    }
-    else {
-        alert("Something went wrong, please check your input.");
-    }
-});
+//     if(response.status === 200) {
+//         localStorage.setItem('formOpenAccess', false);
+//         window.location = calendarURL;
+//     }
+//     else {
+//         alert("Something went wrong, please check your input.");
+//     }
+// });
 
 form.time.onchange = (e) => {
     const style = form.time.style;
     style.color = form.time.value === '' ? 'black' :  '#b2b2b2';
 }
+
+function returnCookieId(name) {
+    let name_cookie = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || '';
+    return name_cookie;
+}
+function loadNewWindow() {
+    const id = returnCookieId('eventSended2');
+    if(id == "1") {
+         window.location.href = "https://calendar.google.com/calendar/u/0?cid=ODEwZmYzMTJiMjc2NDM2MjMyNmU3MzczNTRlMmY2MTNhZWFkODJkNDMzYWYzYzY5MzI5YzI3ZTFhNTc3Mzg0OEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t";
+    }
+}
+
+document.getElementById('dialog-open-button').addEventListener('click', loadNewWindow);
+
