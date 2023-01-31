@@ -2,8 +2,9 @@
 /*
  * Template Name: team
  */
+
+
     include __DIR__ . '/classes/backend/app_gmail.php';
-    // send_email();
     get_header();
     include 'header.php';
     $menu = array_reverse($header_values);
@@ -215,7 +216,8 @@
                 <!-- <div class="title">set up a meeting</div> -->
                 <button id="close-button" data-lang="form-close">CLOSE</button>
             </div>
-            <form name="letter" method="post">
+            <form name="letter" method="post" action="">
+            <form name="letter" method="post" action="">
                 <?php
                     $text = CFS()->get('form_text_' . translator('eng', 'ua'));
                     $input_option = CFS()->get('form_option');
@@ -230,7 +232,6 @@
                 <span class="app-dialog__message"><?= $text_arr[1]?></span>
                 <label for="vacancy">
                     <div class="placeholder"></div>
-                    <!-- <input type="email" name="email" id="email" required> -->
                     <select name="vacancy" id="vacancy" required>
                     <?php 
                     $options = CFS()->get('form_option');
@@ -246,11 +247,14 @@
                 <label for="cv">
                     <div class="placeholder">input link to your CV</div>
                     <input type="text" name="cv" id="cv" required><span class="error"></span>
+                    <input type="text" name="cv" id="cv" required><span class="error"></span>
+                    <input type="text" name="cv" id="cv" required><span class="error"></span>
                 </label>
                 <span class="app-dialog__message"><?= $text_arr[3]?></span>
                 <label for="phone">
                     <div class="placeholder">input your phone number</div>
-                    <input type="tel" name="phone" id="phone" ><span class="error"></span>
+                    <input type="tel" name="phone" id="phone" required><span class="error"></span>
+                    <input type="tel" name="phone" id="phone" required><span class="error"></span>
                 </label>
                 <span class="app-dialog__message"><?= $text_arr[4]?></span>
                 <label  for="button">
@@ -261,7 +265,24 @@
           </div>
         </div>
     </div>
-    <!-- <script src="../dist/team.js"></script> -->
-    <?php get_footer(); ?>
+    <?php          
+            session_start();
+            if (isset($_POST['token'])) {
+                if ($_POST['token'] == $_SESSION['formToken']){
+                    //Error: обрабатывания формы
+                } else {
+                    $_SESSION['formToken'] = $_POST['token'];
+                    //Succes: обрабатываем форму
+                    if(isset($_POST["btn_send_eng"]) || isset($_POST["btn_send_ua"]) ) {
+                        $full_name = $_POST['fullname'];
+                        $vacancy     = $_POST['vacancy'];
+                        $cv     = $_POST['cv'];
+                        $phone     = $_POST['phone'];    
+                        send_email($full_name, $vacancy, $cv, $phone );      
+                    }
+                }
+            }    
+    ?>
+<?php get_footer(); ?>
 </body>
 </html>

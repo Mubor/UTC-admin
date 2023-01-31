@@ -78,6 +78,7 @@
         /* orange */
         u {
             color: <?php the_field('u_color')?>;
+            text-decoration: none;
         }
 
         b {

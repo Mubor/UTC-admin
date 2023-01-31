@@ -69,22 +69,47 @@
                 <span class="message__pic"><?= $media_content; ?></span>
             </div>
             <div class="grid">
-                <!-- grid__item--maxwidth  grid__item grid__item--middlewidth  -->
-                <div class="grid__item grid__item--middlewidth">
-                    <div class="grid__preview">
-                        <img src="../media/portfolio/grid1.png" alt="portfolio preview">
-                    </div>
-                    <div class="grid__hot-pic"><img src="../media/fire.png" alt="hot"></div>
-                    <div class="grid__overlay">
-                        <a href="#">
-                            <svg width="25" height="22" viewBox="0 0 25 22" fill="none">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H6.06897V22H0V0ZM6.07031 2.27539H10.622V4.55078H15.1728V6.82617H19.7236V9.10156H24.2744V12.8947H19.7236V15.171H15.1728V17.4473H10.622V19.7237H6.07031V2.27539Z" fill="black"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="grid__sizer"></div>
-                <div class="grid__gutter-sizer"></div>
+                 <!-- grid__item--maxwidth  grid__item grid__item--middlewidth  -->
+<?php
+ global $posts;
+
+ $myposts = get_posts([
+     'numberposts' => -1, 
+     'order' => 'ASC',   
+ ]);
+
+ if($myposts) {
+     foreach ($myposts as $posts) {
+             setup_postdata($posts);
+             $width = get_post_meta($posts->ID, 'grid-item-width')[0]; 
+             $class = '';
+             if ($width == 'middle') {
+                $class = ' grid__item--middlewidth';
+
+             } elseif($width == 'max') {
+                $class = ' grid__item--maxwidth';
+             }
+             
+             
+ ?> 
+                 <div class="<?= 'grid__item' . $class ?>">
+                     <div class="grid__preview">
+                            <img src="<?= get_the_post_thumbnail_url($posts->ID ,'full');?>" alt="portfolio preview">        
+                     </div>
+                     <div class="grid__hot-pic"><img src="../assets/media/fire.png" alt="hot"></div> 
+                     <div class="grid__overlay">
+                          <a href="<?= get_permalink($posts->ID)?>">
+                             <svg width="25" height="22" viewBox="0 0 25 22" fill="none">
+                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H6.06897V22H0V0ZM6.07031 2.27539H10.622V4.55078H15.1728V6.82617H19.7236V9.10156H24.2744V12.8947H19.7236V15.171H15.1728V17.4473H10.622V19.7237H6.07031V2.27539Z" fill="black"/>
+                              </svg>
+                          </a>
+                      </div>
+                 </div>               
+ 
+<?php } }  wp_reset_postdata(); ?>
+            
+            <div class="grid__sizer"></div>
+            <div class="grid__gutter-sizer"></div>
             </div>
             <div class="message message--bottom">
                 <?php the_field('works_bottom_text_' . translator('eng', 'ua'));?>
