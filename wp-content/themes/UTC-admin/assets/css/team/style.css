@@ -132,8 +132,6 @@ u {
           justify-content: space-between;
   padding: 1.2% 1.5%;
   font-size: 1.7vw;
-  background-color: black;
-  color: #B2B2B2;
   z-index: 4;
 }
 
@@ -280,12 +278,8 @@ u {
     margin-left: 0%;
   }
   .header__menu .header__link {
-    color: #4AE54B;
     font-size: 12.8vw;
     letter-spacing: normal;
-  }
-  .header__menu .header__link:hover {
-    color: #E46D29;
   }
   .header__menu .header__link--current {
     display: block;
@@ -384,6 +378,7 @@ u {
   -webkit-transition: min-height .3s;
   transition: min-height .3s;
   background-color: black;
+  color: white;
   z-index: 1;
 }
 
@@ -405,13 +400,39 @@ u {
   transition: opacity .8s;
 }
 
-.team__back {
-  color: white;
-  background-color: black;
-}
-
 .team__front {
   height: 100%;
+}
+
+.team__title {
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+.team__params-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 3% 0;
+}
+
+.team__params-item > .name {
+  padding-right: .2vw;
+}
+
+.team .level {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.team .level > * {
+  margin-right: 3px;
+  width: 0.35vw;
+  height: .7vw;
+  border-radius: 1px;
+  -webkit-transform: translate(0, 20%);
+          transform: translate(0, 20%);
 }
 
 .team__button {
@@ -485,72 +506,6 @@ u {
           transform: rotate(-90deg);
 }
 
-.team__item:nth-child(1) .team__gif {
-  background: url("../media/team/volodymyr.jpg") 50% 60% no-repeat !important;
-  background-size: 100%;
-}
-
-.team__item:nth-child(2) .team__gif {
-  background: url("../media/team/oleksandr-static.png") 50% 40% no-repeat;
-  background-size: 70%;
-}
-
-.team__item:nth-child(2) .team__gif > img {
-  -webkit-transform: scale(1.1) translate(3%, -2%);
-          transform: scale(1.1) translate(3%, -2%);
-}
-
-.team__item:nth-child(3) .team__gif {
-  background: url("../media/team/sonya-static.jpg") 39% 100% no-repeat;
-  background-size: 140%;
-}
-
-.team__item:nth-child(3) .team__gif > img {
-  -webkit-transform: scale(0.95) translate(0, 5%);
-          transform: scale(0.95) translate(0, 5%);
-}
-
-.team__item:nth-child(4) .team__gif {
-  background: url("../media/team/hidden-static.png") 20% 50% no-repeat;
-  background-size: 80%;
-}
-
-.team__item:nth-child(4) .team__gif > img {
-  -webkit-transform: scale(1.07) translate(0, 2%);
-          transform: scale(1.07) translate(0, 2%);
-}
-
-.team__item:nth-child(6) .team__gif {
-  background: url("../media/team/sasha-static.jpg") 50% -10% no-repeat;
-  background-size: 90%;
-}
-
-.team__item:nth-child(6) .team__gif > img {
-  -webkit-transform: scale(1) translate(0, -5%);
-          transform: scale(1) translate(0, -5%);
-}
-
-.team__item:nth-child(7) .team__gif {
-  background: url("../media/team/hidden-static.png") 20% 50% no-repeat;
-  background-size: 80%;
-}
-
-.team__item:nth-child(7) .team__gif > img {
-  -webkit-transform: scale(1.07) translate(0, 2%);
-          transform: scale(1.07) translate(0, 2%);
-}
-
-.team__item:nth-child(8) .team__gif {
-  background: url("../media/team/oksana.jpg") 50% -100% no-repeat;
-  background-size: 120%;
-  height: 21vw;
-}
-
-.team__item:nth-child(8) .team__gif > img {
-  -webkit-transform: scale(1.2) translate(0, 16%);
-          transform: scale(1.2) translate(0, 16%);
-}
-
 .team__gif {
   width: 100%;
   padding-top: 14%;
@@ -575,7 +530,7 @@ u {
 }
 
 .team__info {
-  padding: 0 6%;
+  padding: 0 11%;
   margin-top: 30%;
   text-align: center;
   font-size: 0.83vw;
@@ -672,6 +627,12 @@ u {
   transition: all .3s;
 }
 
+@media screen and (max-width: 1500px) {
+  .team__params-item > .level > * {
+    margin-right: 2px;
+  }
+}
+
 @media screen and (max-width: 830px) {
   .title {
     padding: 6% 5% 0;
@@ -710,6 +671,21 @@ u {
   .team__button {
     font-size: 4.26vw;
   }
+  .team .level {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .team .level > * {
+    margin-right: 2px;
+    width: 1.066vw;
+    height: 2.4vw;
+    -webkit-transform: translate(0, 30%);
+            transform: translate(0, 30%);
+  }
+  .team .team__params-item > .name {
+    padding-right: .4vw;
+  }
   .team__name {
     font-size: 5.33vw;
   }
@@ -733,7 +709,6 @@ u {
 .footer {
   position: relative;
   width: 100%;
-  background-color: black;
 }
 
 .footer__body {
@@ -746,17 +721,6 @@ u {
   margin: 0 auto;
   padding: 1.7vh;
   width: 60%;
-}
-
-.footer__body::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  z-index: 2;
 }
 
 .footer__item {
@@ -780,13 +744,19 @@ u {
   font-size: 3.628vh;
 }
 
+@media screen and (max-width: 1050px) {
+  .footer--contacts .footer__item a {
+    font-size: 3vw;
+  }
+}
+
 @media screen and (max-width: 830px) {
   .footer__body {
     padding: 2vh 0 10%;
     width: 87%;
   }
   .footer .footer__item > a, .footer--contacts .footer__item a {
-    font-size: 16px;
+    font-size: 4.26vw;
   }
 }
 
@@ -816,7 +786,6 @@ u {
   border-radius: 8px;
   font-size: 1.6vw;
   z-index: 10;
-  background-color: black;
   color: white;
 }
 
@@ -889,10 +858,6 @@ input[type="submit"] {
   text-decoration: underline;
 }
 
-input[type="datetime-local"] {
-  color: black;
-}
-
 #close-button {
   padding: 1% 2%;
 }
@@ -927,9 +892,6 @@ input[type="datetime-local"] {
   }
   .app-dialog__message {
     display: none;
-  }
-  form {
-    color: black;
   }
   label, input, .placeholder, select {
     display: block;

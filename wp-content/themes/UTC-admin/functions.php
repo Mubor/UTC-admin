@@ -5,7 +5,6 @@ add_action('wp_enqueue_scripts', 'contacts_page');
 add_action('wp_enqueue_scripts', 'team_page');
 add_action('wp_enqueue_scripts', 'works_page');
 add_action('wp_enqueue_scripts', 'services_page');
-// add_action('wp_enqueue_scripts', 'tes');
 show_admin_bar(true);
 
 

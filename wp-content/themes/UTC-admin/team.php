@@ -7,12 +7,37 @@
     get_header();
     include 'header.php';
     $menu = array_reverse($header_values);
+    function translator($engText, $uaText) {
+        $lang = $_COOKIE['lang'];
+        return ($lang=='eng') ? $engText : $uaText;
+    }
 ?>
 
 <style> 
+    .app-dialog {
+        display: none;
+    }
     .team__text {
         color: <?= CFS()->get('title_color')?>
     }
+    .team__params-item > .level > * {
+        background-color: white;
+    }
+
+    /* .team__back, .team__name, 
+    .team__link > a {
+        color: white;
+    }
+
+    .team__item {
+        background-color: white !important;
+    }
+
+    .team__back, .team__name {
+        background-color: black;
+    } */
+
+
 </style>
 <!-- <body> -->
     <div class="wrapper">
@@ -25,50 +50,32 @@
                     <i class="header__mobile-hidden">~</i>
                     <span class="header__mobile-hidden">$</span>
                     <span class="header__text">
-                        <a href="<?php echo $menu[0]['link_name'];?>" class="header__link" data-lang="eng"><?php echo $menu[0]['name_eng']; ?></a>
-                        <a href="<?php echo $menu[0]['link_name'];?>" class="header__link" data-lang="ua"><?php echo $menu[0]['name_ua']; ?></a>
+                        <a href="<?php echo $menu[0]['link_name'];?>" class="header__link" ><?php echo $menu[0][translator('name_eng', 'name_ua')]; ?></a>
                     </span>
                     ->
-                    <a href="<?php echo $menu[2]['link_name'];?>" class="header__link" data-lang="eng"><?php echo $menu[2]['name_eng']; ?></a>
-                    <a href="<?php echo $menu[2]['link_name'];?>" class="header__link" data-lang="ua"><?php echo $menu[2]['name_eng']; ?></a>
+                    <a href="<?php echo $menu[2]['link_name'];?>" class="header__link" ><?php echo $menu[2][translator('name_eng', 'name_ua')]; ?></a>
                     <span class="type-cursor">|</span>
                 </div>
                 <div class="header__menu-button">
-                    <span id="menu-button">
-                        <span data-lang="eng">menu</span>
-                        <span data-lang="ua">меню</span>
-                    </span>
+                    <span id="menu-button"><?= translator('menu', 'меню') ?></span>
                 </div>
             </div>
             <nav class="header__menu">
                 <div class="header__menu-top">
-                    <a href="<?php echo $menu[2]['link_name']; ?>" class="header__link" data-lang="eng"><?php echo $menu[0]['name_eng']; ?></a>
-                    <a href="<?php echo $menu[2]['link_name']; ?>" class="header__link" data-lang="ua"><?php echo $menu[0]['name_ua']; ?></a>
+                    <a href="<?php echo $menu[2]['link_name']; ?>" class="header__link" ><?php echo $menu[0][translator('name_eng', 'name_ua')]; ?></a>
                 </div>
                 <ul class="header__list">
                     <li class="header__link--current">
-                        <a href="<?php echo $menu[0]['link_name']; ?>" class="header__link">
-                            <span data-lang="eng"><?php echo $menu[0]['name_eng']; ?></span>
-                            <span data-lang="ua"><?php echo $menu[0]['name_ua']; ?></span>
-                        </a>
+                        <a href="<?php echo $menu[0]['link_name']; ?>" class="header__link"><?php echo $menu[0][translator('name_eng', 'name_ua')]; ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo $menu[1]['link_name']; ?>" class="header__link">
-                            <span data-lang="eng"><?php echo $menu[1]['name_eng']; ?></span>
-                            <span data-lang="ua"><?php echo $menu[1]['name_ua']; ?></span>
-                        </a>
+                        <a href="<?php echo $menu[1]['link_name']; ?>" class="header__link"><?php echo $menu[1][translator('name_eng', 'name_ua')]; ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo $menu[3]['link_name']; ?>" class="header__link">
-                            <span data-lang="eng"><?php echo $menu[3]['name_eng']; ?></span>
-                            <span data-lang="ua"><?php echo $menu[3]['name_ua']; ?></span>
-                        </a>
+                        <a href="<?php echo $menu[3]['link_name']; ?>" class="header__link"><?php echo $menu[3][translator('name_eng', 'name_ua')]; ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo $menu[4]['link_name']; ?>" class="header__link">
-                            <span data-lang="eng"><?php echo $menu[4]['name_eng']; ?></span>
-                            <span data-lang="ua"><?php echo $menu[4]['name_ua']; ?></span>
-                        </a>
+                        <a href="<?php echo $menu[4]['link_name']; ?>" class="header__link"><?php echo $menu[4][translator('name_eng', 'name_ua')]; ?></a>
                     </li>
                 </ul>
             </nav>
@@ -77,8 +84,7 @@
             <div class="title">
                   <!-- add to background style team_title_media_1 team_title_media_2 -->
                 <div class="title__pic" style="background: url(<?= CFS()->get('team_left_gif')?>) 60% 50% no-repeat; background-size: 100%;"></div>
-                <div data-lang="eng" class="title__text"><?= CFS()->get('team_title_eng')?></div>
-                <div data-lang="ua" class="title__text"><?= CFS()->get('team_title_ua')?></div>
+                <div  class="title__text"><?= CFS()->get('team_title_' . translator('eng', 'ua'))?></div>
                 <div class="title__pic" style="background: url(<?= CFS()->get('team_right_gif')?>) 60% 50% no-repeat; background-size: 100%;"></div>
             </div>
 
@@ -119,10 +125,7 @@
                             </div>
                         </div>
                         <div class="team__gif" style = "transform: scale(<?= $p['gif_style_scale']?>) translate(<?= $p['gif_style_position']?>)"><img src="<?= $p['gif']?>" alt="gif"></div>
-                        <div class="team__name">
-                            <span data-lang="eng"><?= $p['card_name_eng']?></span>
-                            <span data-lang="ua"><?= $p['card_name_ua']?></span>
-                        </div>
+                        <div class="team__name"><?= $p['card_name_'. translator('eng', 'ua')]?></div>
                     </div>
                     <div class="team__back">
                         <div class="team__button">
@@ -156,8 +159,29 @@
                         </div>
                         <div class="inner">
                             <div class="team__info">
-                                <span data-lang="eng"><?= $p['card_description_eng']?></span>
-                                <span data-lang="ua"><?= $p['card_description_ua']?></span>
+                                <div class="team__title"><?= $p['team_cards-title_' . translator('eng', 'ua')];?></div>
+                                <div class="team__params">
+                                    <?php 
+                                        $params = explode('<br />' ,$p['levels_' . translator('eng', 'ua')]);
+                                        foreach($params as $_param) {
+                                            $param = explode(':', $_param);
+                                    ?>
+                                    <div class="team__params-item">
+                                        <div class="name"><?= $param[0] . ': ' ?></div>
+                                        <div class="level"> 
+                                            <?php 
+                                                for($i = 0; $i < intval($param[1]); $i++) {
+                                            ?>
+                                            <div></div>
+                                            <?php 
+                                                }   
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <?php 
+                                        }   
+                                    ?>
+                                </div>
                             </div>
                             <div class="container">
                                 <div class="team__link"><a href="<?= $p['card_instagram_link']?>">Instagram</a></div>
@@ -175,19 +199,12 @@
                     $items = CFS()->get('team_bot_texts');
                     foreach($items as $p) {
                 ?>
-                    <div class="content__text" style="color: <?= $p['text_color'];?>">
-                        <span data-lang="eng"><?= $p['text_eng'];?></span>
-                        <span data-lang="ua"><?= $p['text_ua'];?></span>
-                    </div>
+                    <div class="content__text" style="color: <?= $p['text_color'];?>"><?= $p['text_' . translator('eng', 'ua')];?></div>
                 <?php       
                     }
                 ?>    
             </div>
-            <!--find a solution to the problem with the pop-up window -->
-            <span class="btn" id="dialog-open-button">
-                <span data-lang="eng"><?= CFS()->get('open_button_text_eng');?></span>
-                <span data-lang="ua"><?= CFS()->get('open_button_text_ua');?></span>
-            </span>
+            <span class="btn" id="dialog-open-button"><?= CFS()->get('open_button_text_' . translator('eng', 'ua'));?></span>
         </section>
         
     </div>
@@ -200,66 +217,44 @@
             </div>
             <form name="letter" method="post">
                 <?php
-                    $text_eng = CFS()->get('form_text_eng');
-                    $text_ua = CFS()->get('form_text_ua');
+                    $text = CFS()->get('form_text_' . translator('eng', 'ua'));
                     $input_option = CFS()->get('form_option');
 
-                    $text_eng_arr = explode('_', $text_eng);
-                    $text_ua_arr = explode('_', $text_ua);
+                    $text_arr = explode('_', $text);
                 ?>
-                <span class="app-dialog__message">
-                    <span data-lang="eng"><?= $text_eng_arr[0]?></span>
-                    <span data-lang="ua"><?= $text_ua_arr[0]?></span>
-                </span>
+                <span class="app-dialog__message"><?= $text_arr[0]?></span>
                 <label for="fullname">
                     <div class="placeholder">input your full name</div>
                     <input type="text" name="fullname" id="fullname" required><span class="error"></span>
                 </label>
-                <span class="app-dialog__message">
-                    <span data-lang="eng"><?= $text_eng_arr[1]?></span>
-                    <span data-lang="ua"><?= $text_ua_arr[1]?></span>
-                </span>
+                <span class="app-dialog__message"><?= $text_arr[1]?></span>
                 <label for="vacancy">
                     <div class="placeholder"></div>
                     <!-- <input type="email" name="email" id="email" required> -->
                     <select name="vacancy" id="vacancy" required>
-                        <option value="" ></option>
                     <?php 
                     $options = CFS()->get('form_option');
                     foreach($options as $option) {
                 ?>
-                    <option data-lang="eng" value="<?= $option['eng']?>"><?= $option['eng']?></option>
-                    <option data-lang="ua" value="<?= $option['ua']?>"><?= $option['ua']?></option>
+                    <option  value="<?= $option[translator('eng', 'ua')]?>"><?= $option[translator('eng', 'ua')]?></option>
                 <?php       
                     }
                 ?>  
                     </select><span class="error"></span>
                 </label>
-                <span class="app-dialog__message"> 
-                    <span data-lang="eng"><?= $text_eng_arr[2]?></span>
-                    <span data-lang="ua"><?= $text_ua_arr[2]?></span>
-                </span>
+                <span class="app-dialog__message"> <?= $text_arr[2]?></span>
                 <label for="cv">
                     <div class="placeholder">input link to your CV</div>
                     <input type="text" name="cv" id="cv" required><span class="error"></span>
                 </label>
-                <span class="app-dialog__message">
-                <span data-lang="eng"><?= $text_eng_arr[3]?></span>
-                    <span data-lang="ua"><?= $text_ua_arr[3]?></span>
-                </span>
+                <span class="app-dialog__message"><?= $text_arr[3]?></span>
                 <label for="phone">
                     <div class="placeholder">input your phone number</div>
                     <input type="tel" name="phone" id="phone" ><span class="error"></span>
                 </label>
-                <span class="app-dialog__message">
-                    <span data-lang="eng"><?= $text_eng_arr[4]?></span>
-                    <span data-lang="ua"><?= $text_ua_arr[4]?></span>
-                </span>
-                <label data-lang="eng" for="button">
-                    <input type="submit" value="<?= $text_eng_arr[5]; ?>" id="button">
-                </label>
-                <label data-lang="ua" for="button">
-                    <input type="submit" value="<?= $text_ua_arr[5]; ?>" id="button">
+                <span class="app-dialog__message"><?= $text_arr[4]?></span>
+                <label  for="button">
+                    <input type="submit" value="<?= $text_arr[5]; ?>" id="button">
                 </label>
                 <h2 id="message"></h2>
               </form>

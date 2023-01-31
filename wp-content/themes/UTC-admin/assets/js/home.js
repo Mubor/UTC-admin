@@ -1,12 +1,5 @@
 import menuActivator from "./lib/menu";
 import Typed from "typed.js";
-import generate from "./lib/generate";
-import { translatePage } from "./lib/translator";
-
-const typeText = document.getElementById('type-source').innerHTML;
-const isLooped = JSON.parse(document.getElementById('type-loop').innerHTML);
-let typeAnimation;
-let animationCanStart = true;
 
 const initTypeAnimation = (typeText, isLooped = true) => {
     return new Typed('#type-container', {
@@ -19,20 +12,21 @@ const initTypeAnimation = (typeText, isLooped = true) => {
     });
 }
 
-
 // start/destroy animation when browser size is desktop/mobile width
-if (document.documentElement.clientWidth > 830) {
-    typeAnimation = initTypeAnimation(typeText, isLooped)
-    typeAnimation.start();
-    animationCanStart = false;
-} else {
-    if(typeAnimation) {
-        typeAnimation.destroy();
+const typeAnimationOnPageLoad = () => {
+    if (document.documentElement.clientWidth > 830) {
+        typeAnimation = initTypeAnimation(typeText, isLooped)
+        typeAnimation.start();
+        animationCanStart = false;
+    } else {
+        if(typeAnimation) {
+            typeAnimation.destroy();
+        }
     }
 }
 
 // start/destroy animation when browser resized to desktop/mobile width
-window.addEventListener('resize', () => {
+const typeAnimationOnPageResize = () => {
     if(document.documentElement.clientWidth <= 831 && typeAnimation) {
         if(typeAnimation) {
             typeAnimation.destroy();
@@ -44,20 +38,9 @@ window.addEventListener('resize', () => {
         typeAnimation.start();
         animationCanStart = false;
     }
-});
+}
 
-//generate random teammate from sample after reload
-//menu activate
-menuActivator('menu-button', 'header');
-
-//language switchers 
-
-const uaButton = document.getElementById('ua');
-const engButton = document.getElementById('eng');
-const currentLang = localStorage.getItem('lang') || 'eng';
-
-const langButton = document.getElementById(currentLang);
-
+// LANGUAGE BUTTON FUNCTIONS
 const resetActiveClass = (buttons,activeClass) => {
     buttons.forEach((elem) => {
         elem.classList.remove(activeClass);
@@ -75,21 +58,54 @@ const changeLang = (e) => {
     resetActiveClass([...document.querySelectorAll(itemClass)], activeClass);
     e.target.closest(itemClass).classList.add(activeClass);
     localStorage.setItem('lang', e.target.id);
-    translatePage('home', e.target.id)
-    console.log(currentLang)
+    document.cookie = 'lang=' + localStorage.getItem('lang');
+    location.reload();
 }
 
-uaButton.onclick = changeLang;
-engButton.onclick = changeLang;
+//changing team text position when secondary language is active
 
+const changeTeamPosition = (lang) => {
+    if( lang === 'ua' ) {
+        if(window.innerWidth > 830) {
+            team.classList.add('team--ua');
+        }
+    }
+    team.style.visibility = 'visible';
+}
+
+const typeText = document.getElementById('type-source').innerHTML;
+const isLooped = JSON.parse(document.getElementById('type-loop').innerHTML);
+let typeAnimation;
+let animationCanStart = true;
+
+const uaButton = document.getElementById('ua');
+const engButton = document.getElementById('eng');
+const currentLang = localStorage.getItem('lang') || 'eng';
+document.cookie = 'lang=' + currentLang;
+const langButton = document.getElementById(currentLang);
+
+const team = document.getElementById('team');
+
+const jsLoad = () => {
+    changeTeamPosition(currentLang);
+    menuActivator('menu-button', 'header');
+    langButton.closest('.language__elem').classList.add('language__elem--current');
+    typeAnimationOnPageLoad();
+    
+    engButton.onclick = changeLang;
+    uaButton.onclick = changeLang;
+    window.addEventListener('resize', () => {
+        typeAnimationOnPageResize();
+
+        if( window.innerWidth > 830 && currentLang === 'ua' ) {
+            team.classList.add('team--ua');
+        }
+        else if (window.innerWidth <= 830) {
+            team.classList.remove('team--ua');
+        }
+    });
+}
 
 window.onload = () => {
-    // insertTeamItem();
-    console.log(langButton);
-    langButton.closest('.language__elem').classList.add('language__elem--current');
-
-    if(currentLang !== 'eng') {
-        translatePage('home', currentLang);
-    }
-    
+    jsLoad();
 }

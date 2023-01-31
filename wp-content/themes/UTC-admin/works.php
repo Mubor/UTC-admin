@@ -5,6 +5,11 @@
     get_header();
     include 'header.php';
     $menu = array_reverse($header_values);
+
+    function translator($engText, $uaText) {
+        $lang = $_COOKIE['lang'];
+        return ($lang=='eng') ? $engText : $uaText;
+    }
 ?>
 <style>
     .message {
@@ -24,12 +29,10 @@
                     <i class="header__mobile-hidden">~</i>
                     <span class="header__mobile-hidden">$</span>
                     <span class="header__text">
-                        <a href="<?php echo $menu[0]['link_name']; ?>" class="header__link" data-lang="eng"><?php echo $menu[0]['name_eng']; ?></a>
-                        <a href="<?php echo $menu[0]['link_name']; ?>" class="header__link" data-lang="ua"><?php echo $menu[0]['name_ua']; ?></a>
+                        <a href="<?php echo $menu[0]['link_name']; ?>" class="header__link"><?php echo $menu[0][translator('name_eng', 'name_ua')]; ?></a>
                     </span>
                     ->
-                    <a href="<?php echo $menu[1]['link_name']; ?>" class="header__link" data-lang="eng"><?php echo $menu[1]['name_eng']; ?></a>
-                    <a href="<?php echo $menu[1]['link_name']; ?>" class="header__link" data-lang="ua"><?php echo $menu[1]['name_ua']; ?></a>
+                    <a href="<?php echo $menu[1]['link_name']; ?>" class="header__link"><?php echo $menu[1][translator('name_eng', 'name_ua')]; ?></a>
                     <span class="type-cursor">|</span>
                 </div>
                 <div class="header__menu-button">
@@ -41,33 +44,20 @@
             </div>
             <nav class="header__menu">
                 <div class="header__menu-top">
-                    <a href="<?php echo $menu[1]['link_name']; ?>" class="header__link" data-lang="eng"><?php echo $menu[1]['name_eng']; ?></a>
-                    <a href="<?php echo $menu[1]['link_name']; ?>" class="header__link" data-lang="ua"><?php echo $menu[1]['name_ua']; ?></a>
+                    <a href="<?php echo $menu[1]['link_name']; ?>" class="header__link"><?php echo $menu[1][translator('name_eng', 'name_ua')]; ?></a>
                 </div>
                 <ul class="header__list">
                     <li class="header__link--current">
-                        <a href="<?php echo $menu[0]['link_name']; ?>" class="header__link">
-                            <span data-lang="eng"><?php echo $menu[0]['name_eng']; ?></span>
-                            <span data-lang="ua"><?php echo $menu[0]['name_ua']; ?></span>
-                        </a>
+                        <a href="<?php echo $menu[0]['link_name']; ?>" class="header__link"><?php echo $menu[0][translator('name_eng', 'name_ua')]; ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo $menu[2]['link_name']; ?>" class="header__link">
-                            <span data-lang="eng"><?php echo $menu[2]['name_eng']; ?></span>
-                            <span data-lang="ua"><?php echo $menu[2]['name_ua']; ?></span>
-                        </a>
+                        <a href="<?php echo $menu[2]['link_name']; ?>" class="header__link"><?php echo $menu[2][translator('name_eng', 'name_ua')]; ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo $menu[3]['link_name']; ?>" class="header__link">
-                            <span data-lang="eng"><?php echo $menu[3]['name_eng']; ?></span>
-                            <span data-lang="ua"><?php echo $menu[3]['name_ua']; ?></span>
-                        </a>
+                        <a href="<?php echo $menu[3]['link_name']; ?>" class="header__link"><?php echo $menu[3][translator('name_eng', 'name_ua')]; ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo $menu[4]['link_name']; ?>" class="header__link">
-                            <span data-lang="eng"><?php echo $menu[4]['name_eng']; ?></span>
-                            <span data-lang="ua"><?php echo $menu[4]['name_ua']; ?></span>
-                        </a>
+                        <a href="<?php echo $menu[4]['link_name']; ?>" class="header__link"><?php echo $menu[4][translator('name_eng', 'name_ua')]; ?></a>
                     </li>
                 </ul>
             </nav>
@@ -75,12 +65,7 @@
         <section class="main">
            <div class="message">
                 <span class="message__pic"><?= $media_content; ?></span>
-                <span class="message__content" data-lang="eng">
-                    <?php the_field('works_title_text_eng');?>
-                </span>
-                <span class="message__content" data-lang="ua">
-                    <?php the_field('works_title_text_ua');?>
-                </span>
+                <span class="message__content"><?php the_field('works_title_text_' . translator('eng', 'ua'));?></span>
                 <span class="message__pic"><?= $media_content; ?></span>
             </div>
             <div class="grid">
@@ -102,21 +87,9 @@
                 <div class="grid__gutter-sizer"></div>
             </div>
             <div class="message message--bottom">
-                <span data-lang="eng">
-                    <?php the_field('works_bottom_text_eng');?>
-                </span>
-                <span data-lang="ua">
-                    <?php the_field('works_bottom_text_ua');?>
-                </span>
+                <?php the_field('works_bottom_text_' . translator('eng', 'ua'));?>
             </div>
-           <a class="btn" href="<?php the_field('works_button_link');?>">
-                <span data-lang="eng">
-                    <?php the_field('works_button_name_eng');?>
-                </span>
-                <span data-lang="ua">
-                    <?php the_field('works_button_name_ua');?>
-                </span>
-            </a>
+           <a class="btn" href="<?php the_field('works_button_link');?>"><?php the_field('works_button_name_' . translator('eng', 'ua'));?></a>
         </section>
         
     </div>

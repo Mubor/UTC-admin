@@ -1,5 +1,4 @@
 $shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
-
 .main {
     text-transform: uppercase;
 }
@@ -19,7 +18,6 @@ $shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px
     justify-content: center;
     padding-top: 4%;
     margin-bottom: 4%;
-    // padding: 0 8%;
     font-size: 5.55vw;
     font-family: Montserrat;
 
@@ -69,7 +67,7 @@ $shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px
         top:0;
         left:0; 
         width: 100%;
-        height:100%;
+        height: 100%;
         box-shadow: $shadow;
         z-index: 1;
     }
@@ -83,6 +81,7 @@ $shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px
         min-height: 0;
         transition: min-height .3s;
         background-color: black;
+        color: white;
         z-index: 1;
 
         & * {
@@ -102,15 +101,37 @@ $shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px
         }
     }
 
-    &__back {
-        color: white;
-        background-color: black;
+    &__front { 
+        height: 100%;
     }
 
-    &__front { height: 100%;
-        // background-color: white;
+    &__title {
+        margin-bottom: 2%;
+        text-align: center;
+    }
+
+    &__params-item {
+        display: flex;
+        padding: 3% 0;
+
+        &>.name {
+            padding-right: .2vw;
+        }
     }
     
+    .level {
+        display: flex;
+
+        &>* {
+            margin-right: 3px;
+            width: 0.35vw;
+            height: .7vw;   
+            border-radius: 1px;
+            transform: translate(0, 20%);
+        }
+
+    }
+
     &__button {
         position: absolute;
         top: 0;
@@ -121,8 +142,7 @@ $shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px
         padding-top: 3%;
         font-size: 1.11vw;
         z-index: 1;
-        // background-color: transparent;
-        
+
         & > div {
             position: relative;
             padding: 2%;
@@ -173,69 +193,70 @@ $shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px
             
         }
     }
+
     
     
-    &__item:nth-child(1) &__gif {
-        background: url('../media/team/volodymyr.jpg') 50% 60% no-repeat !important;
-        background-size: 100%;
+    // &__item:nth-child(1) &__gif {
+    //     background: url('../media/team/volodymyr.jpg') 50% 60% no-repeat !important;
+    //     background-size: 100%;
         
-        // &>img {
-        //     transform: scale(1);
-        // }
-    }
-    &__item:nth-child(2) &__gif {
-        background: url('../media/team/oleksandr-static.png') 50% 40% no-repeat;
-        background-size: 70%;
+    //     // &>img {
+    //     //     transform: scale(1);
+    //     // }
+    // }
+    // &__item:nth-child(2) &__gif {
+    //     background: url('../media/team/oleksandr-static.png') 50% 40% no-repeat;
+    //     background-size: 70%;
         
-        &>img {
-            transform: scale(1.1) translate(3%, -2%);
-        }
-    }
-    &__item:nth-child(3) &__gif {
-        background: url('../media/team/sonya-static.jpg') 39% 100% no-repeat;
-        background-size: 140%; 
+    //     &>img {
+    //         transform: scale(1.1) translate(3%, -2%);
+    //     }
+    // }
+    // &__item:nth-child(3) &__gif {
+    //     background: url('../media/team/sonya-static.jpg') 39% 100% no-repeat;
+    //     background-size: 140%; 
         
-        &>img {
-            transform: scale(0.95) translate(0, 5%);
-        }
-    }
-    &__item:nth-child(4) &__gif {
-        background: url('../media/team/hidden-static.png') 20% 50% no-repeat;
-        background-size: 80%;    
+    //     &>img {
+    //         transform: scale(0.95) translate(0, 5%);
+    //     }
+    // }
+    // &__item:nth-child(4) &__gif {
+    //     background: url('../media/team/hidden-static.png') 20% 50% no-repeat;
+    //     background-size: 80%;    
 
-        & > img {
-            transform: scale(1.07) translate(0, 2%);
-        }    
-    }
-    &__item:nth-child(5) &__gif {
-        // background: url('../media/team/volodymyr-static.png') 50% 50% no-repeat;
-        // background-size: 85%;    
-    }
-    &__item:nth-child(6) &__gif {
-        background: url('../media/team/sasha-static.jpg') 50% -10% no-repeat;
-        background-size: 90%;    
+    //     & > img {
+    //         transform: scale(1.07) translate(0, 2%);
+    //     }    
+    // }
+    // &__item:nth-child(5) &__gif {
+    //     // background: url('../media/team/volodymyr-static.png') 50% 50% no-repeat;
+    //     // background-size: 85%;    
+    // }
+    // &__item:nth-child(6) &__gif {
+    //     background: url('../media/team/sasha-static.jpg') 50% -10% no-repeat;
+    //     background-size: 90%;    
 
-        & > img {
-            transform: scale(1) translate(0, -5%);
-        }
-    }
-    &__item:nth-child(7) &__gif {
-        background: url('../media/team/hidden-static.png') 20% 50% no-repeat;
-        background-size: 80%;    
+    //     & > img {
+    //         transform: scale(1) translate(0, -5%);
+    //     }
+    // }
+    // &__item:nth-child(7) &__gif {
+    //     background: url('../media/team/hidden-static.png') 20% 50% no-repeat;
+    //     background-size: 80%;    
 
-        & > img {
-            transform: scale(1.07) translate(0, 2%);
-        }
-    }
-    &__item:nth-child(8) &__gif {
-        background: url('../media/team/oksana.jpg') 50% -100% no-repeat;
-        background-size: 120%;    
-        height: 21vw;
+    //     & > img {
+    //         transform: scale(1.07) translate(0, 2%);
+    //     }
+    // }
+    // &__item:nth-child(8) &__gif {
+    //     background: url('../media/team/oksana.jpg') 50% -100% no-repeat;
+    //     background-size: 120%;    
+    //     height: 21vw;
 
-        &>img {
-            transform: scale(1.2) translate(0, 16%);
-        }
-    }
+    //     &>img {
+    //         transform: scale(1.2) translate(0, 16%);
+    //     }
+    // }
     
     
     &__gif {
@@ -263,7 +284,7 @@ $shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px
     }
     
     &__info{
-        padding: 0 6%;
+        padding: 0 11%;
         margin-top: 30%;
         text-align: center;
         font-size: 0.83vw;
@@ -345,6 +366,12 @@ $shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px
 }
 
 
+@media screen and (max-width: 1500px) {
+    .team__params-item > .level > * {
+        margin-right: 2px;
+    }
+}
+
 @media screen and (max-width: 830px) {
     .title {
         padding: 6% 5% 0;
@@ -386,6 +413,23 @@ $shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px
             font-size: 4.26vw;
         }
 
+        & .level {
+            display: flex;
+    
+            &>* {
+                margin-right: 2px;
+                width: 1.066vw;
+                height: 2.4vw;
+                transform: translate(0, 30%);
+            }
+        }
+
+    
+        & &__params-item>.name {
+            padding-right: .4vw;
+        }
+        
+        
         &__name {
             font-size: 5.33vw;
         }

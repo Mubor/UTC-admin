@@ -24,7 +24,6 @@
   border-radius: 8px;
   font-size: 1.6vw;
   z-index: 10;
-  background-color: black;
   color: white;
 }
 
@@ -97,10 +96,6 @@ input[type="submit"] {
   text-decoration: underline;
 }
 
-input[type="datetime-local"] {
-  color: black;
-}
-
 #close-button {
   padding: 1% 2%;
 }
@@ -135,9 +130,6 @@ input[type="datetime-local"] {
   }
   .app-dialog__message {
     display: none;
-  }
-  form {
-    color: black;
   }
   label, input, .placeholder, select {
     display: block;

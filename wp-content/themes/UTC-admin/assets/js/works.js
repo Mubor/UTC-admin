@@ -3,6 +3,7 @@ import Masonry from "masonry-layout";
 import { translatePage } from "./lib/translator";
 
 const currentLang = localStorage.getItem('lang');
+document.cookie = 'lang=' + currentLang;
 
 menuActivator('menu-button', 'header');
 

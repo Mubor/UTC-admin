@@ -132,8 +132,6 @@ u {
           justify-content: space-between;
   padding: 1.2% 1.5%;
   font-size: 1.7vw;
-  background-color: black;
-  color: #B2B2B2;
   z-index: 4;
 }
 
@@ -280,12 +278,8 @@ u {
     margin-left: 0%;
   }
   .header__menu .header__link {
-    color: #4AE54B;
     font-size: 12.8vw;
     letter-spacing: normal;
-  }
-  .header__menu .header__link:hover {
-    color: #E46D29;
   }
   .header__menu .header__link--current {
     display: block;

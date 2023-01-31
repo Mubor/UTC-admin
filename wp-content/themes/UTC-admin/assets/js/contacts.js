@@ -9,6 +9,8 @@ const closeButton = document.getElementById('close-button');
 const appDialog = document.getElementById('dialog');
 const form = document.forms.data;
 const currentLang = localStorage.getItem('lang');
+document.cookie = 'lang=' + currentLang;
+console.log(document.cookie);
 
 appDialog.hidden = true;
 
@@ -60,7 +62,8 @@ form.addEventListener('submit', async (e) => {
     await response.json();
 
     if(response.status === 200) {
-        localStorage.setItem('formOpenAccess', false);
+        // localStorage.setItem('formOpenAccess', false);
+        document.cookie = 'formOpenAccess=0'
         window.location = calendarURL;
     }
     else {

@@ -1,6 +1,5 @@
 @import '../modalWindow/modal.scss';
 
-
 body {
     position: relative;
 }
@@ -15,7 +14,6 @@ html {
     display: none !important;
 }
 
-
 .main {
     position: relative;
     font-size: 3.628vh;
@@ -27,7 +25,11 @@ html {
     word-spacing: -10px;
 }
 
-.contacts .keytext {
+.info b {
+    padding: 0;
+}
+
+.contacts b {
     padding: 0 1% 1%;
     padding-bottom: 1%;
     word-spacing: 4px;
@@ -35,12 +37,11 @@ html {
 
 .contacts {
     margin: 6vh auto 0;
-    // width: 158vh;
     width: 97%;
     justify-content: space-between;
     
     &__item {
-        width: 30%;
+        width: 40%;
     }
     
     &__item:last-child{
@@ -59,7 +60,6 @@ html {
         font-family: Montserrat;
         margin-bottom: 4%;
     }
-    
 }
 
 .info {
@@ -125,12 +125,42 @@ html {
     width: 6vw;
 }
 
+@media screen and(max-width:1085px) {
+    .main {
+        font-size: 2.8vw;
+    }
+    .info {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .info__media {
+        text-align: center;
+        width: 100%;
+        height: 50vw;
+        overflow: hidden;
+        overflow-x: scroll !important;
+        &::-webkit-scrollbar{
+            display: none;
+        }
+        
+            &>img{
+                width:max-content;
+                height: 100%;
+            }
+    }
 
+    .info__button {
+        font-size: 2.5vw;
+    }
 
+    .info__pic {
+        width: 8%;
+    }
+}
 
 @media screen and(max-width:830px) {
     .main{
-        font-size: 24px;
+        font-size: 6.4vw;
         height: max-content;
         padding-bottom: 25%;
     }
@@ -142,28 +172,27 @@ html {
         
         &__title, &__text{
             text-align: center;
-            // margin-top: 7%;
         }
-
+        
         &__text{
             margin-top: 5%;
         }
-
+        
         &__title{
             margin-top: 4%;
         }
-
-        &__title>.keytext{
+        
+        &__title>b{
             padding: 1%;
             word-spacing: normal;
         }
-
+        
         &__item{
             margin-bottom: 8%;
             width: 100%;
         }
     }
-
+    
     .info{
         width: 100%;
         margin: 0 auto;
@@ -173,46 +202,36 @@ html {
             width: 90%;
             margin-bottom: 4%;
             line-height: 1.2;
-
+            
             &:first-child{
                 background-color: #4AE64B;
             }
-
-            &>.keytext{
+            
+            &>b{
                 word-spacing: 9px !important;
             }
         }
-
         
-
+        
+        
         &__media{
             margin-top: 11%;
-            text-align: center;
-            width: 100%;
-            overflow: hidden;
-            overflow-x: scroll;
-            &::-webkit-scrollbar{
-                display: none;
-            }
-
-            &>img{
-                width: unset;
-            }
+            height: 99.46vw;
         }
-
+        
         &__button{
             padding: 3% 0;
             justify-content: center;
             width: 70%;
-            font-size: 16px;
+            font-size: 4.26vw;
             top: 90%;
         }
-
+        
         &__pic {
             width: 6%;
         }
     }
-
+    
     .face {
         width: 15vw;
         bottom: -2.5%;

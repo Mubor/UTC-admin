@@ -58,8 +58,8 @@ u {
     justify-content: space-between;
     padding: 1.2% 1.5%;
     font-size: 1.7vw;
-    background-color: black;
-    color: #B2B2B2;
+    // background-color: black;
+    // color: #B2B2B2;
     z-index: 4;
 
     &__menu--homepage, 
@@ -215,14 +215,14 @@ u {
 
         
         &__menu &__link {
-            color: #4AE54B;
+            // color: #4AE54B;
             font-size: 12.8vw;
             // font-size: 48px;
             letter-spacing: normal;
 
-            &:hover {
-                color: #E46D29;
-            }
+            // &:hover {
+            //     color: #E46D29;
+            // }
 
             &--current {
                 display: block;

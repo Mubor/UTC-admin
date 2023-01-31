@@ -132,8 +132,6 @@ u {
           justify-content: space-between;
   padding: 1.2% 1.5%;
   font-size: 1.7vw;
-  background-color: black;
-  color: #B2B2B2;
   z-index: 4;
 }
 
@@ -280,12 +278,8 @@ u {
     margin-left: 0%;
   }
   .header__menu .header__link {
-    color: #4AE54B;
     font-size: 12.8vw;
     letter-spacing: normal;
-  }
-  .header__menu .header__link:hover {
-    color: #E46D29;
   }
   .header__menu .header__link--current {
     display: block;
@@ -326,15 +320,11 @@ pre {
   width: 82%;
   margin: auto;
   text-align: center;
+  overflow: hidden;
 }
 
 .team__media > img {
   width: 100%;
-}
-
-.team__media > img[src="media/team3.gif"] {
-  -webkit-transform: scale(1.2, 1.3);
-          transform: scale(1.2, 1.3);
 }
 
 .team__message {
@@ -351,6 +341,49 @@ pre {
 
 .team__message > .team__container {
   display: none;
+}
+
+.team.team--ua > .team__message {
+  position: static;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.team.team--ua > .team__media, .team.team--ua .team__picture {
+  display: none;
+}
+
+.team.team--ua .team__text {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 1.8vw;
+}
+
+.team.team--ua .team__container {
+  display: block;
+  width: 100%;
+}
+
+.team.team--ua .team__container > .team__media {
+  width: 57%;
+}
+
+.team.team--ua .team__container > .team__media > img {
+  width: 100%;
 }
 
 .language {

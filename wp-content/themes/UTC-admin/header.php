@@ -12,6 +12,11 @@
 
         /* HEADER COLOR STYLES */
 
+        .header {
+            background-color: <?php the_field('header_color')?>;
+            color: <?php the_field('terminal_color')?>;
+        }
+
         .header__logo > a {
             color: <?php the_field('logo_color')?>;
         }
@@ -102,15 +107,34 @@
             color: <?php the_field('language_current_color')?>
         }
 
+        .footer {
+            background-color: <?php the_field('footer_backcolor')?>
+        }
+
+        .footer__body::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: <?php the_field('footer_backcolor')?>;
+            z-index: 2;
+        }
+
         .footer a {
-            color: <?php the_field('footer_color')?>
+            color: <?php the_field('footer_color')?>;
         }
         .footer a:hover {
-            color: <?php the_field('footer_color_hover')?>
+            color: <?php the_field('footer_color_hover')?>;
         }
         /* MODAL WINDOW FORM */
+
+        .app-dialog__body, input, select {
+            background-color: <?= CFS()->get('form_backcolor')?>; 
+        }
         .app-dialog__message, input, select {
-            color: <?= CFS()->get('form_text_color')?>;
+            color: <?= CFS()->get('form_text_color')?>; 
         }
         .placeholder {
             color: <?= CFS()->get('form_placeholder_color')?>;
@@ -121,16 +145,21 @@
         input[type="datetime-local"]:focus {
             color: <?= CFS()->get('form_text_color')?> !important;
         }
-
+        input[type="datetime-local"] {
+            color: <?= CFS()->get('form_backcolor')?> !important;
+        }
         #close-button {
             color: <?= CFS()->get('form_close-button_color')?>;
-        }
+        }   
         input[type="submit"] {
             color: <?= CFS()->get('form_submit-button_color')?>;
         }
 
     </style>
-    <?php wp_head(); ?>
+    <?php wp_head(); 
+    
+    
+    ?>
     
 </head>
 <body>
