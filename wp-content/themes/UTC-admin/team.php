@@ -3,6 +3,7 @@
  * Template Name: team
  */
 
+
     include __DIR__ . '/classes/backend/app_gmail.php';
     get_header();
     include 'header.php';
@@ -216,6 +217,7 @@
                 <button id="close-button" data-lang="form-close">CLOSE</button>
             </div>
             <form name="letter" method="post" action="">
+            <form name="letter" method="post" action="">
                 <?php
                     $text = CFS()->get('form_text_' . translator('eng', 'ua'));
                     $input_option = CFS()->get('form_option');
@@ -230,7 +232,6 @@
                 <span class="app-dialog__message"><?= $text_arr[1]?></span>
                 <label for="vacancy">
                     <div class="placeholder"></div>
-                    <!-- <input type="email" name="email" id="email" required> -->
                     <select name="vacancy" id="vacancy" required>
                     <?php 
                     $options = CFS()->get('form_option');
@@ -252,6 +253,7 @@
                 <span class="app-dialog__message"><?= $text_arr[3]?></span>
                 <label for="phone">
                     <div class="placeholder">input your phone number</div>
+                    <input type="tel" name="phone" id="phone" required><span class="error"></span>
                     <input type="tel" name="phone" id="phone" required><span class="error"></span>
                 </label>
                 <span class="app-dialog__message"><?= $text_arr[4]?></span>
