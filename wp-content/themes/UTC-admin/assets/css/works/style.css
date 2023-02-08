@@ -101,6 +101,10 @@ a {
   display: unset;
 }
 
+*[data-lang="ua"] {
+  display: none;
+}
+
 html {
   font-size: 10px;
 }
@@ -494,7 +498,7 @@ u {
   }
   .grid .grid__item--middlewidth,
   .grid .grid__item--maxwidth {
-    width: 95vw;
+    width: 45.834vw;
   }
   .grid .grid__item--middlewidth:first-child,
   .grid .grid__item--maxwidth:first-child {
@@ -523,6 +527,10 @@ u {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
   margin: 0 auto;
   padding: 1.7vh;
   width: 60%;

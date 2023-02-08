@@ -29,8 +29,6 @@ const appDialog = document.getElementById('dialog');
 const openButton = document.getElementById('dialog-open-button');
 const closeButton = document.getElementById('close-button');
 
-const currentLang = localStorage.getItem('lang');
-document.cookie = 'lang=' + currentLang;
 
 const buttons = document.querySelectorAll('.team__button');
 const rect = [...document.querySelectorAll('.team__params-item > .level > *')];

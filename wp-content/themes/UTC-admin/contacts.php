@@ -4,31 +4,24 @@
  */ 
     ob_start();
     include __DIR__ . '/classes/backend/app_calendar.php';
- */ 
-    ob_start();
-    include __DIR__ . '/classes/backend/app_calendar.php';
     get_header();
     include 'header.php';
+    include 'translating.php';
     $menu = array_reverse($header_values);
-    
-    function translator($engText, $uaText) {
-        $lang = $_COOKIE['lang'];
-        return ($lang=='eng') ? $engText : $uaText;
-    }
-    
 ?>
 <style>
     .info__text {
         color: <?= CFS()->get('info_text_color')?>
     }
 </style> 
+</head>
+<body>
 <div class="wrapper">
         <header class="header df">
             <div class="header__body df">
                 <div id="type-source"></div>
                 <div id="type-loop">true</div>
                 <div class="header__logo header__logo--path">
-                    <a href="<?= $menu[0]['link_name']; ?>">utc@film</a><span class="header__mobile-hidden">:</span>
                     <a href="<?= $menu[0]['link_name']; ?>">utc@film</a><span class="header__mobile-hidden">:</span>
                     <i class="header__mobile-hidden">~</i>
                     <span class="header__mobile-hidden">$</span>
@@ -152,10 +145,9 @@
         <div class="app-dialog__body">
             <div class="container">
                 <!-- <div class="title">set up a meeting</div> -->
-                <button id="close-button" data-lang="form-close">CLOSE</button>
+                <button id="close-button"><?= translator('CLOSE', 'ЗАКРИТИ')?></button>
             </div>
-            <form name="data" method="post" data-lang="form-text" action="">
-            <form name="data" method="post" data-lang="form-text" action="">
+            <form name="data" method="post" action="">
                 <?php
                     $text = CFS()->get('form_text_'. translator('eng', 'ua'));
                     $input_option = CFS()->get('form_option');
@@ -166,36 +158,35 @@
                     <span data-lang="eng"><?= $text_arr[0]?></span>
                 </span>
                 <label for="fullname">
-                    <div class="placeholder">input your full name</div>
-                    <input type="text" name="fullname" id="fullname" required>
+                    <input type="text" name="fullname" id="fullname" value="" required>
+                    <div class="placeholder"><?= translator('input your full name', 'введіть повне ім\'я')?></div>
                 </label>
                 <span class="app-dialog__message">
                     <span data-lang="eng"><?= $text_arr[1]?></span>
                 </span>
                 <label for="email">
-                    <div class="placeholder">input your email</div>
-                    <input type="email" name="email" id="email" required><span class="error"></span>
+                    <input type="email" name="email" id="email" value="" required><span class="error"></span>
+                    <div class="placeholder"><?= translator('input your email', 'введіть вашу пошту')?></div>
                 </label>
                 <span class="app-dialog__message">
                     <span data-lang="eng"><?= $text_arr[2]?></span>
                 </span>
                 <label for="phone">
-                    <div class="placeholder">input your phone number</div>
-                    <input type="tel" name="phone" id="phone" required><span class="error"></span>
-                    <input type="tel" name="phone" id="phone" required><span class="error"></span>
+                    <input type="tel" name="phone" id="phone" value="" required><span class="error"></span>
+                    <div class="placeholder"><?= translator('input your phone number', 'введіть номер телефону')?></div>
                 </label>
                 <span class="app-dialog__message">
                     <span data-lang="eng"><?= $text_arr[3]?></span>
                 </span>
                 <label for="time">
-                    <div class="placeholder">input date</div>
                     <input type="datetime-local" name="time" id="time" value="" required><span class="error"></span>
+                    <div class="placeholder"><?= translator('input date', 'введіть дату побачення')?></div>
                 </label>
                 <span class="app-dialog__message">
                     <span data-lang="eng"><?= $text_arr[4]?></span>
                 </span>
-                <label for="button" data-lang="eng">
-                    <input type="submit" value="<?= $text_arr[5]?>" id="button">
+                <label for="form_send">
+                    <input type="submit" name="form_send" value="<?= $text_arr[5]?>" id="button">
                 </label>
                 <h2 id="message"></h2>
                 <span class="app-dialog__message"></span>
@@ -218,7 +209,7 @@
                            // print_r("TY dolbaeb");
                            // print_r(date("Y-m-d\TH:i"));
                    } else {
-                       if(isset($_POST["btn_send_eng"]) || isset($_POST["btn_send_ua"]) ) {
+                       if(isset($_POST["form_send"])) {
                            $fullname = $_POST['fullname'];
                            $email     = $_POST['email'];
                            $phone     = $_POST['phone']; 
@@ -226,7 +217,6 @@
                         //    setcookie('eventSended' , '1', time()+3600); //3600
                            setcookie('eventSended2' , '1', time()+120);
                            send_calendar_event($fullname, $email, $phone,  $time);
-                        //    header('Location: https://calendar.google.com/calendar/u/0?cid=ODEwZmYzMTJiMjc2NDM2MjMyNmU3MzczNTRlMmY2MTNhZWFkODJkNDMzYWYzYzY5MzI5YzI3ZTFhNTc3Mzg0OEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t', true, 302);
                            echo '<script>window.location="https://calendar.google.com/calendar/u/0?cid=ODEwZmYzMTJiMjc2NDM2MjMyNmU3MzczNTRlMmY2MTNhZWFkODJkNDMzYWYzYzY5MzI5YzI3ZTFhNTc3Mzg0OEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"</script>'; 
                            
                        }
@@ -237,7 +227,7 @@
            }
             ob_end_flush();
 ?>  
-<?php       
+<!-- <?php       
            session_start();
            if (isset($_POST['token'])) {
                if ($_POST['token'] == $_SESSION['formToken']){
@@ -270,7 +260,7 @@
                }
            }
             ob_end_flush();
-?>  
+?>   -->
 <?php get_footer(); ?>
 
 </body>

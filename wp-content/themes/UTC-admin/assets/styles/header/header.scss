@@ -32,6 +32,9 @@
 *[data-lang="eng"] {
     display: unset;
 }
+*[data-lang="ua"] {
+    display: none;
+}
 
 html {
     font-size: 10px;

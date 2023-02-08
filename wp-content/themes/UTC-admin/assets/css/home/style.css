@@ -101,6 +101,10 @@ a {
   display: unset;
 }
 
+*[data-lang="ua"] {
+  display: none;
+}
+
 html {
   font-size: 10px;
 }
@@ -393,7 +397,7 @@ pre {
   margin: 0 auto;
   padding-bottom: 2.4%;
   font-family: Montserrat;
-  font-size: 4.5vh;
+  font-size: 2.5vmax;
   text-transform: uppercase;
 }
 
@@ -447,10 +451,6 @@ pre {
 }
 
 @media screen and (max-width: 830px) {
-  pre {
-    white-space: pre-line;
-    text-align: center;
-  }
   .nav {
     display: none;
   }
@@ -490,7 +490,7 @@ pre {
     position: static;
     padding: 5% 5% 0 5%;
     width: 100%;
-    font-size: 9.5vw;
+    font-size: 9.3vw;
     letter-spacing: normal;
     word-spacing: 15px;
     font-weight: 500;

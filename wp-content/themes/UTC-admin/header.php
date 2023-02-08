@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title><?= get_the_title()?></title>
+    <!-- <title><?php get_post_meta(get_the_ID(), 'post_name')?></title> -->
     <style> 
         html {
             background-color: <?php the_field('page_color')?>;
@@ -84,8 +85,8 @@
         b {
             font-family: AndaleMono;
             padding: 0 1%;
-            background-color: <?php the_field('keytext_background')?>;
-            color: <?php the_field('keytext_color')?>;
+            background-color: <?php the_field('keytext_background')?> !important;
+            color: <?php the_field('keytext_color')?> !important;
         }
 
         .team__text *:not(b ,i, u){
@@ -157,14 +158,11 @@
         }
 
     </style>
-    <?php wp_head(); 
     
-    
-    ?>
-    
-</head>
-<body>
     <?php
+
+
+         wp_head(); 
         //get pods fields for menu
             $pods = new Pod('menu_items');
             $pods->findRecords('id DESC', 114);

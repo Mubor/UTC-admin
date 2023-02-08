@@ -1,12 +1,11 @@
 import menuActivator from "./lib/menu";
 import Masonry from "masonry-layout";
-import { translatePage } from "./lib/translator";
+import { getCookie } from "./lib/cookies";
 
-const currentLang = localStorage.getItem('lang');
-document.cookie = 'lang=' + currentLang;
+// const currentLang = localStorage.getItem('lang');
+// document.cookie = 'lang=' + currentLang;
 
 menuActivator('menu-button', 'header');
-
 
 const grid = document.querySelector('.grid');
 
@@ -18,9 +17,10 @@ window.onload = () => {
         percentPosition: true
     });
 
-    if(currentLang !== 'eng') {
-        translatePage('works', currentLang);
-    }
+    // if(localStorage.getItem('lang') !== getCookie('lang')) {
+    //     document.cookie = "lang=" + localStorage.getItem('lang');
+    // }
+
 }
 
 

@@ -4,12 +4,8 @@
  */
     get_header();
     include 'header.php';
+    include 'translating.php';
     $menu = array_reverse($header_values);
-
-    function translator($engText, $uaText) {
-        $lang = $_COOKIE['lang'];
-        return ($lang=='eng') ? $engText : $uaText;
-    }
 ?>
 <style>
     .message {
@@ -17,8 +13,10 @@
     }
     .btn {
         color: <?php the_field('works_button_color')?>
-    }
+    }   
 </style>
+</head>
+<body>
     <div class="wrapper">
         <header class="header df">
             <div class="header__body df">
@@ -36,10 +34,7 @@
                     <span class="type-cursor">|</span>
                 </div>
                 <div class="header__menu-button">
-                    <span id="menu-button">
-                        <span data-lang="eng">menu</span>
-                        <span data-lang="ua">меню</span>
-                    </span>
+                    <span id="menu-button"><?= translator('menu', 'меню') ?></span>
                 </div>
             </div>
             <nav class="header__menu">
@@ -69,34 +64,31 @@
                 <span class="message__pic"><?= $media_content; ?></span>
             </div>
             <div class="grid">
-                 <!-- grid__item--maxwidth  grid__item grid__item--middlewidth  -->
-<?php
- global $posts;
+                <?php
+                    global $posts;
 
- $myposts = get_posts([
-     'numberposts' => -1, 
-     'order' => 'ASC',   
- ]);
+                    $myposts = get_posts([
+                        'numberposts' => -1, 
+                        'order' => 'ASC',   
+                    ]);
 
- if($myposts) {
-     foreach ($myposts as $posts) {
-             setup_postdata($posts);
-             $width = get_post_meta($posts->ID, 'grid-item-width')[0]; 
-             $class = '';
-             if ($width == 'middle') {
-                $class = ' grid__item--middlewidth';
-
-             } elseif($width == 'max') {
-                $class = ' grid__item--maxwidth';
-             }
-             
-             
- ?> 
+                    if($myposts) {
+                        foreach ($myposts as $posts) {
+                            setup_postdata($posts);
+                            $width = get_post_meta($posts->ID, 'grid-item-width')[0]; 
+                            $class = '';
+                            
+                            if ($width == 'middle') {
+                                $class = ' grid__item--middlewidth';
+                            } elseif($width == 'max') {
+                                $class = ' grid__item--maxwidth';
+                            }
+                ?> 
                  <div class="<?= 'grid__item' . $class ?>">
                      <div class="grid__preview">
                             <img src="<?= get_the_post_thumbnail_url($posts->ID ,'full');?>" alt="portfolio preview">        
                      </div>
-                     <div class="grid__hot-pic"><img src="../assets/media/fire.png" alt="hot"></div> 
+                     <div class="grid__hot-pic"><img src="<?= the_field('hot-pic')?>" alt="hot"></div> 
                      <div class="grid__overlay">
                           <a href="<?= get_permalink($posts->ID)?>">
                              <svg width="25" height="22" viewBox="0 0 25 22" fill="none">
@@ -106,7 +98,7 @@
                       </div>
                  </div>               
  
-<?php } }  wp_reset_postdata(); ?>
+                <?php } }  wp_reset_postdata(); ?>
             
             <div class="grid__sizer"></div>
             <div class="grid__gutter-sizer"></div>

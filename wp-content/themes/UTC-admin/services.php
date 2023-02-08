@@ -2,24 +2,44 @@
 /*
  * Template Name: services
 */
-get_header();
+    get_header();
     include 'header.php';
+    include 'translating.php';
     $menu = array_reverse($header_values);
 ?>
     <style>
         .description__item:first-child .description__container{
-            background: url() no-repeat;
-            background-position: bottom 0 left 0;
-            background-size: 96% 100%;
+            background: url(<?php echo the_field('services_left_img')?>) no-repeat;
+            background-position: <?php echo the_field('services_left_img_position')?>;
+            background-size: 97% 100%;
         }
-        .description__item:first-child .description__container{
-            background: url() no-repeat;
-            background-position: bottom 0 right 0;
+        .description__item:last-child .description__container{
+            background: url(<?php echo the_field('services_right_img')?>) no-repeat;
+            background-position: <?php echo the_field('services_right_img_position')?>;
             background-size: contain;
         }
+        
+        .main {
+            color: <?php echo the_field('services_text_color') ?>
+        }
+        
+        @media  screen and (max-width:1450px) {
+            .description__item:first-child .description__container{
+                background-size: 96% 100%;
+            }
+        }
 
-    </style>
-
+        @media  screen and (max-width:830px) {
+            .description__item:first-child .description__container{
+                background-size: contain;
+            }
+            .description__item:last-child .description__container{
+                background-size: 75%;
+            }
+        }
+        </style>
+</head>
+<body>
     <div class="wrapper">
         <header class="header df">
             <div class="header__body df">
@@ -30,49 +50,39 @@ get_header();
                     <i class="header__mobile-hidden">~</i>
                     <span class="header__mobile-hidden">$</span>
                     <span class="header__text">
-                        <a href="<?php echo $menu[0]['link_name']; ?>" class="header__link" data-lang="eng"><?php echo $menu[0]['name_eng']; ?></a>
-                        <a href="<?php echo $menu[0]['link_name']; ?>" class="header__link" data-lang="ua"><?php echo $menu[0]['name_ua']; ?></a>
+                        <a href="<?php echo $menu[0]['link_name']; ?>" class="header__link"><?php echo $menu[0][translator('name_eng', 'name_ua')]; ?></a>
                     </span>
                     ->
-                    <a href="<?php echo $menu[3]['link_name']; ?>" class="header__link" data-lang="eng"><?php echo $menu[3]['name_eng']; ?></a>
-                    <a href="<?php echo $menu[3]['link_name']; ?>" class="header__link" data-lang="ua"><?php echo $menu[3]['name_ua']; ?></a>
+                    <a href="<?php echo $menu[3]['link_name']; ?>" class="header__link"><?php echo $menu[3][translator('name_eng', 'name_ua')]; ?></a>
                     <span class="type-cursor">|</span>
                 </div>
                 <div class="header__menu-button">
-                    <span id="menu-button">
-                        <span data-lang="eng">menu</span>
-                        <span data-lang="ua">меню</span>
-                    </span>
+                    <span id="menu-button"><?= translator('menu', 'меню') ?></span>
                 </div>
             </div>
             <nav class="header__menu">
                 <div class="header__menu-top">
-                    <a href="<?php echo $menu[3]['link_name']; ?>" class="header__link" data-lang="eng"><?php echo $menu[3]['name_eng']; ?></a>
-                    <a href="<?php echo $menu[3]['link_name']; ?>" class="header__link" data-lang="ua"><?php echo $menu[3]['name_ua']; ?></a>
+                    <a href="<?php echo $menu[3]['link_name']; ?>" class="header__link"><?php echo $menu[3][translator('name_eng', 'name_ua')]; ?></a>
                 </div>
                 <ul class="header__list">
                     <li class="header__link--current">
                         <a href="<?php echo $menu[0]['link_name']; ?>" class="header__link">
-                            <span data-lang="eng"><?php echo $menu[0]['name_eng']; ?></span>
-                            <span data-lang="ua"><?php echo $menu[0]['name_ua']; ?></span>
+                            <span ><?php echo $menu[0][translator('name_eng', 'name_ua')]; ?></span>
                         </a>
                     </li>   
                     <li>
                         <a href="<?php echo $menu[1]['link_name']; ?>" class="header__link">
-                            <span data-lang="eng"><?php echo $menu[1]['name_eng']; ?></span>
-                            <span data-lang="ua"><?php echo $menu[1]['name_ua']; ?></span>
+                            <span ><?php echo $menu[1][translator('name_eng', 'name_ua')]; ?></span>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo $menu[2]['link_name']; ?>" class="header__link">
-                            <span data-lang="eng"><?php echo $menu[2]['name_eng']; ?></span>
-                            <span data-lang="ua"><?php echo $menu[2]['name_ua']; ?></span>
+                            <span ><?php echo $menu[2][translator('name_eng', 'name_ua')]; ?></span>
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo $menu[4]['link_name']; ?>" class="header__link">
-                            <span data-lang="eng"><?php echo $menu[4]['name_eng']; ?></span>
-                            <span data-lang="ua"><?php echo $menu[4]['name_ua']; ?></span>
+                            <span ><?php echo $menu[4][translator('name_eng', 'name_ua')]; ?></span>
                         </a>
                     </li>
                 </ul>
@@ -83,49 +93,51 @@ get_header();
                 <div class="description df">
                     <div class="description__item">
                         <div class="description__container">
-                            <p class="description__title" data-lang="eng">
-                                <?php the_field('services_keytext_left_eng');?>
-                            </p>
-                            <p class="description__title" data-lang="ua">
-                                <?php the_field('services_keytext_left_ua');?>
-                            </p>
+                            <div class="description__title">
+                                <div data-dev="desktop">
+                                    <pre><?php the_field('services_keytext_left_desktop_' . translator('eng', 'ua'));?></pre>
+                                </div>
+                                <div data-dev="mobile">
+                                    <pre><?php the_field('services_keytext_left_mobile_' . translator('eng', 'ua'));?></pre>
+                                </div>
+                            </div>
                         </div>
                         <ul class="description__list" style="color:<?= CFS()->get('list_text_color') ?>">
                             <?php 
                                 $items = CFS()->get('services_left_list');
                                 foreach($items as $li) {
-                            ?>
+                                    ?>
                                 <li>
-                                    <span data-lang="eng"><?= $li['services_li_eng'];?></span>
-                                    <span data-lang="ua"><?= $li['services_li_ua'];?></span>
+                                    <span><?= $li['services_li_' . translator('eng', 'ua')];?></span>
                                 </li>
                             <?php       
                                 }
-                            ?>
+                                ?>
                         </ul>
 
                     </div>
                     <div class="description__item">
                         <div class="description__container">
-                            <p data-lang="eng">
-                                <?php the_field('services_keytext_right_eng');?>
-                            </p>
-                            <p data-lang="ua">
-                                <?php the_field('services_keytext_right_ua');?>
-                            </p>
+                            <div class="description__title">
+                                <div data-dev="desktop">
+                                    <pre><?php the_field('services_keytext_rigth_desktop_' . translator('eng', 'ua'));?></pre>
+                                </div>
+                                <div data-dev="mobile">
+                                        <pre><?php the_field('services_keytext_rigth_mobile_' . translator('eng', 'ua'));?></pre>
+                                </div>
+                            </div>
                         </div>
                         <ul class="description__list" style="color:<?= CFS()->get('list_text_color') ?>">
                             <?php 
                                 $items = CFS()->get('services_right_list');
                                 foreach($items as $li) {
-                            ?>
+                                    ?>
                                 <li>
-                                    <span data-lang="eng"><?= $li['services_li_eng'];?></span>
-                                    <span data-lang="ua"><?= $li['services_li_ua'];?></span>
+                                    <span><?= $li['services_li_' . translator('eng', 'ua')];?></span>
                                 </li>
                             <?php       
                                 }
-                            ?>
+                                ?>
 
                         </ul>
                     </div>
@@ -136,11 +148,11 @@ get_header();
                         <div class="text__img"><?= $media_content; ?></div>
                        
                         <div class="text__item">
-                            <span data-lang="eng">
-                                <?php the_field('services_title_text_eng');?> 
+                            <span data-dev="desktop">
+                                <?php the_field('services_title_text_desktop_' . translator('eng', 'ua'));?> 
                             </span>
-                            <span data-lang="ua">
-                                <?php the_field('services_title_text_ua');?> 
+                            <span data-dev="mobile">
+                                <?php the_field('services_title_text_mobile_' . translator('eng', 'ua'));?> 
                             </span>
                         </div>
                         <div class="text__img"><?= $media_content; ?></div>
@@ -152,3 +164,4 @@ get_header();
     <?php get_footer(); ?>
 </body>
 </html>
+

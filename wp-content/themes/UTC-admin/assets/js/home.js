@@ -48,6 +48,8 @@ const resetActiveClass = (buttons,activeClass) => {
 }
 
 const changeLang = (e) => {
+    localStorage.setItem('lang', e.target.id);
+    document.cookie = 'lang=' + localStorage.getItem('lang');
     const activeClass = 'language__elem--current';
     const itemClass = '.language__elem';
     
@@ -57,9 +59,7 @@ const changeLang = (e) => {
     
     resetActiveClass([...document.querySelectorAll(itemClass)], activeClass);
     e.target.closest(itemClass).classList.add(activeClass);
-    localStorage.setItem('lang', e.target.id);
-    document.cookie = 'lang=' + localStorage.getItem('lang');
-    location.reload();
+    setTimeout(()=>location.reload(), 100);
 }
 
 //changing team text position when secondary language is active
@@ -78,22 +78,22 @@ const isLooped = JSON.parse(document.getElementById('type-loop').innerHTML);
 let typeAnimation;
 let animationCanStart = true;
 
+const team = document.getElementById('team');
 const uaButton = document.getElementById('ua');
 const engButton = document.getElementById('eng');
 const currentLang = localStorage.getItem('lang') || 'eng';
 document.cookie = 'lang=' + currentLang;
 const langButton = document.getElementById(currentLang);
 
-const team = document.getElementById('team');
 
 const jsLoad = () => {
     changeTeamPosition(currentLang);
-    menuActivator('menu-button', 'header');
     langButton.closest('.language__elem').classList.add('language__elem--current');
     typeAnimationOnPageLoad();
+    menuActivator('menu-button', 'header');
     
-    engButton.onclick = changeLang;
-    uaButton.onclick = changeLang;
+    engButton.addEventListener('click', changeLang);
+    uaButton.addEventListener('click', changeLang);
     window.addEventListener('resize', () => {
         typeAnimationOnPageResize();
 
@@ -109,3 +109,4 @@ const jsLoad = () => {
 window.onload = () => {
     jsLoad();
 }
+

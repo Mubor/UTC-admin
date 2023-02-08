@@ -1,22 +1,32 @@
 <?php 
     get_header(); 
     include 'header.php';
+    include 'translating.php';
     $menu = array_reverse($header_values);
-
-    function translator($engText, $uaText) {
-        $lang = $_COOKIE['lang'];
-        return ($lang=='eng') ? $engText : $uaText;
-    }
 ?>
 <style>
     .team {
         visibility: hidden;
     }
+
+    .team__text--mobile {
+        display: none;
+    }
+
+    @media screen and (max-width:830px) {
+        .team__text {
+            display: none;
+        }
+        .team__text--mobile {
+            display: block;
+        }
+    }
 </style>
+</head>
+<body>
 <div class="wrapper">
         <header class="header df">
             <div class="settings">
-
                 <div id="type-source"><?php the_field('animation_text_' . translator('eng', 'ua')); ?></div>
                 <div id="type-loop">true</div>
             </div>
@@ -69,6 +79,9 @@
                     <div class="team__text" >
                         <pre><?php echo $content['text_top_' . translator('eng', 'ua')];?></pre>
                     </div>
+                    <div class="team__text team__text--mobile" >
+                        <pre><?php echo $content['text_top-mobile_' . translator('eng', 'ua')];?></pre>
+                    </div>
                     <div class="team__container">
                         <div class="team__picture"><?= $media_content; ?></div>
                         <div class="team__media">
@@ -79,11 +92,14 @@
                     <div class="team__text" >
                         <pre><?php echo $content['text_bot_' . translator('eng', 'ua')] ;?></pre>
                     </div>
+                    <div class="team__text team__text--mobile" >
+                        <pre><?php echo $content['text_bot-mobile_' . translator('eng', 'ua')] ;?></pre>
+                    </div>
                 </div>
                     
                 <div class="language df">
                     <div class="language__elem">
-                        <div id="ua" data-btn="ua"><?php the_field('language_ua');?></div>
+                        <div id="ua" data-btn="ua" ><?php the_field('language_ua');?></div>
                     </div>
                     <span>~</span>
                     <div class="language__elem">

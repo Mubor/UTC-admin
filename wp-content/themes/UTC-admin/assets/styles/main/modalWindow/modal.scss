@@ -152,7 +152,9 @@ input[type="submit"] {
             display: none;
         }
     }
-    
+    // input:not(input[value=""]) ~ .placeholder{
+    //     display: none;
+    // }
     label[for="button"] {
         margin-bottom: 5vh;
     }

@@ -2,16 +2,11 @@
 /*
  * Template Name: team
  */
-
-
     include __DIR__ . '/classes/backend/app_gmail.php';
     get_header();
     include 'header.php';
+    include 'translating.php';
     $menu = array_reverse($header_values);
-    function translator($engText, $uaText) {
-        $lang = $_COOKIE['lang'];
-        return ($lang=='eng') ? $engText : $uaText;
-    }
 ?>
 
 <style> 
@@ -40,7 +35,8 @@
 
 
 </style>
-<!-- <body> -->
+</head>
+<body>
     <div class="wrapper">
         <header class="header df">
             <div class="header__body df">
@@ -83,7 +79,6 @@
         </header>
         <section class="main">
             <div class="title">
-                  <!-- add to background style team_title_media_1 team_title_media_2 -->
                 <div class="title__pic" style="background: url(<?= CFS()->get('team_left_gif')?>) 60% 50% no-repeat; background-size: 100%;"></div>
                 <div  class="title__text"><?= CFS()->get('team_title_' . translator('eng', 'ua'))?></div>
                 <div class="title__pic" style="background: url(<?= CFS()->get('team_right_gif')?>) 60% 50% no-repeat; background-size: 100%;"></div>
@@ -122,6 +117,7 @@
                                         <line x1="0" x2="6" y1="0" y2="0" stroke="#E46D29" fill="transparent" stroke-width="1"></line>
                                     </svg>
                                 </div>
+                                <!-- <?= translator('show bio','розкрити')?> -->
                                 show bio
                             </div>
                         </div>
@@ -155,6 +151,7 @@
                                         <line x1="0" x2="6" y1="0" y2="0" stroke="#E46D29" fill="transparent" stroke-width="1"></line>
                                     </svg>
                                 </div>
+                                <!-- <?= translator('close bio','приховати')?> -->
                                 close bio
                             </div>
                         </div>
@@ -214,9 +211,8 @@
           <div class="app-dialog__body">
             <div class="container">
                 <!-- <div class="title">set up a meeting</div> -->
-                <button id="close-button" data-lang="form-close">CLOSE</button>
+                <button id="close-button" data-lang="form-close"><?= translator('CLOSE', 'ЗАКРИТИ')?></button>
             </div>
-            <form name="letter" method="post" action="">
             <form name="letter" method="post" action="">
                 <?php
                     $text = CFS()->get('form_text_' . translator('eng', 'ua'));
@@ -226,35 +222,32 @@
                 ?>
                 <span class="app-dialog__message"><?= $text_arr[0]?></span>
                 <label for="fullname">
-                    <div class="placeholder">input your full name</div>
                     <input type="text" name="fullname" id="fullname" required><span class="error"></span>
+                    <div class="placeholder"><?= translator('input your full name', 'введіть повне ім\'я')?></div>
                 </label>
                 <span class="app-dialog__message"><?= $text_arr[1]?></span>
                 <label for="vacancy">
-                    <div class="placeholder"></div>
                     <select name="vacancy" id="vacancy" required>
-                    <?php 
+                        <?php 
                     $options = CFS()->get('form_option');
                     foreach($options as $option) {
-                ?>
+                        ?>
                     <option  value="<?= $option[translator('eng', 'ua')]?>"><?= $option[translator('eng', 'ua')]?></option>
-                <?php       
+                    <?php       
                     }
-                ?>  
+                    ?>  
                     </select><span class="error"></span>
+                    <div class="placeholder"></div>
                 </label>
                 <span class="app-dialog__message"> <?= $text_arr[2]?></span>
                 <label for="cv">
-                    <div class="placeholder">input link to your CV</div>
                     <input type="text" name="cv" id="cv" required><span class="error"></span>
-                    <input type="text" name="cv" id="cv" required><span class="error"></span>
-                    <input type="text" name="cv" id="cv" required><span class="error"></span>
+                    <div class="placeholder"><?= translator('input link to your cv', 'введіть посилання на CV')?></div>
                 </label>
                 <span class="app-dialog__message"><?= $text_arr[3]?></span>
                 <label for="phone">
-                    <div class="placeholder">input your phone number</div>
                     <input type="tel" name="phone" id="phone" required><span class="error"></span>
-                    <input type="tel" name="phone" id="phone" required><span class="error"></span>
+                    <div class="placeholder"><?= translator('input your phone number', 'введіть номер телефону')?></div>
                 </label>
                 <span class="app-dialog__message"><?= $text_arr[4]?></span>
                 <label  for="button">
