@@ -7,6 +7,11 @@ a, img, ol, ul, li, menu {
   vertical-align: baseline;
 }
 
+h1 {
+  font-size: inherit;
+  font-weight: normal;
+}
+
 /* HTML5 display-role reset for older browsers */
 footer, header, menu, nav, section {
   display: block;

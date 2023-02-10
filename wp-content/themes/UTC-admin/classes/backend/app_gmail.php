@@ -14,7 +14,7 @@ function send_email($full_name, $vacancy, $cv, $phone ) {
     $mailService = new Google\Service\Gmail($client);
 
     $mail->setFrom('muha010801@gmail.com', 'UTC@FILM'); 
-    $mail->addAddress('K0Nz1dd@gmail.com');
+    $mail->addAddress('muha010801@gmail.com');
     $mail->Subject = 'Запит на співбесіду';
     $mail->Body = $message;
     try{

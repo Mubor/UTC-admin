@@ -46,43 +46,43 @@ pre {
     }
 }
 
-.team.team--ua {
-    // padding-top: 2%;
-    & > .team__message {
-        position:static;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-    }   
+// .team.team--ua {
+//     // padding-top: 2%;
+//     & > .team__message {
+//         position:static;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: space-around;
+//         align-items: center;
+//         width: 100%;
+//         height: 100%;
+//     }   
 
-    & > .team__media, .team__picture {
-        display: none;
-    }
+//     & > .team__media, .team__picture {
+//         display: none;
+//     }
 
-    .team__text {
-        width: fit-content;
-        margin: 0 auto;
-        font-size: 1.8vw;
-    }   
+//     .team__text {
+//         width: fit-content;
+//         margin: 0 auto;
+//         font-size: 1.8vw;
+//     }   
 
-    .team__container {
-        display: block;
-        width: 100%;
+//     .team__container {
+//         display: block;
+//         width: 100%;
         
-        & > .team__media {
-            width: 57%;
-            // display: none;
+//         & > .team__media {
+//             width: 57%;
+//             // display: none;
     
-            &>img {
-                width: 100%;
-            }
+//             &>img {
+//                 width: 100%;
+//             }
 
-        }
-    }
-}
+//         }
+//     }
+// }
 
 .language {
     justify-content: center;

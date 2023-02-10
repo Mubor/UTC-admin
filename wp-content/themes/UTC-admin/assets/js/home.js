@@ -62,17 +62,6 @@ const changeLang = (e) => {
     setTimeout(()=>location.reload(), 100);
 }
 
-//changing team text position when secondary language is active
-
-const changeTeamPosition = (lang) => {
-    if( lang === 'ua' ) {
-        if(window.innerWidth > 830) {
-            team.classList.add('team--ua');
-        }
-    }
-    team.style.visibility = 'visible';
-}
-
 const typeText = document.getElementById('type-source').innerHTML;
 const isLooped = JSON.parse(document.getElementById('type-loop').innerHTML);
 let typeAnimation;
@@ -87,7 +76,6 @@ const langButton = document.getElementById(currentLang);
 
 
 const jsLoad = () => {
-    changeTeamPosition(currentLang);
     langButton.closest('.language__elem').classList.add('language__elem--current');
     typeAnimationOnPageLoad();
     menuActivator('menu-button', 'header');

@@ -69,7 +69,8 @@
 
                     $myposts = get_posts([
                         'numberposts' => -1, 
-                        'order' => 'ASC',   
+                        // 'order' => 'ASC',   
+                        'orderby'   => 'menu_order',
                     ]);
 
                     if($myposts) {

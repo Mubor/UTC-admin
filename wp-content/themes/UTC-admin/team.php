@@ -194,10 +194,19 @@
             </div>
             <div class="content">
                 <?php 
+                    $imgs = CFS()->get('team_text_img');
                     $items = CFS()->get('team_bot_texts');
+                    
                     foreach($items as $p) {
+                        $text = $p['text_' . translator('eng', 'ua')];
+                        
+                        for($i = 0; $i< count($imgs); $i++) {
+                            $search = '{' . $i . '}';
+                            $replace = '<img src="' . $imgs[$i]['img'] . '" alt="text-media">';
+                            $text = str_replace($search, $replace, $text);
+                        }
                 ?>
-                    <div class="content__text" style="color: <?= $p['text_color'];?>"><?= $p['text_' . translator('eng', 'ua')];?></div>
+                    <div class="content__text" style="color: <?= $p['text_color'];?>"><?= $text;?></div>
                 <?php       
                     }
                 ?>    
@@ -251,30 +260,31 @@
                 </label>
                 <span class="app-dialog__message"><?= $text_arr[4]?></span>
                 <label  for="button">
-                    <input type="submit" value="<?= $text_arr[5]; ?>" id="button">
+                    <input type="submit" value="<?= $text_arr[5]; ?>" id="button" name="form_send">
+                    <input type="hidden" name="token" value="<?php echo(rand(1,999999));?>" />
                 </label>
                 <h2 id="message"></h2>
               </form>
           </div>
         </div>
     </div>
-    <?php          
-            session_start();
-            if (isset($_POST['token'])) {
-                if ($_POST['token'] == $_SESSION['formToken']){
-                    //Error: обрабатывания формы
-                } else {
-                    $_SESSION['formToken'] = $_POST['token'];
-                    //Succes: обрабатываем форму
-                    if(isset($_POST["btn_send_eng"]) || isset($_POST["btn_send_ua"]) ) {
-                        $full_name = $_POST['fullname'];
-                        $vacancy     = $_POST['vacancy'];
-                        $cv     = $_POST['cv'];
-                        $phone     = $_POST['phone'];    
-                        send_email($full_name, $vacancy, $cv, $phone );      
-                    }
-                }
-            }    
+    <?php                 
+           session_start();
+           if (isset($_POST['token'])) {
+               if ($_POST['token'] == $_SESSION['formToken']){
+                   //Error: обрабатывания формы
+               } else {
+                   $_SESSION['formToken'] = $_POST['token'];
+                   //Succes: обрабатываем форму
+                   if(isset($_POST['form_send'])) {
+                       $full_name = $_POST['fullname'];
+                       $vacancy     = $_POST['vacancy'];
+                       $cv     = $_POST['cv'];
+                       $phone     = $_POST['phone'];    
+                       send_email($full_name, $vacancy, $cv, $phone );      
+                   }
+               }
+           }    
     ?>
 <?php get_footer(); ?>
 </body>

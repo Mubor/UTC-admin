@@ -5,9 +5,9 @@
     $menu = array_reverse($header_values);
 ?>
 <style>
-    .team {
+    /* .team {
         visibility: hidden;
-    }
+    } */
 
     .team__text--mobile {
         display: none;
@@ -27,15 +27,22 @@
 <div class="wrapper">
         <header class="header df">
             <div class="settings">
-                <div id="type-source"><?php the_field('animation_text_' . translator('eng', 'ua')); ?></div>
+                <div id="type-source">
+                    <?php 
+                        $pairs = CFS()->get('animation_text');
+                        $rand_id = array_rand($pairs);
+                        $content = $pairs[$rand_id][translator('eng','ua')];
+                        echo $content;
+                    ?>
+                </div>
                 <div id="type-loop">true</div>
             </div>
             <div class="header__body df">
-                <div class="header__logo">
+                <h1 class="header__logo">
                     <a href="<?php echo $menu[0]['link_name']; ?>">utc@film</a>:
                     <i>~</i> $
                     <span class="header__text" id="type-container"></span>
-                </div>
+                </h1>
                 <div class="header__menu-button">
                     <span id="menu-button"><?= translator('menu', 'меню') ?></span>
                 </div>

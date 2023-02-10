@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= get_the_title()?></title>
-    <!-- <title><?php get_post_meta(get_the_ID(), 'post_name')?></title> -->
+    <meta name="description" content="<?= the_field('page_description')?>">
+    <meta name="robots" content="index">
+    <title><?= the_field('page_title')?></title>
     <style> 
         html {
             background-color: <?php the_field('page_color')?>;
@@ -135,7 +136,8 @@
         .app-dialog__body, input, select {
             background-color: <?= CFS()->get('form_backcolor')?>; 
         }
-        .app-dialog__message, input, select {
+        .app-dialog__message, input:not(#time):not(input[type="submit"]), #time:not(#time[value=""]),
+         select {
             color: <?= CFS()->get('form_text_color')?>; 
         }
         .placeholder {
@@ -147,9 +149,6 @@
         input[type="datetime-local"]:focus {
             color: <?= CFS()->get('form_text_color')?> !important;
         }
-        input[type="datetime-local"] {
-            color: <?= CFS()->get('form_backcolor')?> !important;
-        }
         #close-button {
             color: <?= CFS()->get('form_close-button_color')?>;
         }   
@@ -157,6 +156,10 @@
             color: <?= CFS()->get('form_submit-button_color')?>;
         }
 
+        input:-webkit-autofill {
+            transition: all 600000s ease-in-out 0s;
+        }
+        
     </style>
     
     <?php

@@ -70,12 +70,11 @@ form{
 
 input, select {
     width: 20vw;
-    background-color: black;
     border: 0;
 }
 
 input:focus {
-    border-color: black;
+    outline: none;
 }
 
 input[type="submit"] {
@@ -86,22 +85,11 @@ input[type="submit"] {
     text-decoration: underline;
 }
 
-
- #close-button {
-    padding: 1% 2%;
-}
-
-// .title {
-//     display: none;
-//     text-transform: uppercase;
-//     color: #4AE64B;
-// }
-
 #close-button {
+    padding: 1% 2%;
     font-size: 1.6vw;
     border: 0;
     background-color: transparent;
-    // color: #E46D29;
 }
 
 
@@ -174,4 +162,5 @@ input[type="submit"] {
         width: 100%;
         font-size: 24px;
     }
+
 }
