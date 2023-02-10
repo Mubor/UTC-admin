@@ -80,7 +80,7 @@ function returnCookieId(name) {
     return name_cookie;
 }
 function loadNewWindow() {
-    const id = returnCookieId('eventSended2');
+    const id = returnCookieId('event_sended');
     if(id == "1") {
          window.location.href = "https://calendar.google.com/calendar/u/0?cid=ODEwZmYzMTJiMjc2NDM2MjMyNmU3MzczNTRlMmY2MTNhZWFkODJkNDMzYWYzYzY5MzI5YzI3ZTFhNTc3Mzg0OEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t";
     }

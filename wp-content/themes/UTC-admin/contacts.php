@@ -2,19 +2,14 @@
 /*
  * Template Name: contacts
  */ 
-    ob_start();
-    include __DIR__ . '/classes/backend/app_calendar.php';
- */ 
+    
     ob_start();
     include __DIR__ . '/classes/backend/app_calendar.php';
     get_header();
     include 'header.php';
+    include 'translating.php';
     $menu = array_reverse($header_values);
     
-    function translator($engText, $uaText) {
-        $lang = $_COOKIE['lang'];
-        return ($lang=='eng') ? $engText : $uaText;
-    }
     
 ?>
 <style>
@@ -155,7 +150,6 @@
                 <button id="close-button" data-lang="form-close">CLOSE</button>
             </div>
             <form name="data" method="post" data-lang="form-text" action="">
-            <form name="data" method="post" data-lang="form-text" action="">
                 <?php
                     $text = CFS()->get('form_text_'. translator('eng', 'ua'));
                     $input_option = CFS()->get('form_option');
@@ -182,7 +176,6 @@
                 <label for="phone">
                     <div class="placeholder">input your phone number</div>
                     <input type="tel" name="phone" id="phone" required><span class="error"></span>
-                    <input type="tel" name="phone" id="phone" required><span class="error"></span>
                 </label>
                 <span class="app-dialog__message">
                     <span data-lang="eng"><?= $text_arr[3]?></span>
@@ -195,7 +188,8 @@
                     <span data-lang="eng"><?= $text_arr[4]?></span>
                 </span>
                 <label for="button" data-lang="eng">
-                    <input type="submit" value="<?= $text_arr[5]?>" id="button">
+                    <input type="submit" name="form_send" value="<?= $text_arr[5]?>" id="button">
+                    <input type="hidden" name="token" value="<?php echo(rand(1,999999));?>" />
                 </label>
                 <h2 id="message"></h2>
                 <span class="app-dialog__message"></span>
@@ -204,72 +198,40 @@
     </div>
 </div>
 <?php       
-           session_start();
-           if (isset($_POST['token'])) {
-               if ($_POST['token'] == $_SESSION['formToken']){
-                   //Error: обрабатывания формы
-               } else {
-                   $_SESSION['formToken'] = $_POST['token'];
-                   //Succes: обрабатываем форму
-                   date_default_timezone_set('Europe/Kyiv');
-                   $date_send = date("Y-m-d\TH:i");
-                   if($_POST['time'] < $date_send){
-                           //delete prints ibo budiesh dolbaebom na deploye
-                           // print_r("TY dolbaeb");
-                           // print_r(date("Y-m-d\TH:i"));
-                   } else {
-                       if(isset($_POST["btn_send_eng"]) || isset($_POST["btn_send_ua"]) ) {
-                           $fullname = $_POST['fullname'];
-                           $email     = $_POST['email'];
-                           $phone     = $_POST['phone']; 
-                           $time     = $_POST['time']; 
-                        //    setcookie('eventSended' , '1', time()+3600); //3600
-                           setcookie('eventSended2' , '1', time()+120);
-                           send_calendar_event($fullname, $email, $phone,  $time);
-                        //    header('Location: https://calendar.google.com/calendar/u/0?cid=ODEwZmYzMTJiMjc2NDM2MjMyNmU3MzczNTRlMmY2MTNhZWFkODJkNDMzYWYzYzY5MzI5YzI3ZTFhNTc3Mzg0OEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t', true, 302);
-                           echo '<script>window.location="https://calendar.google.com/calendar/u/0?cid=ODEwZmYzMTJiMjc2NDM2MjMyNmU3MzczNTRlMmY2MTNhZWFkODJkNDMzYWYzYzY5MzI5YzI3ZTFhNTc3Mzg0OEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"</script>'; 
-                           
-                       }
 
-                   }
-                   
-               }
-           }
+               
+        //    session_start();
+        //    if (isset($_POST['token'])) {
+        //        if ($_POST['token'] == $_SESSION['formToken']){
+        //            //Error: обрабатывания формы
+        //        } else {
+        //            $_SESSION['formToken'] = $_POST['token'];
+        //            //Succes: обрабатываем форму
+            
+                // date_default_timezone_set('Europe/Kyiv');
+                // $date_send = date("Y-m-d\TH:i");
+        
+                if(isset($_POST['time'])) {  
+                    date_default_timezone_set('Europe/Kyiv');
+                    $date_send = date("Y-m-d\TH:i");
+                    if($_POST['time'] < $date_send){
+                     } else {
+                            if(isset($_POST['form_send'] ) ) {
+                               $fullname = $_POST['fullname'];
+                               $email     = $_POST['email'];
+                               $phone     = $_POST['phone']; 
+                               $time     = $_POST['time']; 
+                               //    setcookie('eventSended' , '1', time()+3600); //3600
+                               setcookie('event_sended' , '1', time()+120);
+                               send_calendar_event($fullname, $email, $phone,  $time);
+                            }
+                            //    header('Location: https://calendar.google.com/calendar/u/0?cid=ODEwZmYzMTJiMjc2NDM2MjMyNmU3MzczNTRlMmY2MTNhZWFkODJkNDMzYWYzYzY5MzI5YzI3ZTFhNTc3Mzg0OEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t', true, 302);
+                            echo '<script>window.location="https://calendar.google.com/calendar/u/0?cid=ODEwZmYzMTJiMjc2NDM2MjMyNmU3MzczNTRlMmY2MTNhZWFkODJkNDMzYWYzYzY5MzI5YzI3ZTFhNTc3Mzg0OEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"</script>'; 
+                            
+                        }
+                    }
             ob_end_flush();
-?>  
-<?php       
-           session_start();
-           if (isset($_POST['token'])) {
-               if ($_POST['token'] == $_SESSION['formToken']){
-                   //Error: обрабатывания формы
-               } else {
-                   $_SESSION['formToken'] = $_POST['token'];
-                   //Succes: обрабатываем форму
-                   date_default_timezone_set('Europe/Kyiv');
-                   $date_send = date("Y-m-d\TH:i");
-                   if($_POST['time'] < $date_send){
-                           //delete prints ibo budiesh dolbaebom na deploye
-                           // print_r("TY dolbaeb");
-                           // print_r(date("Y-m-d\TH:i"));
-                   } else {
-                       if(isset($_POST["btn_send_eng"]) || isset($_POST["btn_send_ua"]) ) {
-                           $fullname = $_POST['fullname'];
-                           $email     = $_POST['email'];
-                           $phone     = $_POST['phone']; 
-                           $time     = $_POST['time']; 
-                        //    setcookie('eventSended' , '1', time()+3600); //3600
-                           setcookie('eventSended2' , '1', time()+120);
-                           send_calendar_event($fullname, $email, $phone,  $time);
-                        //    header('Location: https://calendar.google.com/calendar/u/0?cid=ODEwZmYzMTJiMjc2NDM2MjMyNmU3MzczNTRlMmY2MTNhZWFkODJkNDMzYWYzYzY5MzI5YzI3ZTFhNTc3Mzg0OEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t', true, 302);
-                           echo '<script>window.location="https://calendar.google.com/calendar/u/0?cid=ODEwZmYzMTJiMjc2NDM2MjMyNmU3MzczNTRlMmY2MTNhZWFkODJkNDMzYWYzYzY5MzI5YzI3ZTFhNTc3Mzg0OEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"</script>'; 
-                           
-                       }
-
-                   }
-                   
-               }
-           }
-            ob_end_flush();
+            
 ?>  
 <?php get_footer(); ?>
 

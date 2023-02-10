@@ -8,10 +8,8 @@
     get_header();
     include 'header.php';
     $menu = array_reverse($header_values);
-    function translator($engText, $uaText) {
-        $lang = $_COOKIE['lang'];
-        return ($lang=='eng') ? $engText : $uaText;
-    }
+    include 'translating.php';
+    
 ?>
 
 <style> 
@@ -217,7 +215,6 @@
                 <button id="close-button" data-lang="form-close">CLOSE</button>
             </div>
             <form name="letter" method="post" action="">
-            <form name="letter" method="post" action="">
                 <?php
                     $text = CFS()->get('form_text_' . translator('eng', 'ua'));
                     $input_option = CFS()->get('form_option');
@@ -247,18 +244,17 @@
                 <label for="cv">
                     <div class="placeholder">input link to your CV</div>
                     <input type="text" name="cv" id="cv" required><span class="error"></span>
-                    <input type="text" name="cv" id="cv" required><span class="error"></span>
-                    <input type="text" name="cv" id="cv" required><span class="error"></span>
                 </label>
                 <span class="app-dialog__message"><?= $text_arr[3]?></span>
                 <label for="phone">
                     <div class="placeholder">input your phone number</div>
                     <input type="tel" name="phone" id="phone" required><span class="error"></span>
-                    <input type="tel" name="phone" id="phone" required><span class="error"></span>
+                    
                 </label>
                 <span class="app-dialog__message"><?= $text_arr[4]?></span>
                 <label  for="button">
-                    <input type="submit" value="<?= $text_arr[5]; ?>" id="button">
+                    <input type="submit" value="<?= $text_arr[5]; ?>" id="button" name="form_send">
+                    <input type="hidden" name="token" value="<?php echo(rand(1,999999));?>" />
                 </label>
                 <h2 id="message"></h2>
               </form>
@@ -273,7 +269,7 @@
                 } else {
                     $_SESSION['formToken'] = $_POST['token'];
                     //Succes: обрабатываем форму
-                    if(isset($_POST["btn_send_eng"]) || isset($_POST["btn_send_ua"]) ) {
+                    if(isset($_POST['form_send'])) {
                         $full_name = $_POST['fullname'];
                         $vacancy     = $_POST['vacancy'];
                         $cv     = $_POST['cv'];
@@ -283,6 +279,7 @@
                 }
             }    
     ?>
+    
 <?php get_footer(); ?>
 </body>
 </html>

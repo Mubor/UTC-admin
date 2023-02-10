@@ -15,8 +15,8 @@ function send_calendar_event($fullname, $email, $phone, $time){
   
     $end_time =  date("Y-m-d\TH:i", strtotime($time)+ 60 * 60);
 
-    $client = getClient(get_env_values()[0], Google\Service\Calendar::CALENDAR, get_env_values()[2]['access_token'], get_env_values()[2]['refresh_token'] );
-    $calendarId = get_env_values()[3]['id'];
+    $client = getClient(get_env_values()[0], Google\Service\Calendar::CALENDAR, get_env_values()[1]['access_token'], get_env_values()[1]['refresh_token'] );
+    $calendarId = get_env_values()[2]['id'];
 
     $calendarService =  new Google\Service\Calendar($client);
     $event = new Google\Service\Calendar\Event(array(

@@ -2,11 +2,8 @@
     get_header(); 
     include 'header.php';
     $menu = array_reverse($header_values);
-
-    function translator($engText, $uaText) {
-        $lang = $_COOKIE['lang'];
-        return ($lang=='eng') ? $engText : $uaText;
-    }
+    include 'translating.php';
+    
 ?>
 <style>
     .team {

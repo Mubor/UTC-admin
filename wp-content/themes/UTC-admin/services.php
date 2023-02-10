@@ -4,6 +4,7 @@
 */
 get_header();
     include 'header.php';
+    include 'translating.php';
     $menu = array_reverse($header_values);
 ?>
     <style>

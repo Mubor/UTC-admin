@@ -4,12 +4,8 @@
  */
     get_header();
     include 'header.php';
+    include 'translating.php';
     $menu = array_reverse($header_values);
-
-    function translator($engText, $uaText) {
-        $lang = $_COOKIE['lang'];
-        return ($lang=='eng') ? $engText : $uaText;
-    }
 ?>
 <style>
     .message {
@@ -36,10 +32,7 @@
                     <span class="type-cursor">|</span>
                 </div>
                 <div class="header__menu-button">
-                    <span id="menu-button">
-                        <span data-lang="eng">menu</span>
-                        <span data-lang="ua">меню</span>
-                    </span>
+                    <span id="menu-button"><?= translator('menu', 'меню') ?></span>
                 </div>
             </div>
             <nav class="header__menu">
