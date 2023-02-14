@@ -98,8 +98,6 @@ input[type="submit"] {
         display: block;
     }   
     
-    
-
     .app__dialog .title, #close-button, 
     input, label > .placeholder, select {
         font-size: 20px;
@@ -150,6 +148,7 @@ input[type="submit"] {
     input, select {
         margin: 0 auto;
         width: 80%;
+        text-align: center;
     }
     
     input:not(input[type="submit"]), select {

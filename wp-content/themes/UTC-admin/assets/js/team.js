@@ -1,5 +1,5 @@
 import menuActivator from "./lib/menu";
-import { toggleDialogVisibility } from "./lib/modalWindowForm";
+import { toggleDialogVisibility, setToggleMobilePlaceholderVisibilityEvent } from "./lib/modalWindowForm";
 
 const cardOpeningEventSet = (buttons) => {
     const slide = (e) => {
@@ -28,8 +28,7 @@ const teamRectWidthRounder = (rects) => {
 const appDialog = document.getElementById('dialog');
 const openButton = document.getElementById('dialog-open-button');
 const closeButton = document.getElementById('close-button');
-
-
+const form = document.forms.letter;
 const buttons = document.querySelectorAll('.team__button');
 const rect = [...document.querySelectorAll('.team__params-item > .level > *')];
 
@@ -39,6 +38,7 @@ const jsLoad = () => {
     appDialog.style.display = 'none';
     openButton.addEventListener('click', toggleDialogVisibility);
     closeButton.addEventListener('click', toggleDialogVisibility);
+    setToggleMobilePlaceholderVisibilityEvent([form.fullname, form.vacancy, form.cv, form.phone]);
 
     cardOpeningEventSet(buttons);
     teamRectWidthRounder(rect);

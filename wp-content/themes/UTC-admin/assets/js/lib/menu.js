@@ -7,9 +7,8 @@ const menuActivator = (buttonSelector, moveDownElementSelector) => {
         const lang = localStorage.getItem('lang');
         header.classList.toggle('open');
         document.body.classList.toggle('overflow');
-
-
-
+        
+        
         if (header.classList[header.classList.length-1] === 'open') {
             menuButton.innerHTML = `<span>` + (lang === 'eng' ? 'close menu' : 'закрити меню') + `</span>`
         }

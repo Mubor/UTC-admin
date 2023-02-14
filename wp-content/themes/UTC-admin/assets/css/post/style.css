@@ -79,9 +79,39 @@ a {
   }
 }
 
+@-webkit-keyframes headerMenuOpening {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    height: unset;
+    min-height: -webkit-fit-content !important;
+    min-height: fit-content !important;
+    opacity: 1;
+  }
+}
+
+@keyframes headerMenuOpening {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    height: unset;
+    min-height: -webkit-fit-content !important;
+    min-height: -moz-fit-content !important;
+    min-height: fit-content !important;
+    opacity: 1;
+  }
+}
+
 @-webkit-keyframes headerOpening {
   0% {
-    height: 0%;
+    min-height: 0;
+  }
+  75% {
+    min-height: 100%;
   }
   100% {
     height: 100%;
@@ -90,7 +120,10 @@ a {
 
 @keyframes headerOpening {
   0% {
-    height: 0%;
+    min-height: 0;
+  }
+  75% {
+    min-height: 100%;
   }
   100% {
     height: 100%;
@@ -205,14 +238,19 @@ u {
   .header.open {
     position: fixed;
     top: 0;
-    min-height: 100%;
-    -webkit-transition: min-height .3s;
-    transition: min-height .3s;
+    overflow-y: scroll;
+    font-size: 5.3vmin;
+    -webkit-animation: headerOpening .6s;
+            animation: headerOpening .6s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
   }
   .open > .header__menu {
     visibility: visible;
-    -webkit-animation: prompt 1s;
-            animation: prompt 1s;
+    -webkit-animation: headerMenuOpening 1s;
+            animation: headerMenuOpening 1s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
   }
   .open .header__logo,
   .open .spec-violet {
@@ -272,23 +310,23 @@ u {
     text-transform: uppercase;
   }
   .header__menu-top {
-    margin: 10vh 0;
+    margin: 10vmax 0;
     text-align: center;
   }
   .header__list > li {
-    padding-bottom: 6vh;
+    padding-bottom: 6vmax;
     margin-right: 0 !important;
   }
   .header__list > li:before {
     content: '->';
     font-family: AndaleMono;
-    font-size: 12.8vw;
+    font-size: 12.8vmin;
   }
   .header__list a {
     margin-left: 0%;
   }
   .header__menu .header__link {
-    font-size: 12.8vw;
+    font-size: 12.8vmin;
     letter-spacing: normal;
   }
   .header__menu .header__link--current {

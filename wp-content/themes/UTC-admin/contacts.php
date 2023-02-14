@@ -179,7 +179,7 @@
                     <span data-lang="eng"><?= $text_arr[3]?></span>
                 </span>
                 <label for="time">
-                    <input type="datetime-local" name="time" id="time" value="" style="" required><span class="error"></span>
+                    <input type="datetime-local" name="time" id="time" value="" required><span class="error"></span>
                     <div class="placeholder"><?= translator('input date', 'введіть дату побачення')?></div>
                 </label>
                 <span class="app-dialog__message">
@@ -208,11 +208,10 @@
                     setcookie('event_sended' , '1', time()+120);
                     send_calendar_event($fullname, $email, $phone,  $time);
                 }
-                echo '<script>window.location="https://calendar.google.com/calendar/u/0?cid=ODEwZmYzMTJiMjc2NDM2MjMyNmU3MzczNTRlMmY2MTNhZWFkODJkNDMzYWYzYzY5MzI5YzI3ZTFhNTc3Mzg0OEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"</script>'; 
-                            
+                header('Location: https://calendar.google.com/calendar/u/0?cid=ODEwZmYzMTJiMjc2NDM2MjMyNmU3MzczNTRlMmY2MTNhZWFkODJkNDMzYWYzYzY5MzI5YzI3ZTFhNTc3Mzg0OEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t');
+                ob_end_flush(); 
             }
     }
-    ob_end_flush();    
 ?>
 <?php get_footer(); ?>
 

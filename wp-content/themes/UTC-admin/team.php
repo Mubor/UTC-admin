@@ -2,6 +2,7 @@
 /*
  * Template Name: team
  */
+    ob_start();
     include __DIR__ . '/classes/backend/app_gmail.php';
     get_header();
     include 'header.php';
@@ -59,7 +60,7 @@
             </div>
             <nav class="header__menu">
                 <div class="header__menu-top">
-                    <a href="<?php echo $menu[2]['link_name']; ?>" class="header__link" ><?php echo $menu[0][translator('name_eng', 'name_ua')]; ?></a>
+                    <a href="<?php echo $menu[2]['link_name']; ?>" class="header__link" ><?php echo $menu[2][translator('name_eng', 'name_ua')]; ?></a>
                 </div>
                 <ul class="header__list">
                     <li class="header__link--current">
@@ -222,7 +223,7 @@
                 <!-- <div class="title">set up a meeting</div> -->
                 <button id="close-button" data-lang="form-close"><?= translator('CLOSE', 'ЗАКРИТИ')?></button>
             </div>
-            <form name="letter" method="post" action="">
+            <form name="letter" method="post" action="#">
                 <?php
                     $text = CFS()->get('form_text_' . translator('eng', 'ua'));
                     $input_option = CFS()->get('form_option');
@@ -261,7 +262,6 @@
                 <span class="app-dialog__message"><?= $text_arr[4]?></span>
                 <label  for="button">
                     <input type="submit" value="<?= $text_arr[5]; ?>" id="button" name="form_send">
-                    <input type="hidden" name="token" value="<?php echo(rand(1,999999));?>" />
                 </label>
                 <h2 id="message"></h2>
               </form>
@@ -269,22 +269,17 @@
         </div>
     </div>
     <?php                 
-           session_start();
-           if (isset($_POST['token'])) {
-               if ($_POST['token'] == $_SESSION['formToken']){
-                   //Error: обрабатывания формы
-               } else {
-                   $_SESSION['formToken'] = $_POST['token'];
-                   //Succes: обрабатываем форму
-                   if(isset($_POST['form_send'])) {
-                       $full_name = $_POST['fullname'];
-                       $vacancy     = $_POST['vacancy'];
-                       $cv     = $_POST['cv'];
-                       $phone     = $_POST['phone'];    
-                       send_email($full_name, $vacancy, $cv, $phone );      
-                   }
-               }
-           }    
+        session_start();
+        if(isset($_POST['form_send'])) {
+            $full_name = $_POST['fullname'];
+            $vacancy = $_POST['vacancy'];
+            $cv = $_POST['cv'];
+            $phone = $_POST['phone'];    
+
+            send_email($full_name, $vacancy, $cv, $phone );      
+            header('Location: '. get_permalink(the_ID()));
+            ob_end_flush();
+        }
     ?>
 <?php get_footer(); ?>
 </body>

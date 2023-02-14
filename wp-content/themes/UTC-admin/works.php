@@ -74,16 +74,19 @@
                     ]);
 
                     if($myposts) {
-                        foreach ($myposts as $posts) {
+                        for ($i; $i < count($myposts); $i++){
+                            $posts = $myposts[$i];
                             setup_postdata($posts);
-                            $width = get_post_meta($posts->ID, 'grid-item-width')[0]; 
+                            // $width = get_post_meta($posts->ID, 'grid-item-width')[0];
+                            
                             $class = '';
                             
-                            if ($width == 'middle') {
+                            if ($i == 0) {
                                 $class = ' grid__item--middlewidth';
-                            } elseif($width == 'max') {
-                                $class = ' grid__item--maxwidth';
                             }
+                            // } elseif($i == 'max') {
+                            //     $class = ' grid__item--maxwidth';
+                            // }
                 ?> 
                  <div class="<?= 'grid__item' . $class ?>">
                      <div class="grid__preview">

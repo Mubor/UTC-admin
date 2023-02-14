@@ -193,69 +193,6 @@ $shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px
             
         }
     }
-
-    // &__item:nth-child(1) &__gif {
-    //     background: url('../media/team/volodymyr.jpg') 50% 60% no-repeat !important;
-    //     background-size: 100%;
-        
-    //     // &>img {
-    //     //     transform: scale(1);
-    //     // }
-    // }
-    // &__item:nth-child(2) &__gif {
-    //     background: url('../media/team/oleksandr-static.png') 50% 40% no-repeat;
-    //     background-size: 70%;
-        
-    //     &>img {
-    //         transform: scale(1.1) translate(3%, -2%);
-    //     }
-    // }
-    // &__item:nth-child(3) &__gif {
-    //     background: url('../media/team/sonya-static.jpg') 39% 100% no-repeat;
-    //     background-size: 140%; 
-        
-    //     &>img {
-    //         transform: scale(0.95) translate(0, 5%);
-    //     }
-    // }
-    // &__item:nth-child(4) &__gif {
-    //     background: url('../media/team/hidden-static.png') 20% 50% no-repeat;
-    //     background-size: 80%;    
-
-    //     & > img {
-    //         transform: scale(1.07) translate(0, 2%);
-    //     }    
-    // }
-    // &__item:nth-child(5) &__gif {
-    //     // background: url('../media/team/volodymyr-static.png') 50% 50% no-repeat;
-    //     // background-size: 85%;    
-    // }
-    // &__item:nth-child(6) &__gif {
-    //     background: url('../media/team/sasha-static.jpg') 50% -10% no-repeat;
-    //     background-size: 90%;    
-
-    //     & > img {
-    //         transform: scale(1) translate(0, -5%);
-    //     }
-    // }
-    // &__item:nth-child(7) &__gif {
-    //     background: url('../media/team/hidden-static.png') 20% 50% no-repeat;
-    //     background-size: 80%;    
-
-    //     & > img {
-    //         transform: scale(1.07) translate(0, 2%);
-    //     }
-    // }
-    // &__item:nth-child(8) &__gif {
-    //     background: url('../media/team/oksana.jpg') 50% -100% no-repeat;
-    //     background-size: 120%;    
-    //     height: 21vw;
-
-    //     &>img {
-    //         transform: scale(1.2) translate(0, 16%);
-    //     }
-    // }
-    
     
     &__gif {
         width: 100%;
