@@ -4,9 +4,7 @@ footer {
 
 .main {
   position: relative;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -18,27 +16,19 @@ pre {
 }
 
 .team {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
   width: 50%;
 }
-
 .team__media {
   width: 82%;
   margin: auto;
   text-align: center;
   overflow: hidden;
 }
-
 .team__media > img {
   width: 100%;
 }
-
 .team__message {
   position: absolute;
   top: 21%;
@@ -50,44 +40,32 @@ pre {
   word-spacing: 10px;
   line-height: 1.1;
 }
-
 .team__message > .team__container {
   display: none;
 }
 
 .language {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   margin: 0 auto;
   padding-bottom: 2.4%;
   font-family: Montserrat;
   font-size: 2.5vmax;
   text-transform: uppercase;
 }
-
 .language > * {
   margin-right: 1%;
 }
-
 .language__elem {
   padding: 1%;
-  -webkit-transition: border .4s;
-  transition: border .4s;
+  transition: border 0.4s;
 }
-
 .language span {
   padding: 1% 1% 0 1%;
 }
 
 .nav {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 0.5% 2% 0 0;
   height: 89.2vh;
   text-transform: uppercase;
@@ -96,23 +74,17 @@ pre {
   font-size: 9vw;
   font-weight: 100;
 }
-
 .nav > li {
   text-align: right;
 }
-
 .nav > li:last-child {
   padding-bottom: 0;
 }
-
 .nav__link {
-  -webkit-transition: color .3s;
-  transition: color .3s;
+  transition: color 0.3s;
 }
-
 .nav__link:hover {
-  -webkit-transition: color .3s;
-  transition: color .3s;
+  transition: color 0.3s;
 }
 
 @media screen and (max-width: 830px) {
@@ -124,21 +96,15 @@ pre {
     padding: 0;
   }
   .team__media > img[src="media/team3.gif"] {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
   .team > .team__media {
     display: none !important;
   }
   .team__message > .team__container {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    justify-content: space-around;
+    align-items: center;
     margin: 8% 0;
     width: 100%;
   }
@@ -177,5 +143,4 @@ pre {
   .language__elem--current {
     border: 1px solid black;
   }
-}
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

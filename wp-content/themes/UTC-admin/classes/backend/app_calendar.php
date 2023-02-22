@@ -43,7 +43,8 @@ function send_calendar_event($fullname, $email, $phone, $time){
         $event_send = $calendarService->events->insert($calendarId, $event);
       
     }catch(Exception $e){
-
+        //Error: Uncomment in case of error print_r($e);
+        print_r($e);
     } 
 }
 ?>

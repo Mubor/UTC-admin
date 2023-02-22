@@ -6,19 +6,13 @@
   bottom: 0;
   z-index: 100;
 }
-
 .app-dialog * {
   font-family: AndaleMono;
 }
 
 .app-dialog__body {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: 70%;
   padding: 2.5%;
   border-radius: 8px;
@@ -26,26 +20,15 @@
   z-index: 10;
   color: white;
 }
-
 .app-dialog__body > .container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .app-dialog__overlay {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -87,7 +70,7 @@ input:focus {
   outline: none;
 }
 
-input[type="submit"] {
+input[type=submit] {
   display: block;
   margin: 8% auto 0;
   width: 50%;
@@ -111,18 +94,14 @@ input[type="submit"] {
     font-size: 20px;
   }
   .app-dialog__body {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
     width: 100%;
     height: 100%;
     overflow: hidden;
     border-radius: 0;
   }
   .app-dialog__body > .container {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
   }
   .app-dialog__message {
     display: none;
@@ -130,27 +109,26 @@ input[type="submit"] {
   label, input, .placeholder, select {
     display: block;
   }
-  label:not(label[for="button"]) {
+  label:not(label[for=button]) {
     margin: 0 auto 7vh;
   }
-  label:not(label[for="button"]):hover .placeholder {
+  label:not(label[for=button]):hover .placeholder {
     display: none;
   }
-  label[for="button"] {
+  label[for=button] {
     margin-bottom: 5vh;
   }
   input, select {
     margin: 0 auto;
     width: 80%;
   }
-  input:not(input[type="submit"]), select {
+  input:not(input[type=submit]), select {
     padding: 2%;
     border-bottom: 2px solid #6261F8;
   }
-  input[type="submit"] {
+  input[type=submit] {
     margin-top: 20vh;
     width: 100%;
     font-size: 24px;
   }
-}
-/*# sourceMappingURL=modal.css.map */
+}/*# sourceMappingURL=modal.css.map */

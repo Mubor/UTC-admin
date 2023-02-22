@@ -31,7 +31,7 @@ blockquote, q {
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-  content: '';
+  content: "";
   content: none;
 }
 
@@ -46,7 +46,5 @@ a {
 }
 
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-/*# sourceMappingURL=reset.css.map */
+  box-sizing: border-box;
+}/*# sourceMappingURL=reset.css.map */

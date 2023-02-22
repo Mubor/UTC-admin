@@ -1,8 +1,4 @@
 <style>
-    /* .preview-custom{
-        width:100%;
-        height: 10vw;
-    } */
     .preview-custom .img {
         width: 100%;
         height: 100%;

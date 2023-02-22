@@ -28,7 +28,7 @@ function send_email($full_name, $vacancy, $cv, $phone ) {
 
     }catch (Exception $e) {
             //Error: Uncomment in case of error print_r($e);
-            // print_r($e);
+            print_r($e);
     }       
 }
 

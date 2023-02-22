@@ -281,7 +281,7 @@
                        $vacancy     = $_POST['vacancy'];
                        $cv     = $_POST['cv'];
                        $phone     = $_POST['phone'];    
-                       send_email($full_name, $vacancy, $cv, $phone );      
+                       send_email($full_name, $vacancy, $cv, $phone );  
                    }
                }
            }    

@@ -13,11 +13,9 @@
   font-size: 5.555vw;
   line-height: 1.2;
 }
-
 .message__pic > * {
   width: 3.8%;
 }
-
 .message__content {
   padding: 0 1.5%;
 }
@@ -30,79 +28,62 @@
 .btn {
   display: block;
   margin: 8% auto;
-  padding: .7% 1.4%;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
+  padding: 0.7% 1.4%;
   width: fit-content;
   font-size: 3.333vw;
   background: #C3C3C3;
-  -webkit-box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
-          box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
+  box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
 }
 
 .grid__overlay > a:hover,
 .btn:hover {
   background-color: #838383;
-  -webkit-box-shadow: inset 2px 2px 2px 0 black;
-          box-shadow: inset 2px 2px 2px 0 black;
-  -webkit-transition: all .3s;
-  transition: all .3s;
+  box-shadow: inset 2px 2px 2px 0 black;
+  transition: all 0.3s;
 }
 
 .grid {
   padding: 0 0 0 1.666vw;
   margin-bottom: 5%;
 }
-
 .grid__sizer {
   width: 23.75vw;
 }
-
 .grid__gutter-sizer {
   width: 0.833vw;
 }
-
 .grid__item {
   position: relative;
   margin: 0.694vw 0;
   width: 22.917vw;
 }
-
 .grid__item:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
-          box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
+  box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
 }
-
 .grid__item:hover > .grid__overlay {
   opacity: 1;
-  -webkit-transition: opacity 1s;
   transition: opacity 1s;
 }
-
 .grid .grid__item--middlewidth {
   width: 47.5vw;
 }
-
 .grid .grid__item--maxwidth {
   width: 72.083vw;
 }
-
 .grid__preview {
   width: 100%;
   text-align: center;
 }
-
 .grid__preview > img {
   display: block;
   width: 100%;
 }
-
 .grid__hot-pic {
   display: none;
   position: absolute;
@@ -111,67 +92,45 @@
   width: 3vw;
   z-index: 3;
 }
-
 .grid__hot-pic > img {
   width: 100%;
 }
-
-.grid__item--middlewidth > .grid__hot-pic,
-.grid__item--maxwidth > .grid__hot-pic {
+.grid__item--middlewidth > .grid__hot-pic, .grid__item--maxwidth > .grid__hot-pic {
   display: block;
 }
-
 .grid__overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   opacity: 0;
-  -webkit-transition: opacity 1s;
   transition: opacity 1s;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
 }
-
 .grid__overlay > a {
-  padding: .7vw 0;
+  padding: 0.7vw 0;
   width: 10.209vw;
-  -webkit-box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
-          box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
+  box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
   text-align: center;
   background-color: #C3C3C3;
-  -webkit-transition: all .3s;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 @media screen and (max-width: 830px) {
   .message {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     font-size: 8.533vw;
     padding: 5% 4%;
   }
   .message__pic {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    justify-content: center;
+    align-items: center;
     width: 9%;
   }
   .message__pic > svg {
@@ -204,12 +163,10 @@
     margin: 1.388vw 0;
     width: 45.834vw;
   }
-  .grid .grid__item--middlewidth,
-  .grid .grid__item--maxwidth {
+  .grid .grid__item--middlewidth, .grid .grid__item--maxwidth {
     width: 45.834vw;
   }
-  .grid .grid__item--middlewidth:first-child,
-  .grid .grid__item--maxwidth:first-child {
+  .grid .grid__item--middlewidth:first-child, .grid .grid__item--maxwidth:first-child {
     width: 95vw;
   }
   .grid__hot-pic {
@@ -221,5 +178,4 @@
     padding: 2vw 0;
     width: 25.209vw;
   }
-}
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

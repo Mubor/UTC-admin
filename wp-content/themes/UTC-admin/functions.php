@@ -49,7 +49,8 @@ function post_page() {
     if(is_page_template('post.php')){
         // wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/team/style.css', 'all');
         wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/post/style.css', 'all');
-        wp_enqueue_script('post', get_template_directory_uri() . '/assets/dist/simple.js',array(),'2023', true);        
+        wp_enqueue_script('post', get_template_directory_uri() . '/assets/dist/simple.js',array(),'2023', true);  
+        wp_enqueue_script('post_gallery', get_template_directory_uri() . '/assets/dist/post.js',array(),'2023', true);        
     }
 }
 function services_page() {

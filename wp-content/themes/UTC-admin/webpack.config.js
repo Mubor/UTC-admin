@@ -7,7 +7,8 @@ module.exports = {
         contacts: './assets/js/contacts.js',
         simple: './assets/js/simple_page.js',
         works: './assets/js/works.js',
-        team: './assets/js//team.js'
+        team: './assets/js/team.js',
+        post: './assets/js/post.js',
     },
     output: {
       path: path.resolve(__dirname + "/assets", "dist"),

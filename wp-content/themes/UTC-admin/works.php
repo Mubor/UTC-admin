@@ -69,12 +69,13 @@
 
                     $myposts = get_posts([
                         'numberposts' => -1, 
-                        // 'order' => 'ASC',   
+                        'order' => 'ASC',   
                         'orderby'   => 'menu_order',
                     ]);
 
                     if($myposts) {
-                        foreach ($myposts as $posts) {
+                        for ($j = 0; $j < count($myposts); $j++){
+                            $posts = $myposts[$j];
                             setup_postdata($posts);
                             $width = get_post_meta($posts->ID, 'grid-item-width')[0]; 
                             $class = '';
