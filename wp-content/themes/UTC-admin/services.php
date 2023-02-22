@@ -45,7 +45,7 @@
             <div class="header__body df">
                 <div id="type-source"></div>
                 <div id="type-loop">true</div>
-                <div class="header__logo header__logo--path">
+                <h1 class="header__logo header__logo--path">
                     <a href="<?php echo $menu[0]['link_name']; ?>">utc@film</a><span class="header__mobile-hidden">:</span>
                     <i class="header__mobile-hidden">~</i>
                     <span class="header__mobile-hidden">$</span>
@@ -55,7 +55,7 @@
                     ->
                     <a href="<?php echo $menu[3]['link_name']; ?>" class="header__link"><?php echo $menu[3][translator('name_eng', 'name_ua')]; ?></a>
                     <span class="type-cursor">|</span>
-                </div>
+                </h1>
                 <div class="header__menu-button">
                     <span id="menu-button"><?= translator('menu', 'меню') ?></span>
                 </div>
@@ -93,14 +93,14 @@
                 <div class="description df">
                     <div class="description__item">
                         <div class="description__container">
-                            <div class="description__title">
+                            <h2 class="description__title">
                                 <div data-dev="desktop">
                                     <pre><?php the_field('services_keytext_left_desktop_' . translator('eng', 'ua'));?></pre>
                                 </div>
                                 <div data-dev="mobile">
                                     <pre><?php the_field('services_keytext_left_mobile_' . translator('eng', 'ua'));?></pre>
                                 </div>
-                            </div>
+                            </h2>
                         </div>
                         <ul class="description__list" style="color:<?= CFS()->get('list_text_color') ?>">
                             <?php 
@@ -118,14 +118,14 @@
                     </div>
                     <div class="description__item">
                         <div class="description__container">
-                            <div class="description__title">
+                            <h2 class="description__title">
                                 <div data-dev="desktop">
                                     <pre><?php the_field('services_keytext_rigth_desktop_' . translator('eng', 'ua'));?></pre>
                                 </div>
                                 <div data-dev="mobile">
                                         <pre><?php the_field('services_keytext_rigth_mobile_' . translator('eng', 'ua'));?></pre>
                                 </div>
-                            </div>
+                            </h2>
                         </div>
                         <ul class="description__list" style="color:<?= CFS()->get('list_text_color') ?>">
                             <?php 
@@ -147,14 +147,14 @@
                     <div class="text__body df">
                         <div class="text__img"><?= $media_content; ?></div>
                        
-                        <div class="text__item">
+                        <p class="text__item">
                             <span data-dev="desktop">
                                 <?php the_field('services_title_text_desktop_' . translator('eng', 'ua'));?> 
                             </span>
                             <span data-dev="mobile">
                                 <?php the_field('services_title_text_mobile_' . translator('eng', 'ua'));?> 
                             </span>
-                        </div>
+                        </p>
                         <div class="text__img"><?= $media_content; ?></div>
                     </div>
                 </div>

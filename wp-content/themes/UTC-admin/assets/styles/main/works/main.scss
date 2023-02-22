@@ -1,7 +1,11 @@
 $shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
-$grid-margin: 1.666vw;
-$grid-marginTop: 0.694vw;
-$gridwidth: 22.917vw;
+// $grid-margin: 1.666vw;
+// $grid-marginTop: 0.694vw;
+// $gridwidth: 22.917vw;
+
+$grid-margin: 1.111vw;
+$grid-marginTop: $grid-margin/2;
+$gridwidth: 23.47vw;
 
 ::-webkit-scrollbar{
     display: none;
@@ -22,10 +26,6 @@ $gridwidth: 22.917vw;
         &>*{
             width: 3.8%
         }
-
-        // &:first-child{
-        //     // transform: translate(-100%);
-        // }
     }
 
     &__content{
@@ -63,9 +63,61 @@ $gridwidth: 22.917vw;
     transition: all .3s;
 }
 
+
+.square-big {
+    // height: 591px;
+    height: 41.041vw;
+}
+.square-small, .rect-middle {
+    // height: 343px;
+    height: 23.82vw;
+}
+.rect-big {
+    // height: 515px;
+    height: 35.76vw;
+}
+.rect-small {
+    // height: 236px;
+    height: 16.38vw;
+}
+.stories-big {
+    // height: 645px;
+    height: 44.79vw;
+}
+.stories-small {
+    // height: 593px;
+    // height: 41.18vw;
+    height: 41.18vw;
+}
+
+.grid__item.stories-smaller-16{
+    height: 36vw;
+}
+.grid__item.stories-smaller-18{
+    height: 41.32vw;
+}
+.grid__item.stories-smaller-26{
+    height: 41vw;
+}
+.grid__item.square-smaller-25{
+    height: 23.5vw;
+}
+.grid__item.square-smaller-36{
+    height: 18.3vw;
+}
+
+
 .grid {
-    padding: 0 0 0 $grid-margin;
+    // padding: 0 0 0 1.38vw;
+    padding: 0 0 0 1.38vw;
     margin-bottom: 5%;
+    
+    &__img-desktop {
+        display: block;
+    }
+    &__img-mobile {
+        display: none;
+    }
 
     &__sizer {
         width: $gridwidth + $grid-margin/2;
@@ -75,10 +127,15 @@ $gridwidth: 22.917vw;
         width: $grid-margin/2;
     }
 
+    &__preview, img{
+        width: 100%;
+        height: 100%;    
+    }
+
     &__item {
         position: relative;
-        margin: 0.694vw 0;
-        width: $gridwidth;        
+        margin: $grid-marginTop 0;
+        width: $gridwidth;     
 
         &:before{
             content: '';
@@ -107,13 +164,13 @@ $gridwidth: 22.917vw;
         width: 100%;
         text-align: center;
         &>img{
-            display: block;
+            // display: block;
             width: 100%;
         }
     }
 
     &__hot-pic {
-        display: none;
+        // display: none;
         position: absolute;
         top: 5%;
         left: 90%;
@@ -125,10 +182,10 @@ $gridwidth: 22.917vw;
         }
     }
 
-    &__item--middlewidth>&__hot-pic,
-    &__item--maxwidth>&__hot-pic {
-        display: block;
-    }
+    // &__item--middlewidth>&__hot-pic,
+    // &__item--maxwidth>&__hot-pic {
+    //     display: block;
+    // }
 
     &__overlay {
         position: absolute;
@@ -156,9 +213,34 @@ $gridwidth: 22.917vw;
 }
 
 @media screen and (max-width:830px) {
-    $grid-margin: 1.666vw*2;
-    $grid-marginTop: 0.694vw*2;
-    $gridwidth: 22.917vw*2;
+    // $grid-margin: 1.666vw*2;
+    // $grid-marginTop: 0.694vw*2;
+    // $gridwidth: 22.917vw*2;
+
+    $grid-margin: 1.111vw*2;
+    $grid-marginTop: $grid-margin/2;
+    $gridwidth: 23.47vw*2;
+
+    .grid__item.mobile-square-big {
+        width: $gridwidth*2 + $grid-margin;
+        height: 78.13vw;
+    }
+    .grid__item.mobile-square-small {
+        width:$gridwidth;
+        height: 45.3vw;
+    }
+    .grid__item.mobile-rect-small {
+        width:$gridwidth;
+        height: 31.2vw;
+    }
+    .grid__item.mobile-rect-big {
+        width:$gridwidth*2 + $grid-margin;
+        height: 45.3vw;;
+    }
+    .grid__item.mobile-stories {
+        width: $gridwidth;
+        height: 78.6vw;
+    }
 
     .message {
         display: flex;
@@ -199,25 +281,32 @@ $gridwidth: 22.917vw;
             width: $gridwidth + $grid-margin/2;
         }
     
+        &__img-desktop {
+            display: none;
+        }
+        &__img-mobile {
+            display: block;
+        }
+
         &__gutter-sizer {
             width: $grid-margin/2;
         }
 
         &__item {
             margin: $grid-marginTop 0;
-            width: $gridwidth;        
+            // width: $gridwidth;        
 
         }
-        & &__item--middlewidth,
-        & &__item--maxwidth {
-            // width: $gridwidth*2 + $grid-margin;
-            width: $gridwidth;
-        }
+        // & &__item--middlewidth,
+        // & &__item--maxwidth {
+        //     // width: $gridwidth*2 + $grid-margin;
+        //     width: $gridwidth;
+        // }
         
-        & &__item--middlewidth:first-child,
-        & &__item--maxwidth:first-child {
-            width: $gridwidth*2 + $grid-margin;
-        }
+        // & &__item--middlewidth:first-child,
+        // & &__item--maxwidth:first-child {
+        //     width: $gridwidth*2 + $grid-margin;
+        // }
 
         &__hot-pic {
             width: 7%;

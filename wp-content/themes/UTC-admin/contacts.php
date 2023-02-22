@@ -21,7 +21,7 @@
             <div class="header__body df">
                 <div id="type-source"></div>
                 <div id="type-loop">true</div>
-                <div class="header__logo header__logo--path">
+                <h1 class="header__logo header__logo--path">
                     <a href="<?= $menu[0]['link_name']; ?>">utc@film</a><span class="header__mobile-hidden">:</span>
                     <i class="header__mobile-hidden">~</i>
                     <span class="header__mobile-hidden">$</span>
@@ -31,7 +31,7 @@
                     ->  
                     <a href="<?php echo $menu[4]['link_name']; ?>" class="header__link"><?php echo $menu[4][translator('name_eng', 'name_ua')]; ?></a>
                     <span class="type-cursor">|</span>
-                </div>
+                </h1>
                 <div class="header__menu-button">
                     <span id="menu-button"><?= translator('menu', 'меню') ?></span>
                 </div>
@@ -105,7 +105,7 @@
                 $data = CFS()->get('info_text');
                 foreach($data as $item) {
             ?>
-            <div class="info__text"><?= $item[translator('eng', 'ua')]?></div>
+            <p class="info__text"><?= $item[translator('eng', 'ua')]?></p>
             <?php } ?>
             <div class="info__media" id="scroll-media">
                 <img src="<?= CFS()->get('info_media')?>" alt="roof">

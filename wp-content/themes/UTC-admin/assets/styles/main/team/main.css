@@ -60,7 +60,6 @@
   width: 22.4vw;
   height: 27vw;
   font-family: AndaleMono;
-  background-color: white !important;
   overflow: hidden;
 }
 
@@ -276,7 +275,6 @@
   position: relative;
   margin: 0 3.5% 5% 0;
   padding: 1.5% 2%;
-  border: 1px solid #E46D29;
   z-index: 100;
 }
 

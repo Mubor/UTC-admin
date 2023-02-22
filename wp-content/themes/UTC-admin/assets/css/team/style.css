@@ -7,7 +7,7 @@ a, img, ol, ul, li, menu {
   vertical-align: baseline;
 }
 
-h1 {
+h1, h2 {
   font-size: inherit;
   font-weight: normal;
 }
@@ -395,7 +395,6 @@ u {
   width: 22.4vw;
   height: 27vw;
   font-family: AndaleMono;
-  background-color: white !important;
   overflow: hidden;
 }
 
@@ -611,7 +610,6 @@ u {
   position: relative;
   margin: 0 3.5% 5% 0;
   padding: 1.5% 2%;
-  border: 1px solid #E46D29;
   z-index: 100;
 }
 

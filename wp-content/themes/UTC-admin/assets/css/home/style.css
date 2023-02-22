@@ -7,7 +7,7 @@ a, img, ol, ul, li, menu {
   vertical-align: baseline;
 }
 
-h1 {
+h1, h2 {
   font-size: inherit;
   font-weight: normal;
 }

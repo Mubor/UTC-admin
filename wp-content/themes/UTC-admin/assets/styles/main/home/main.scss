@@ -46,53 +46,13 @@ pre {
     }
 }
 
-// .team.team--ua {
-//     // padding-top: 2%;
-//     & > .team__message {
-//         position:static;
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: space-around;
-//         align-items: center;
-//         width: 100%;
-//         height: 100%;
-//     }   
-
-//     & > .team__media, .team__picture {
-//         display: none;
-//     }
-
-//     .team__text {
-//         width: fit-content;
-//         margin: 0 auto;
-//         font-size: 1.8vw;
-//     }   
-
-//     .team__container {
-//         display: block;
-//         width: 100%;
-        
-//         & > .team__media {
-//             width: 57%;
-//             // display: none;
-    
-//             &>img {
-//                 width: 100%;
-//             }
-
-//         }
-//     }
-// }
-
 .language {
     justify-content: center;
     margin: 0 auto;
     padding-bottom: 2.4%;
     font-family: Montserrat;
-    // font-size: 4.5vh;
     font-size: 2.5vmax;
     text-transform: uppercase;
-    // color: #AFAFAF;
     
     &>* {
         margin-right: 1%;
@@ -101,32 +61,9 @@ pre {
     &__elem {
         padding: 1%;
 
-        // border: 2px solid white;
         transition: border .4s;
 
-        // &--current {
-        //     border: 2px solid black;
-        // }
-
-        // &:hover {
-        //     border: 2px solid black;
-        // }
-
-        // &:hover {
-        //     border-color: white;
-        // }
-        // &:hover ~ & {
-        //     border-color: white;
-        // }
     }
-
-    // & &__elem--current > div {
-    //     color: black ;
-    // }
-    
-    // &__elem > div {
-    //     color: #AFAFAF;
-    // }
 
     span {
         padding: 1% 1% 0 1%;

@@ -18,22 +18,31 @@
         color: <?= CFS()->get('title_color')?>
     }
     .team__params-item > .level > * {
-        background-color: white;
+        background-color: <?= CFS()->get('card-theme-1')?>;
     }
 
-    /* .team__back, .team__name, 
+
+
+    .team__back, .team__name, 
     .team__link > a {
-        color: white;
+        color: <?= CFS()->get('card-theme-1')?>;
     }
 
     .team__item {
-        background-color: white !important;
+        background-color: <?= CFS()->get('card-theme-1')?> !important;
+    }
+
+    .team__front .team__button {
+        color: <?= CFS()->get('card-theme-2')?>;
     }
 
     .team__back, .team__name {
-        background-color: black;
-    } */
+        background-color: <?= CFS()->get('card-theme-2')?>;
+    }
 
+    .team__link {
+        border: 1px solid <?= CFS()->get('card-theme-3')?>;
+    }
 
 </style>
 </head>
@@ -43,7 +52,7 @@
             <div class="header__body df">
                 <div id="type-source"></div>
                 <div id="type-loop">true</div>
-                <div class="header__logo header__logo--path">
+                <h1 class="header__logo header__logo--path">
                     <a href="<?php echo $menu[0]['link_name']; ?>">utc@film</a><span class="header__mobile-hidden">:</span>
                     <i class="header__mobile-hidden">~</i>
                     <span class="header__mobile-hidden">$</span>
@@ -53,7 +62,7 @@
                     ->
                     <a href="<?php echo $menu[2]['link_name'];?>" class="header__link" ><?php echo $menu[2][translator('name_eng', 'name_ua')]; ?></a>
                     <span class="type-cursor">|</span>
-                </div>
+                </h1>
                 <div class="header__menu-button">
                     <span id="menu-button"><?= translator('menu', 'меню') ?></span>
                 </div>
@@ -79,15 +88,16 @@
             </nav>
         </header>
         <section class="main">
-            <div class="title">
+            <h2 class="title">
                 <div class="title__pic" style="background: url(<?= CFS()->get('team_left_gif')?>) 60% 50% no-repeat; background-size: 100%;"></div>
                 <div  class="title__text"><?= CFS()->get('team_title_' . translator('eng', 'ua'))?></div>
                 <div class="title__pic" style="background: url(<?= CFS()->get('team_right_gif')?>) 60% 50% no-repeat; background-size: 100%;"></div>
-            </div>
+            </h2>
 
             <div class="team">
                 <?php 
                     $items = CFS()->get('cards');
+                    $stroke = CFS()->get('card-theme-3');
                     foreach($items as $p) {
                 ?>
                 <div class="team__item" style="background: url(<?= $p['static_photo']?>) <?= $p['static_photo_style_position']?> no-repeat; background-size: <?= $p['static_photo_style_scale'] ?>" onclick="">
@@ -96,69 +106,67 @@
                             <div>
                                 <div class="svg">
                                     <svg width="64" height="64" version="1.1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 10 10" viewport="0 0 100 100">
-                                        <line x1="0" x2="0" y1="0" y2="6" stroke="#E46D29" fill="transparent" stroke-width="1"></line>
-                                        <line x1="0" x2="6" y1="0" y2="0" stroke="#E46D29" fill="transparent" stroke-width="1"></line>
+                                        <line x1="0" x2="0" y1="0" y2="6" stroke="<?= $stroke?>" fill="transparent" stroke-width="1"></line>
+                                        <line x1="0" x2="6" y1="0" y2="0" stroke="<?= $stroke?>" fill="transparent" stroke-width="1"></line>
                                     </svg>
                                 </div>
                                 <div class="svg">
                                     <svg width="64" height="64" version="1.1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 10 10" viewport="0 0 100 100">
-                                        <line x1="0" x2="0" y1="0" y2="6" stroke="#E46D29" fill="transparent" stroke-width="1"></line>
-                                        <line x1="0" x2="6" y1="0" y2="0" stroke="#E46D29" fill="transparent" stroke-width="1"></line>
+                                        <line x1="0" x2="0" y1="0" y2="6" stroke="<?= $stroke?>" fill="transparent" stroke-width="1"></line>
+                                        <line x1="0" x2="6" y1="0" y2="0" stroke="<?= $stroke?>" fill="transparent" stroke-width="1"></line>
                                     </svg>
                                 </div>
                                 <div class="svg">
                                     <svg width="64" height="64" version="1.1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 10 10" viewport="0 0 100 100">
-                                        <line x1="0" x2="0" y1="0" y2="6" stroke="#E46D29" fill="transparent" stroke-width="1"></line>
-                                        <line x1="0" x2="6" y1="0" y2="0" stroke="#E46D29" fill="transparent" stroke-width="1"></line>
+                                        <line x1="0" x2="0" y1="0" y2="6" stroke="<?= $stroke?>" fill="transparent" stroke-width="1"></line>
+                                        <line x1="0" x2="6" y1="0" y2="0" stroke="<?= $stroke?>" fill="transparent" stroke-width="1"></line>
                                     </svg>
                                 </div>
                                 <div class="svg">
                                     <svg width="64" height="64" version="1.1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 10 10" viewport="0 0 100 100">
-                                        <line x1="0" x2="0" y1="0" y2="6" stroke="#E46D29" fill="transparent" stroke-width="1"></line>
-                                        <line x1="0" x2="6" y1="0" y2="0" stroke="#E46D29" fill="transparent" stroke-width="1"></line>
+                                        <line x1="0" x2="0" y1="0" y2="6" stroke="<?= $stroke?>" fill="transparent" stroke-width="1"></line>
+                                        <line x1="0" x2="6" y1="0" y2="0" stroke="<?= $stroke?>" fill="transparent" stroke-width="1"></line>
                                     </svg>
                                 </div>
-                                <!-- <?= translator('show bio','розкрити')?> -->
                                 show bio
                             </div>
                         </div>
                         <div class="team__gif" style = "transform: scale(<?= $p['gif_style_scale']?>) translate(<?= $p['gif_style_position']?>)"><img src="<?= $p['gif']?>" alt="gif"></div>
-                        <div class="team__name"><?= $p['card_name_'. translator('eng', 'ua')]?></div>
+                        <p class="team__name"><?= $p['card_name_'. translator('eng', 'ua')]?></p>
                     </div>
                     <div class="team__back">
                         <div class="team__button">
                             <div>
                                 <div class="svg">
                                     <svg width="64" height="64" version="1.1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 10 10" viewport="0 0 100 100">
-                                        <line x1="0" x2="0" y1="0" y2="6" stroke="#E46D29" fill="transparent" stroke-width="1"></line>
-                                        <line x1="0" x2="6" y1="0" y2="0" stroke="#E46D29" fill="transparent" stroke-width="1"></line>
+                                        <line x1="0" x2="0" y1="0" y2="6" stroke="<?= $stroke?>" fill="transparent" stroke-width="1"></line>
+                                        <line x1="0" x2="6" y1="0" y2="0" stroke="<?= $stroke?>" fill="transparent" stroke-width="1"></line>
                                     </svg>
                                 </div>
                                 <div class="svg">
                                     <svg width="64" height="64" version="1.1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 10 10" viewport="0 0 100 100">
-                                        <line x1="0" x2="0" y1="0" y2="6" stroke="#E46D29" fill="transparent" stroke-width="1"></line>
-                                        <line x1="0" x2="6" y1="0" y2="0" stroke="#E46D29" fill="transparent" stroke-width="1"></line>
+                                        <line x1="0" x2="0" y1="0" y2="6" stroke="<?= $stroke?>" fill="transparent" stroke-width="1"></line>
+                                        <line x1="0" x2="6" y1="0" y2="0" stroke="<?= $stroke?>" fill="transparent" stroke-width="1"></line>
                                     </svg>
                                 </div>
                                 <div class="svg">
                                     <svg width="64" height="64" version="1.1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 10 10" viewport="0 0 100 100">
-                                        <line x1="0" x2="0" y1="0" y2="6" stroke="#E46D29" fill="transparent" stroke-width="1"></line>
-                                        <line x1="0" x2="6" y1="0" y2="0" stroke="#E46D29" fill="transparent" stroke-width="1"></line>
+                                        <line x1="0" x2="0" y1="0" y2="6" stroke="<?= $stroke?>" fill="transparent" stroke-width="1"></line>
+                                        <line x1="0" x2="6" y1="0" y2="0" stroke="<?= $stroke?>" fill="transparent" stroke-width="1"></line>
                                     </svg>
                                 </div>
                                 <div class="svg">
                                     <svg width="64" height="64" version="1.1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 10 10" viewport="0 0 100 100">
-                                        <line x1="0" x2="0" y1="0" y2="6" stroke="#E46D29" fill="transparent" stroke-width="1"></line>
-                                        <line x1="0" x2="6" y1="0" y2="0" stroke="#E46D29" fill="transparent" stroke-width="1"></line>
+                                        <line x1="0" x2="0" y1="0" y2="6" stroke="<?= $stroke?>" fill="transparent" stroke-width="1"></line>
+                                        <line x1="0" x2="6" y1="0" y2="0" stroke="<?= $stroke?>" fill="transparent" stroke-width="1"></line>
                                     </svg>
                                 </div>
-                                <!-- <?= translator('close bio','приховати')?> -->
                                 close bio
                             </div>
                         </div>
                         <div class="inner">
                             <div class="team__info">
-                                <div class="team__title"><?= $p['team_cards-title_' . translator('eng', 'ua')];?></div>
+                                <h2 class="team__title"><?= $p['team_cards-title_' . translator('eng', 'ua')];?></h2>
                                 <div class="team__params">
                                     <?php 
                                         $params = explode('<br />' ,$p['levels_' . translator('eng', 'ua')]);
@@ -207,7 +215,7 @@
                             $text = str_replace($search, $replace, $text);
                         }
                 ?>
-                    <div class="content__text" style="color: <?= $p['text_color'];?>"><?= $text;?></div>
+                    <p class="content__text" style="color: <?= $p['text_color'];?>"><?= $text;?></p>
                 <?php       
                     }
                 ?>    

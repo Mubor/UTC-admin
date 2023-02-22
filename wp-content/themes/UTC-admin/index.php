@@ -5,10 +5,6 @@
     $menu = array_reverse($header_values);
 ?>
 <style>
-    /* .team {
-        visibility: hidden;
-    } */
-
     .team__text--mobile {
         display: none;
     }
