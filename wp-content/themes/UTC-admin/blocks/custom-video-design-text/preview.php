@@ -16,9 +16,9 @@
         $preview = '<img src="'. wp_get_attachment_url('575') .'">';
     } else if ($type=='video-small-right') {
         $preview = '<img src="'. wp_get_attachment_url('576') .'">';
-    } else if ($type=='video-large-left ') {
+    } else if ($type=='video-large-left') {
         $preview = '<img src="'. wp_get_attachment_url('581') .'">';
-    } else if ($type=='video-small-left ') {
+    } else if ($type=='video-small-left') {
         $preview = '<img src="'. wp_get_attachment_url('580') .'">';
     } 
 

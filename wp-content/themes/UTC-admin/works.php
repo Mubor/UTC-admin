@@ -69,8 +69,11 @@
 
                 $myposts = get_posts([
                     'numberposts' => -1,        
-                    'order' => 'DESC',        
+                    'order' => 'ASC',        
+                    'orderby' => 'menu_order'
                 ]);
+
+                // $myposts = array_reverse($_myposts);
 
                     function getClass ($i, $list) {
                         return $list[$i % count($list)];
@@ -87,9 +90,11 @@
                                 || $class == 'stories-small stories-smaller-26') {
                                 return wp_get_attachment_image_url(get_post_meta($post->ID, 'grid-item-img-stories')[0]);
                         }
-                        else if($class == 'grid__item--maxwidth rect-big' || $class == 'rect-small' || $class == 'grid__item--middlewidth rect-middle' 
-                            || $class == 'mobile-rect-small' || $class == 'mobile-rect-big') {
+                        else if($class == 'grid__item--maxwidth rect-big' || $class == 'grid__item--middlewidth rect-middle' || $class == 'mobile-rect-big') {
                             return wp_get_attachment_image_url(get_post_meta($post->ID, 'grid-item-img-rect')[0]);
+                        }
+                        else if($class == 'rect-small' || $class == 'mobile-rect-small') {
+                            return wp_get_attachment_image_url(get_post_meta($post->ID, 'grid-item-img-rect-small')[0]);
                         }
                     }
 
@@ -105,7 +110,7 @@
                     ];
 
                     $gridMobileClasses = ['mobile-square-big', 'mobile-stories', 'mobile-rect-small', 'mobile-square-small', 'mobile-rect-big', 'mobile-rect-small',
-                        'mobile-square-small', 'mobile-square-small', 'mobile-stories', 'mobile-square-small', 'mobile-rect-small', 'mobile-rect-small', 'mobile-square-big',
+                        'mobile-square-small', 'mobile-square-small', 'mobile-stories', 'mobile-square-small','mobile-square-big', 'mobile-rect-small', 'mobile-rect-small', 'mobile-rect-big',
                         'mobile-stories', 'mobile-square-small', 'mobile-stories', 'mobile-square-small'
                     ];
 
@@ -118,8 +123,9 @@
                             $imgDesktopUrl = getImageUrl(getClass($i, $gridDesktopClasses),  $posts);
                             $imgMobileUrl = getImageUrl(getClass($i, $gridMobileClasses),  $posts);
 
-                            $hotPicDisplayStyle = get_post_meta($posts->ID, 'grid-hot') == 'true' 
+                            $hotPicDisplayStyle = get_post_meta($posts->ID, 'grid-hot')[0] == 'true' 
                                 ? 'block' : 'none'; 
+
                 ?>
           
                 <div class="<?= 'grid__item ' . $class ?>">

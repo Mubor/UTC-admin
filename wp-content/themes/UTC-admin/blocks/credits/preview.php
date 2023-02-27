@@ -1,8 +1,5 @@
 <style>
-.is-root-container > * {
-        margin: 2% 0 !important;
-        max-width: unset;
-    }    
+
 .credits.credits--border-flex, 
 .credits.credits--flex{
     display: flex;

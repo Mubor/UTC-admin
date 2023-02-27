@@ -7,9 +7,9 @@ document.addEventListener( 'DOMContentLoaded', function () {
 
     var splides = document.querySelectorAll('#splide');
     if(splides.length){
-        for(var i=0; i<splides.length; i++){
-            var splideElement = splides[i];
-            var splideDefaultOptions = 
+        for(let i=0; i<splides.length; i++){
+            const splideElement = splides[i];
+            const splideDefaultOptions = 
             {
                 type: 'loop',
                 perPage: 1,
@@ -18,7 +18,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
                 padding: 0,
                 gap:0,
             } 
-            var splide = new Splide( splideElement, splideDefaultOptions ); 
+            const splide = new Splide( splideElement, splideDefaultOptions ); 
             splide.mount();
         }
     }

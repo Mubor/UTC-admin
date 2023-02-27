@@ -13,6 +13,10 @@ $menu = array_reverse($header_values);
     p {
         color: <?php the_field('post_text_color')?>;
     }
+
+    .splide .splide__arrow {
+        background: <?= the_field('keytext_background');?>
+    }
 </style>
 
 </head>

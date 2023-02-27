@@ -6,8 +6,8 @@
 </style>
 
 <?php 
-$preview = '<img src="'. wp_get_attachment_url('add to media photo gallery and add id photo to $preview') .'">';
+$preview = '<img src="'. wp_get_attachment_url('808') .'">';
 ?>
 <div class="preview-custom-gallery">
-    <?= $preview?>
+    <?= $preview ?> 
 </div>

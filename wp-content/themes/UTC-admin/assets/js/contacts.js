@@ -36,7 +36,7 @@ function returnCookieId(name) {
 function loadNewWindow() {
     const id = returnCookieId('event_sended');
     if(id == "1") { 
-         window.location.href = "https://calendar.google.com/calendar/u/0?cid=ODEwZmYzMTJiMjc2NDM2MjMyNmU3MzczNTRlMmY2MTNhZWFkODJkNDMzYWYzYzY5MzI5YzI3ZTFhNTc3Mzg0OEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t";
+         window.location.href = "https://calendar.google.com/calendar/u/5?cid=dXQ5bWVsMmUxNmNpOW1lcTJ1dWJoZTBsMmdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ";
     }
 }
 

@@ -1,14 +1,9 @@
 
 <?php 
-
-include_once(dirname(__FILE__) . '/../../translating.php'); 
+    include_once(dirname(__FILE__) . '/../../translating.php'); 
+    include_once(dirname(__FILE__) . '/../../classes/getBoldTitleArray.php'); 
     $titles = block_value('title_keytext_' . translator('eng','ua'));
-    $titles_arr = explode('<br />', $titles);
-    $title ='';
-    foreach($titles_arr as $element) {
-        $title = $title . '<b>' . $element . '</b>';
-    }
-
+    $title = getBoldTitleArray($titles);
 ?>
 
 

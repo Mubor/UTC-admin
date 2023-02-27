@@ -65,28 +65,21 @@ $gridwidth: 23.47vw;
 
 
 .square-big {
-    // height: 591px;
     height: 41.041vw;
 }
 .square-small, .rect-middle {
-    // height: 343px;
     height: 23.82vw;
 }
 .rect-big {
-    // height: 515px;
     height: 35.76vw;
 }
 .rect-small {
-    // height: 236px;
     height: 16.38vw;
 }
 .stories-big {
-    // height: 645px;
     height: 44.79vw;
 }
 .stories-small {
-    // height: 593px;
-    // height: 41.18vw;
     height: 41.18vw;
 }
 
@@ -174,7 +167,7 @@ $gridwidth: 23.47vw;
         position: absolute;
         top: 5%;
         left: 90%;
-        width: 3vw;
+        width: 6%;
         z-index: 3;
 
         &>img {

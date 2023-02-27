@@ -1,8 +1,4 @@
 <style>
-.is-root-container > * {
-        margin: 2% 0 !important;
-        max-width: unset;
-    }
 .credits:not(.credits--terminal) .credits__inner-title>b {
     display: block;
     width: fit-content;

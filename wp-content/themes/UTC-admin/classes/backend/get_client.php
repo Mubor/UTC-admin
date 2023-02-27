@@ -8,16 +8,19 @@ function getClient($authConfig, $setScopes, $accessToken, $refreshToken){
     $client->setAuthConfig($authConfig);
     $client->setIncludeGrantedScopes(true);
     $client->setAccessType('offline');
-    $client->setPrompt('none');
+    // $client->setPrompt('none');
     if ($accessToken) {
         $client->setAccessToken($accessToken);
     }
     if ($client->isAccessTokenExpired()) {
-         $client->refreshToken($refreshToken);
+         $client->fetchAccessTokenWithRefreshToken($refreshToken);
+         $newAccessToken = $client->getAccessToken();
+         $client->setAccessToken($newAccessToken);
     }
+
+
+    // echo(var_dump($client->fetchAccessTokenWithRefreshToken($refreshToken)));
+    // echo(var_dump($client->getAccessToken()));
     return $client;
 }
-
-
-
 ?>

@@ -6,8 +6,10 @@
   $result = preg_replace($widthRegex, '', $code_next);
 ?>
 
-<div class="<?php block_field('select-audio-design')?>"> 
-  <?php echo  $result ?>
+<div class="post__item post__item--soundcloud"> 
+  <div class="<?php block_field('select-audio-design')?>">
+    <?php echo  $result ?>
+  </div>
 </div> 
 
 

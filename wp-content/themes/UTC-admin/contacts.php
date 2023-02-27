@@ -208,7 +208,7 @@
                     setcookie('event_sended' , '1', time()+120);
                     send_calendar_event($fullname, $email, $phone,  $time);
                 }
-                header('Location: https://calendar.google.com/calendar/u/0?cid=ODEwZmYzMTJiMjc2NDM2MjMyNmU3MzczNTRlMmY2MTNhZWFkODJkNDMzYWYzYzY5MzI5YzI3ZTFhNTc3Mzg0OEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t');
+                header('Location: https://calendar.google.com/calendar/u/5?cid=dXQ5bWVsMmUxNmNpOW1lcTJ1dWJoZTBsMmdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ');
                 ob_end_flush(); 
             }
     }

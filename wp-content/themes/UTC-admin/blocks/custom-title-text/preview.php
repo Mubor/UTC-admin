@@ -1,10 +1,11 @@
 <style>
     .post__item--text {
         font-family: Montserrat;
+        font-size: 25px;
     }
 
     .big-text {
-        font-size: 60px;
+        font-size: 35px;
         text-transform: uppercase;
     }
 
@@ -61,12 +62,9 @@
     </style>
 
 <?php 
+    include_once(dirname(__FILE__) . '/../../classes/getBoldTitleArray.php'); 
     $titles = block_value('title_keytext_eng');
-    $titles_arr = explode('<br />', $titles);
-    $title ='';
-    foreach($titles_arr as $element) {
-        $title = $title . '<b>' . $element . '</b>';
-    }
+    $title = getBoldTitleArray($titles);
 ?>
 
 <div class="post__item <?= block_field('title-text-type')?> post__item--text">

@@ -98,7 +98,15 @@
                 <?php 
                     $items = CFS()->get('cards');
                     $stroke = CFS()->get('card-theme-3');
+                    $link_display = '';
                     foreach($items as $p) {
+                        
+                        if($p['card_links_display']){
+                            $link_display = 'flex';
+                        }
+                        else {
+                            $link_display = 'none';
+                        }
                 ?>
                 <div class="team__item" style="background: url(<?= $p['static_photo']?>) <?= $p['static_photo_style_position']?> no-repeat; background-size: <?= $p['static_photo_style_scale'] ?>" onclick="">
                     <div class="team__front">
@@ -190,7 +198,7 @@
                                     ?>
                                 </div>
                             </div>
-                            <div class="container">
+                            <div class="container" style="display: <?= $link_display?>;">
                                 <div class="team__link"><a href="<?= $p['card_instagram_link']?>">Instagram</a></div>
                                 <div class="team__link"><a href="<?= $p['card_facebook_link']?>">Facebook</a></div>
                             </div>
@@ -285,7 +293,7 @@
             $phone = $_POST['phone'];    
 
             send_email($full_name, $vacancy, $cv, $phone );      
-            header('Location: '. get_permalink(the_ID()));
+            // header('Location: '. get_permalink(the_ID()));
             ob_end_flush();
         }
     ?>
